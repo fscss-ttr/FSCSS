@@ -1,0 +1,44 @@
+{
+  "name": "grunt-fscss",
+  "description": "Figured Shorthand Cascading Style Sheet.",
+  "version": "4.0.1",
+  "homepage": "https://github.com/fscss-ttr/FSCSS",
+  "author": {
+    "name": "David hux",
+    "email": "davidhux22@gmail.com",
+    "url": "http://wbf.tiiny.site"
+  },
+  "repository": {
+    "url": "https://github.com/fscss-ttr/FSCSS"
+  },
+  "bugs": {
+    "url": "https://github.com/Figsh/FSCSS/4.0.1"
+  },
+  "licenses": [
+    {
+      "url": "https://github.com/fscss-ttr/FSCSS/main/LICENSE"
+    }
+  ],
+  "main": "fscss_exec.js",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {
+    "test": "fscss test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.11.2",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-nodeunit": "~0.4.1",
+    "grunt": "~0.4.5",
+    "grunt-conventional-changelog": "~1.0.0"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "fscss",
+    "fscss_js",
+    "CSS"
+  ]
+}
