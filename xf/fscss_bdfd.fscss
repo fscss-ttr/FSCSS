@@ -1,0 +1,54 @@
+$lv_bg_size: 100px;
+$lv_primary_img: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_LX1HMtwtql4lhA33GxmHoxBTd-5bPzHpNQ&s);
+$lv_img_main: url(https://terracegardenfrance.com/cdn/shop/files/Anemone_Lord_Lieutenant_Coronaria_bulbs_-_Terrace_Garden_France_-_tag1_-_-4681790_720x.jpg?v=1729022577);
+$lv_img_1: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOglYMgweb1EVMSs5W4rlMjpK87AgYMoPzOvmHcpEJZ5jk7maDCoLzNr07&s=10);
+$lv_img_2: url(https://terracegardenfrance.com/cdn/shop/products/il_fullxfull.5250531200_gf9k_720x.jpg?v=1729026714);
+$lv_img_3: url(https://terracegardenfrance.com/cdn/shop/files/il_fullxfull.5298722319_hv3x_720x.jpg?v=1729026712);
+$lv_aniset: 1s cubic-bezier(.26,.78,.30,.90) 1 forwards;
+
+.bookbody{
+  width: 180px;
+  height: 120px;
+  border: 2px groove #124;
+  background: #555 $lv_img_main! center;
+  box-shadow: 1.5px 2px;
+}
+.bookbody div{
+  width: 47.7%;
+  height: 99%;
+  background: #566;
+  display: inline-block;
+  border: 1px groove #000;
+  box-shadow: -1px -1px #556;
+  background: #566 $lv_primary_img! center;
+  background-size: $lv_bg_size!;
+  animation-delay: 2s;
+}
+.bookbody .abs{
+  position: absolute;
+  width:89px;
+  height: 120px;
+  background: #566 $lv_img_2! center;
+  background-size: $lv_bg_size!;
+  transform-origin: right;
+}
+.bookbody .leav1{
+  animation-delay: 0.0s; background-image: $lv_img_1!;
+}
+.bookbody .leav3{
+  transform-origin: right;
+  background: #566 $lv_img_3! center;
+  background-size: $lv_bg_size!;
+  backface-visibility: hidden;
+  opacity: 0.5;
+}
+$(@keyframes Bopen, .leav3, .abs &[$lv_aniset!]){
+  0%{
+    transform: rotateY(0);
+    opacity: 0.5;
+  }
+  100%{
+    transform: rotateY(175deg);
+    opacity: 1;
+  }
+}
