@@ -1,44 +1,36 @@
 {
-  "name": "grunt-fscss",
-  "description": "Figured Shorthand Cascading Style Sheet.",
-  "version": "4.0.1",
-  "homepage": "https://github.com/fscss-ttr/FSCSS",
-  "author": {
-    "name": "David hux",
-    "email": "davidhux22@gmail.com",
-    "url": "http://wbf.tiiny.site"
+  "name": "fscss",
+  "version": "1.2.0",
+  "description": "Figured Shorthand Cascading Style Sheet",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha"
   },
   "repository": {
-    "url": "https://github.com/fscss-ttr/FSCSS"
-  },
-  "bugs": {
-    "url": "https://github.com/Figsh/FSCSS/4.0.1"
-  },
-  "licenses": [
-    {
-      "url": "https://github.com/fscss-ttr/FSCSS/main/LICENSE"
-    }
-  ],
-  "main": "fscss_exec.js",
-  "engines": {
-    "node": ">= 0.10.0"
-  },
-  "scripts": {
-    "test": "fscss test"
-  },
-  "devDependencies": {
-    "grunt-contrib-jshint": "~0.11.2",
-    "grunt-contrib-clean": "~0.6.0",
-    "grunt-contrib-nodeunit": "~0.4.1",
-    "grunt": "~0.4.5",
-    "grunt-conventional-changelog": "~1.0.0"
-  },
-  "peerDependencies": {
-    "grunt": "~0.4.5"
+    "type": "git",
+    "url": "git+https://github.com/Figsh/xfscss.git"
   },
   "keywords": [
-    "fscss",
-    "fscss_js",
-    "CSS"
-  ]
+    "node",
+    "figsh_css",
+    "fs-css", 
+    "fscss", 
+    "xfscss", 
+    "css_tool",
+  ],
+  "author": "Figsh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Figsh/xfscss/issues"
+  },
+  "homepage": "https://github.com/Figsh/xfscss#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "mocha": "^10.0.0",
+    "chai": "^4.3.4"
+  }
 }
