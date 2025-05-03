@@ -1,1 +1,46 @@
 $card-z-index: 99;
+
+$alter:alternate;
+
+  $inf:infinite;
+
+  
+
+  $(@keyframes big, button, .btn-child, .div-child &[6s linear $inf $alter]){
+
+    0%{ 
+
+      %2(width, height [: 0;])
+
+      }
+
+    100%{
+
+    %2(Height, width[:400px;]) 
+
+      }
+
+   } 
+
+  Button{
+
+    Border: 4px solid;
+
+   } 
+
+  .btn-child{
+
+    Animation-delay: 2s;
+
+    Border: 4px solid #00f;
+
+   } 
+
+ .div-child{
+
+   Animation-delay: 4s;
+
+   Border: 4px solid #f00;
+
+  } 
+
