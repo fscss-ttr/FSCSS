@@ -211,7 +211,7 @@ Documentation includes:
 ### Compiler Options
 When using the JavaScript API:
 ```js
-import { exec } from "fscss";
+import { exec } from "https://cdn.jsdelivr.net/npm/fscss@1.1.6/e/xfscss.min.js";
 
 new exec({
   type: "URL",      // Source type (URL, TEXT)
