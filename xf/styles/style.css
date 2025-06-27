@@ -1,5 +1,5 @@
-/* General Styling */
-body {
+/* store */
+str(bodyBaseStyle, "
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
@@ -9,20 +9,23 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    color: #333;
-}
-
-/* Header with Fade-In Animation */
-h1 {
-    font-size: 3rem;
+    color: #333;") 
+str(headerStyle,"
+        font-size: 3rem;
     color: #2c3e50;
-    animation: fadeIn 2s ease-in-out;
     text-align: center;
     margin-bottom: 20px;
+    ") 
+body{
+    bodyBaseStyle
+   } 
+/* Header with Fade-In Animation */
+h1 {
+ headerStyle
 }
 
 /* Fade-In Animation Keyframes */
-@keyframes fadeIn {
+$(@keyframes fadeIn, h1 &[2s ease-in-out]){
     0% { opacity: 0; transform: translateY(-20px); }
     100% { opacity: 1; transform: translateY(0); }
 }
@@ -59,7 +62,6 @@ h1 {
     border-radius: 5px;
     margin-top: 20px;
     font-size: 1.2rem;
-    animation: bounce 2s infinite;
     transition: background-color 0.3s ease;
 }
 
@@ -68,7 +70,7 @@ h1 {
 }
 
 /* Bounce Animation Keyframes */
-@keyframes bounce {
+$(@keyframes bounce, .btn &[2s infinite]){
     0%, 20%, 50%, 80%, 100% {
         transform: translateY(0);
     }
