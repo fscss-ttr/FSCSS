@@ -78,7 +78,7 @@ $spacing: 1rem;
 
 ### Style Stores (re(), str())
 Create reusable style patterns:
-```fscss
+```css
 str(cardStyle, "
   padding: 1.5rem;
   border-radius: 8px;
@@ -93,14 +93,14 @@ str(cardStyle, "
 
 ### Mixins (mx(), mxs())
 Apply multiple properties with the same value:
-```fscss
+```css
 .container {
   mxs(width, height, max-width, min-width, "100%")
 }
 ```
 
 ### Value Manipulation
-```fscss
+```css
 /* Repeat values */
 .loading::after {
   content: "rpt(5, '• ')";
@@ -117,14 +117,14 @@ width: $size!; /* 200px */
 ```
 
 ### Vendor Prefixing
-```fscss
+```css
 .element {
   -*-transform: rotate(45deg);
 }
 ```
 
 ### Keyframes Shorthand
-```fscss
+```css
 $(@keyframes slideIn, .slide-element, &[0.5s ease-out]) {
   from { transform: translateX(-100%); }
   to { transform: translateX(0); }
@@ -133,7 +133,7 @@ $(@keyframes slideIn, .slide-element, &[0.5s ease-out]) {
 
 ## Real-World Example
 
-```fscss
+```css
 /* Variables */
 $primary: #4361ee;
 $secondary: #3a0ca3;
