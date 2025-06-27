@@ -197,7 +197,7 @@ str(mobileHidden, "
 
 ## Documentation
 
-For complete documentation with examples, visit the [FSCSS Documentation](https:// ekustack.github.io/fsdocs/docs.html).
+For complete documentation with examples, visit the [FSCSS Documentation](https://ekustack.github.io/fsdocs).
 
 Documentation includes:
 - 📚 Full syntax reference
