@@ -1,87 +1,83 @@
-/* store style to use anyway in the sheet*/
-str(h1BaseStyle, "
-    font-size: 3rem;
-    color: #d35400;
-    text-align: center;
-    margin-bottom: 20px;
-   ") 
 /* General Styling */
-        /* General Styling */
 body {
-    font-family: 'Georgia', serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fff3e0;
+    background-color: #f0f4f8;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    color: #4a2c00;
+    color: #333;
 }
 
 /* Header with Fade-In Animation */
 h1 {
-    h1BaseStyle
+    font-size: 3rem;
+    color: #2c3e50;
+    animation: fadeIn 2s ease-in-out;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 /* Fade-In Animation Keyframes */
-$(@keyframes fadeIn, h1 &[3s ease-in-out]){
-    0% { opacity: 0; transform: translateY(-30px); }
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
     100% { opacity: 1; transform: translateY(0); }
 }
 
 /* Card Styling with Hover Effect */
 .card {
-    background-color: #ffe8cc;
+    background-color: #fff;
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 300px;
     text-align: center;
     margin: 20px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .card img {
     width: 100%;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
-/* Button with Slower Bounce Animation */
+/* Button with Bounce Animation */
 .btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #e67e22;
+    background-color: #3498db;
     color: #fff;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 5px;
     margin-top: 20px;
     font-size: 1.2rem;
-    transition: background-color 0.4s ease;
+    animation: bounce 2s infinite;
+    transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #c0392b;
+    background-color: #2980b9;
 }
 
 /* Bounce Animation Keyframes */
-$(@keyframes bounce, .btn &[3s infinite]){
+@keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
         transform: translateY(0);
     }
     40% {
-        transform: translateY(-15px);
+        transform: translateY(-10px);
     }
     60% {
-        transform: translateY(-7px);
+        transform: translateY(-5px);
     }
- fined
 }
 
 /* Responsive Design */
