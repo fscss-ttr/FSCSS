@@ -66,7 +66,7 @@ str(buttonStyle, "
 
 ### Variables
 Define and reuse values throughout your stylesheets:
-```fscss
+```scss
 $primary: #4361ee;
 $spacing: 1rem;
 
