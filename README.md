@@ -197,7 +197,7 @@ str(mobileHidden, "
 
 ## Documentation
 
-For complete documentation with examples, visit the [FSCSS Documentation] (https://fscss.onrender.com/).
+For complete documentation with examples, visit the [FSCSS Documentation](https://fscss.onrender.com/).
 
 Documentation includes:
 - 📚 Full syntax reference
