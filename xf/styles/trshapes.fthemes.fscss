@@ -42,7 +42,7 @@
     return: linear-gradient(to bottom, #ffb6c1, #b0e0e6); /* Soft pink to powder blue */
   }
   el {
-    return: ; /* default */
+    return: #ffffff; /* default */
   }
 }
 @event shape(shape) {
@@ -95,7 +95,9 @@
     return: circle(50% at 50% 50%) \9 circle(35% at 65% 50%); /* Uses clip-path subtraction for crescent effect */
   }
   el {
-    return: ; /* default (no shape) */
+    return:  none; /* default (no shape) */
   }
+
 }
 str(tr Shape, "clip-path")
+tr Shape: @event.shape();
