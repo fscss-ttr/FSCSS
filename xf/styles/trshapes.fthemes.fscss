@@ -100,4 +100,11 @@
 
 }
 str(tr Shape, "clip-path")
-tr Shape: @event.shape();
+
+/* example usage 
+div{
+background: @event.theme(forest);
+tr Shape: @event.shape(star);
+%2(width, height[: 50px;])
+} 
+*/
