@@ -1,1 +1,101 @@
-
+@event theme(mode){
+  if mode: dark {
+    return: #1a1a1a;
+  }
+  el-if mode:forest{
+    return: linear-gradient(to bottom, #228B22, #8B4513); /* Dark green fading to brown */
+  }
+  el-if mode: ocean {
+    return: linear-gradient(to bottom, #0077be, #00bcd4); /* Deep blue fading to turquoise */
+  }
+  el-if mode: twilight {
+    return: linear-gradient(to bottom, #4b0082, #800080); /* Indigo fading to purple */
+  }
+  el-if mode: gold {
+    return: linear-gradient(to bottom, #d4af37, #ffdf00); /* Gold shades */
+  }
+  el-if mode: silver {
+    return: linear-gradient(to bottom, #c0c0c0, #e6e6e6); /* Silver shades */
+  }
+  el-if mode: light {
+    return: #f8f8f8;
+  }
+  el-if mode: blue {
+    return: #3498db;
+  }
+  el-if mode: sunset {
+    return: linear-gradient(to bottom, #ff7e5f, #feb47b);
+  }
+  el-if mode: midnight {
+    return: linear-gradient(to bottom, #191970, #2f4f4f); /* Deep navy to dark slate */
+  }
+  el-if mode: aurora {
+    return: linear-gradient(to bottom, #00ff87, #60efff); /* Vibrant green to icy blue */
+  }
+  el-if mode: desert {
+    return: linear-gradient(to bottom, #edc9af, #ff4500); /* Sandy beige to burnt orange */
+  }
+  el-if mode: neon {
+    return: linear-gradient(to bottom, #ff00ff, #00ff00); /* Bright magenta to lime green */
+  }
+  el-if mode: pastel {
+    return: linear-gradient(to bottom, #ffb6c1, #b0e0e6); /* Soft pink to powder blue */
+  }
+  el {
+    return: ; /* default */
+  }
+}
+@event shape(shape) {
+  if shape: star {
+    return: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+  el-if shape: cross {
+    return: polygon(40% 0%, 60% 0%, 60% 40%, 100% 40%, 100% 60%, 60% 60%, 60% 100%, 40% 100%, 40% 60%, 0% 60%, 0% 40%, 40% 40%);
+  }
+  el-if shape: diamond {
+    return: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+  el-if shape: oval {
+    return: ellipse(50% 30% at 50% 50%);
+  }
+  el-if shape: cloud {
+    return: ellipse(25% 20% at 30% 30%), ellipse(30% 25% at 65% 35%), ellipse(20% 15% at 50% 50%); /* This is a more complex example, may need fine-tuning */
+  }
+  el-if shape: teardrop {
+    return: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%);
+  }
+  el-if shape: circle {
+    return: circle(50% at 50% 50%);
+  }
+  el-if shape: square {
+    return: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  el-if shape: triangle {
+    return: polygon(50% 0%, 0% 100%, 100% 100%);
+  }
+  el-if shape: hexagon {
+    return: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  }
+  el-if shape: heart {
+    return: polygon(50% 0%, 90% 20%, 100% 60%, 50% 100%, 0% 60%, 10% 20%);
+  }
+  el-if shape: pentagon {
+    return: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  }
+  el-if shape: arrow {
+    return: polygon(0% 50%, 60% 50%, 60% 20%, 100% 50%, 60% 80%, 60% 50%, 0% 50%);
+  }
+  el-if shape: trapezoid {
+    return: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+  }
+  el-if shape: octagon {
+    return: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+  }
+  el-if shape: crescent {
+    return: circle(50% at 50% 50%) \9 circle(35% at 65% 50%); /* Uses clip-path subtraction for crescent effect */
+  }
+  el {
+    return: ; /* default (no shape) */
+  }
+}
+str(tr Shape, "clip-path")
