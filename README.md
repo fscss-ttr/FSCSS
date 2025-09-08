@@ -2,198 +2,148 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Minified Size](https://img.shields.io/bundlephobia/min/fscss?style=flat-square)](https://bundlephobia.com/package/fscss)
 
-FSCSS (Figured Shorthand CSS) is a lightweight, powerful CSS preprocessor that simplifies your styling workflow with intuitive shorthand syntax. Write cleaner, more maintainable stylesheets with 50% less code!
+## FSCSS (Figured Shorthand CSS)
 
-## Why FSCSS?
+FSCSS is a shorthand CSS preprocessor that reduces boilerplate and adds powerful new syntax for rapid styling.
+Think of it as CSS with superpowers — arrays, functions, variables, randomness, shorthand repetition, and more.
 
-- ✨ **Concise syntax** - Write CSS with significantly less code
-- ⚡️ **Lightweight** - Only 4KB minified (no dependencies)
-- 🔄 **Reusable patterns** - Create style templates with variables and mixins
-- 🚀 **Developer-friendly** - Features designed for modern workflows
-- 💡 **Easy to learn** - Shorthand syntax that makes sense
 
-## Installation
+---
 
-### Via npm
+### ✨ Example
+```
+/* CSS */
+.box, .card {
+  animation: trans 3s ease-in infinite;
+} 
+
+@keyframes trans {
+  from {
+    width: 0;
+    height: 0;
+    background: red;
+  } 
+  to {
+    width: 200px;
+    height: 200px;
+    background: blue;
+  } 
+}
+```
+```css
+/* FSCSS */
+$(@keyframes trans, .box .card &[3s ease-in infinite]) {
+  from {
+    %2(width, height [: 0;]) 
+    background: red;
+  } 
+  to {
+    %2(width, height [: 200px;])
+    background: blue;
+  }
+}
+```
+
+
+---
+
+## 🚀 Core Features
+
+- Variables ($var, str()) → define reusable values
+
+- Style Replacement (%n()) → shorthand repeated properties
+- Repeat Function (rpt()) → repeat values quickly
+
+- Copy Function (copy()) → copy parts of values
+
+- String Extractor (@ext()) → extract substrings from values
+
+- Drops / Shared Properties → reuse style groups
+
+- Attribute Selectors → dynamic selectors
+
+- Keyframes ($(@keyframes …)) → generate animations easily
+
+- Vendor Prefixing (-*) → auto add prefixes
+
+- Function-based (@fun) → reusable function-like blocks
+
+- Array Methods (@arr) → define & loop arrays
+
+- Random Function (@random()) → random values at runtime
+
+- Number Calculation (num()) → evaluate math expressions
+
+- Import (@import) → include external FSCSS files
+
+- @event → event-based styling logic
+
+- exec() → debugging and runtime helpers
+
+### 📦 Installation
+
+**NPM**
 ```bash
 npm install fscss
 ```
-
-### Via CDN
+**CDN**
 ```html
-<script src="https://cdn.jsdelivr.net/npm/fscss@1.1.6/e/exec.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fscss@1.1.6" async></script>
 ```
+Usage
 
-## Quick Start
-
-### 1. Create an FSCSS file
-```css
-/* style.fscss */
-$primary: #4361ee;
-$secondary: #3a0ca3;
-
-str(buttonStyle, "
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-")
-
-.button {
-  buttonStyle
-  background: $primary!;
-  color: white;
-
-  &:hover {
-    background: $secondary!;
-    transform: translateY(-2px);
-  }
-}
-```
-
-### 2. Include in your HTML
+Link FSCSS files directly:
 ```html
 <link type="text/fscss" href="style.fscss">
-<script src="https://cdn.jsdelivr.net/npm/fscss@1.1.6/e/exec.min.js" async></script>
 ```
-
-### 3. Use in your HTML
+Or import inside a style block:
 ```html
-<button class="button">Click Me</button>
+<style>
+@import(exec(style.fscss))
+</style>
 ```
+**⚡ Async is required for script loading.**
 
-## Core Features
 
-### Variables
-Define and reuse values throughout your stylesheets:
-```scss
-$primary: #4361ee;
-$spacing: 1rem;
+---
 
-.header {
-  background: $primary!;
-  padding: $spacing!;
-}
-```
+### ⚡ Live Demo
 
-### Style Stores (re(), str())
-Create reusable style patterns:
-```css
-str(cardStyle, "
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  background: white;
-")
+- 👉 CodePen Example https://codepen.io/David-Hux/pen/Kwdbyga
 
-.card {
-  cardStyle
-}
-```
 
-### Mixins (mx(), mxs())
-Apply multiple properties with the same value:
-```css
-.container {
-  mxs(width, height, max-width, min-width, "100%")
-}
-```
+---
 
-### Value Manipulation
-```css
-/* Repeat values */
-.loading::after {
-  content: "rpt(5, '• ')";
-}
+### 🧑‍💻 Why FSCSS?
 
-/* Extract parts of values */
+- FSCSS takes a shorthand approach:
 
-.btn {
-  size: 200px copy(6, size)!; /* 200px */
-}
-div{
-width: $size!; /* 200px */
-} 
-```
+- Less boilerplate → shorter files
 
-### Vendor Prefixing
-```css
-.element {
-  -*-transform: rotate(45deg);
-}
-```
+- Array + function logic → more expressive
 
-### Keyframes Shorthand
-```css
-$(@keyframes slideIn, .slide-element, &[0.5s ease-out]) {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(0); }
-}
-```
+- Built-in randomness & numeric ops → great for dynamic UIs
 
-## Real-World Example
+- Vendor prefixing → no need for autoprefixer
 
-```css
-/* Variables */
-$primary: #4361ee;
-$secondary: #3a0ca3;
-$text-light: #f8f9fa;
-$shadow: 0 4px 6px rgba(0,0,0,0.1);
+- Designed for dynamic content, 3D animations, and complex prototypes
 
-/* Reusable styles */
-str(navbarStyle, "
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  background: $primary!;
-  color: $text-light!;
-  box-shadow: $shadow!;
-")
 
-str(navItemHover, "
-  background: rgba(255,255,255,0.1);
-  transform: translateY(-2px);
-")
 
-/* Component styles */
-nav {
-  navbarStyle
-  
-  .brand {
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-  
-  ul {
-    display: flex;
-    gap: 1rem;
-    list-style: none;
-    
-    li {
-      a {
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-        transition: all 0.3s ease;
-        
-        &:hover {
-          navItemHover
-        }
-      }
-    }
-  }
-}
+---
 
-/* Responsive utilities */
-str(mobileHidden, "
-  @media (max-width: 768px) {
-    display: none;
-  }
-")
+## 🤔 Feedback Wanted
 
-.desktop-only {
-  mobileHidden
-}
-```
+FSCSS is experimental — I’d love to hear from developers:
+
+Does this shorthand-first style improve readability?
+
+Would you try this for prototyping or animation-heavy projects?
+
+What features would make it production-ready?
+
+---
+
 
 ## Documentation
 
@@ -221,6 +171,8 @@ new exec({
 });
 ```
 
+
+
 ## Contributing
 
 We welcome contributions! Here's how to get started:
@@ -228,8 +180,7 @@ We welcome contributions! Here's how to get started:
 1. Fork the repository
 2. Install dependencies: `npm install`
 3. Make your changes
-4. Run tests: `npm test`
-5. Submit a pull request
+4. Submit a pull request
 
 ## License
 
@@ -237,5 +188,5 @@ FSCSS is MIT licensed. See [LICENSE](https://github.com/figsh/xfscss/blob/main/L
 
 ---
 
-**FSCSS** © 2025 Figsh, David Hux, and Ekuyik Sam.  
+**FSCSS** © 2025 Figsh.
 Authored and maintained with ❤️ by developers for developers.
