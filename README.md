@@ -11,7 +11,7 @@ Think of it as CSS with superpowers — arrays, functions, variables, randomness
 ---
 
 ### ✨ Example
-```
+```css
 /* CSS */
 .box, .card {
   animation: trans 3s ease-in infinite;
