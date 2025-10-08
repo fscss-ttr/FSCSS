@@ -1,3 +1,5 @@
+
+
 /* str(width should be, "width:") 
 str(height should be, "height:")
 
@@ -434,4 +436,413 @@ transform: translateY(-5px);
 box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }"
 ) 
+
+
+str(BounceIn,
+"/* Bounce in animation with elastic effect */
+animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);"
+)
+
+str(BounceIn keyframes, "
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}"
+)
+
+str(FadeInUp,
+"/* Smooth fade in from below */
+animation: fadeInUp 0.6s ease-out;"
+)
+
+str(FadeInUp keyframes, "
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}"
+)
+
+str(GlitchEffect,
+"/* Digital glitch distortion effect */
+position: relative;
+animation: glitch 2s infinite;"
+)
+
+str(GlitchEffect keyframes, "
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        transform: translate(-2px, -2px);
+    }
+    60% {
+        transform: translate(2px, 2px);
+    }
+    80% {
+        transform: translate(2px, -2px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}"
+)
+
+str(ShakeAnimation,
+"/* Attention-grabbing shake */
+animation: shake 0.5s ease-in-out;"
+)
+
+str(ShakeAnimation keyframes, "
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}"
+)
+
+str(Spin3D,
+"/* 3D rotation animation */
+animation: spin3D 2s linear infinite;"
+)
+
+str(Spin3D keyframes, "
+@keyframes spin3D {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}"
+)
+
+str(MorphGradient,
+"/* Animated gradient background */
+background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+background-size: 400% 400%;
+animation: gradientShift 15s ease infinite;"
+)
+
+str(MorphGradient keyframes, "
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}"
+)
+
+str(Typewriter,
+"/* Typewriter text effect */
+overflow: hidden;
+border-right: 2px solid;
+white-space: nowrap;
+animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;"
+)
+
+str(Typewriter keyframes, "
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #000; }
+}"
+)
+
+str(BlurIn,
+"/* Blur fade in effect */
+animation: blurIn 1s ease-out;"
+)
+
+str(BlurIn keyframes, "
+@keyframes blurIn {
+    from {
+        opacity: 0;
+        filter: blur(10px);
+        transform: scale(1.1);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: scale(1);
+    }
+}"
+)
+
+str(SlideInLeft,
+"/* Slide in from left */
+animation: slideInLeft 0.5s ease-out;"
+)
+
+str(SlideInLeft keyframes, "
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}"
+)
+
+str(ZoomIn,
+"/* Zoom in with fade */
+animation: zoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);"
+)
+
+str(ZoomIn keyframes, "
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}"
+)
+
+str(RippleEffect,
+"/* Click ripple animation */
+position: relative;
+overflow: hidden;"
+)
+
+str(RippleEffect after, "
+&::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    transform: translate(-50%, -50%);
+    animation: ripple 0.6s ease-out;
+}"
+)
+
+str(RippleEffect keyframes, "
+@keyframes ripple {
+    to {
+        width: 200px;
+        height: 200px;
+        opacity: 0;
+    }
+}"
+)
+
+str(StaggerChildren,
+"/* Stagger animation for child elements */
+& > * {
+    animation: stagger 0.5s ease-out both;
+    animation-delay: calc(var(--stagger-order, 0) * 0.1s);
+}"
+)
+
+str(StaggerChildren keyframes, "
+@keyframes stagger {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}"
+)
+
+str(ParallaxScrolling,
+"/* Parallax scroll effect */
+background-attachment: fixed;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;"
+)
+
+str(TextShadowGlow,
+"/* Animated text glow */
+animation: textGlow 2s ease-in-out infinite alternate;"
+)
+
+str(TextShadowGlow keyframes, "
+@keyframes textGlow {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6;
+    }
+    to {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0073e6, 0 0 40px #0073e6;
+    }
+}"
+)
+
+str(BorderFlow,
+"/* Animated border gradient */
+position: relative;
+background: linear-gradient(90deg, #ff0080, #8000ff, #00ffff, #ff0080);
+background-size: 400% 400%;
+animation: borderFlow 3s linear infinite;"
+)
+
+str(BorderFlow keyframes, "
+@keyframes borderFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}"
+)
+
+str(HoverLift,
+"/* Smooth lift on hover */
+transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+&:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}"
+)
+
+str(HoverColorShift,
+"/* Color shift on hover */
+transition: all 0.4s ease;
+&:hover {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+}"
+)
+
+str(Hover3DRotate,
+"/* 3D rotate on hover */
+transform-style: preserve-3d;
+transition: transform 0.6s ease;
+&:hover {
+    transform: rotateY(15deg) rotateX(10deg);
+}"
+)
+
+str(FocusGlow,
+"/* Glow effect on focus */
+transition: all 0.3s ease;
+&:focus {
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    outline: none;
+}"
+)
+
+str(LoadingSkeleton,
+"/* Loading skeleton animation */
+background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+background-size: 200% 100%;
+animation: loading 1.5s infinite;"
+)
+
+str(LoadingSkeleton keyframes, "
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}"
+)
+
+str(InfiniteScroll,
+"/* Infinite horizontal scroll */
+animation: infiniteScroll 20s linear infinite;"
+)
+
+str(InfiniteScroll keyframes, "
+@keyframes infiniteScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}"
+)
+
+str(ConicGradient,
+"/* Animated conic gradient */
+background: conic-gradient(from 0deg, #ff0080, #8000ff, #0080ff, #80ff00, #ff0080);
+animation: conicSpin 3s linear infinite;"
+)
+
+str(ConicGradient keyframes, "
+@keyframes conicSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}"
+)
+
+str(NeonFlicker,
+"/* Neon light flicker effect */
+animation: neonFlicker 2s infinite alternate;"
+)
+
+str(NeonFlicker keyframes, "
+@keyframes neonFlicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff0080, 0 0 20px #ff0080;
+    }
+    20%, 24%, 55% {
+        box-shadow: none;
+    }
+}"
+)
+
+str(add stagger delay 1, "--stagger-order: 1;")
+str(add stagger delay 2, "--stagger-order: 2;")
+str(add stagger delay 3, "--stagger-order: 3;")
+str(add stagger delay 4, "--stagger-order: 4;")
+
+str(add infinite animation, "animation-iteration-count: infinite;")
+str(add alternate animation, "animation-direction: alternate;")
+str(add paused animation, "animation-play-state: paused;")
+str(add running animation, "animation-play-state: running;")
+
+str(add animation delay, "animation-delay: 0.5s;")
+str(add animation duration, "animation-duration: 1s;")
+str(add animation fill mode, "animation-fill-mode: both;")
+
+str(add transform origin, "transform-origin: center;")
+str(add perspective, "perspective: 1000px;")
+str(add will change, "will-change: transform, opacity;")
+
 */
