@@ -1,0 +1,437 @@
+/* str(width should be, "width:") 
+str(height should be, "height:")
+
+
+str(Neumorphism,
+"/* Soft 3D shadows and highlights; smooth, elegant interface */
+background: rgba(255,255,255,0.5);
+backdrop-filter: blur(20px);
+box-shadow: 6px 6px 12px rgba(0,0,0,0.1), -6px -6px 12px rgba(255,255,255,0.7);
+border-radius: 12px;
+border: 1px solid rgba(255,255,255,0.4);
+transition: all 0.3s ease;"
+)
+
+str(Soft 3D shadows and highlights_ smooth_ elegant interface, "
+background: rgba(255,255,255,0.5);
+backdrop-filter: blur(20px);
+box-shadow: 6px 6px 12px rgba(0,0,0,0.1), -6px -6px 12px rgba(255,255,255,0.7);
+border-radius: 12px;
+border: 1px solid rgba(255,255,255,0.4);
+transition: all 0.3s ease;"
+)
+
+str(Glassmorphism,
+"/* Frosted glass transparency with soft glow and depth */
+background: rgba(255,255,255,0.15);
+backdrop-filter: blur(25px);
+border: 1px solid rgba(255,255,255,0.3);
+box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+border-radius: 14px;"
+)
+str(Frosted glass transparency with soft glow and depth, "
+background: rgba(255,255,255,0.15);
+backdrop-filter: blur(25px);
+border: 1px solid rgba(255,255,255,0.3);
+box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+border-radius: 14px;"
+) 
+
+str(Minimalist,
+"/* Clean, airy, focus on content; simple modern typography */
+background: #fff;
+border: 1px solid #e0e0e0;
+border-radius: 8px;
+box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+color: #222;
+font-family: 'Inter', sans-serif;"
+)
+str(Clean_ airy_ focus on content_ simple modern typography, "
+background: #fff;
+border: 1px solid #e0e0e0;
+border-radius: 8px;
+box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+color: #222;
+font-family: 'Inter', sans-serif;"
+)
+str(DarkMode,
+"/* High contrast dark aesthetic with soft glow */
+background: #0d1117;
+color: #c9d1d9;
+border: 1px solid #30363d;
+box-shadow: 0 0 12px rgba(0,255,255,0.15);
+border-radius: 10px"
+)
+str(High contrast dark aesthetic with soft glow, "
+background: #0d1117;
+color: #c9d1d9;
+border: 1px solid #30363d;
+box-shadow: 0 0 12px rgba(0,255,255,0.15);
+border-radius: 10px"
+)
+ 
+str(CyberGlow,
+"
+background: radial-gradient(circle at top left, #021026, #000);
+box-shadow: 0 0 12px #00ffff, 0 0 24px #0088ff inset;
+border: 1px solid rgba(0,255,255,0.3);
+color: #0ff;
+text-shadow: 0 0 8px #00ffff;"
+)
+
+str(Futuristic neon glow with dark background, "
+background: radial-gradient(circle at top left, #021026, #000);
+box-shadow: 0 0 12px #00ffff, 0 0 24px #0088ff inset;
+border: 1px solid rgba(0,255,255,0.3);
+color: #0ff;
+text-shadow: 0 0 8px #00ffff;"
+)
+
+
+
+str(SoftPastel,
+"
+background: #fef6fb;
+border: 1px solid #f3dce8;
+box-shadow: 4px 6px 10px rgba(255,182,193,0.2);
+border-radius: 16px;
+color: #444;"
+)
+
+str(Gentle pastel hues and soft shadows_ friendly and calm, "background: #fef6fb;
+border: 1px solid #f3dce8;
+box-shadow: 4px 6px 10px rgba(255,182,193,0.2);
+border-radius: 16px;
+color: #444;"
+)
+
+
+str(MaterialYou,
+"
+background: var(--md-sys-color-surface);
+border-radius: 20px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+color: var(--md-sys-color-on-surface);
+transition: transform 0.25s ease, background 0.3s;"
+)
+
+str(Dynamic colors_ rounded corners, playful motion, "
+background: var(--md-sys-color-surface);
+border-radius: 20px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+color: var(--md-sys-color-on-surface);
+transition: transform 0.25s ease, background 0.3s;"
+)
+
+
+str(GradientGlow,
+"
+background: linear-gradient(135deg, #00eaff, #0066ff);
+box-shadow: 0 0 20px rgba(0,200,255,0.3);
+border-radius: 12px;
+color: #fff;
+text-shadow: 0 0 6px rgba(0,0,0,0.3);"
+)
+str(Smooth gradient background with subtle lighting, "
+background: linear-gradient(135deg, #00eaff, #0066ff);
+box-shadow: 0 0 20px rgba(0,200,255,0.3);
+border-radius: 12px;
+color: #fff;
+text-shadow: 0 0 6px rgba(0,0,0,0.3);"
+) 
+str(ElegantCard,
+"
+background: #ffffff;
+border-radius: 16px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+padding: 20px;
+transition: box-shadow 0.3s ease;"
+)
+
+str(Professional card design with depth and clarity, "
+background: #ffffff;
+border-radius: 16px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+padding: 20px;
+transition: box-shadow 0.3s ease"
+)
+str(ElegantCard is hovering, "
+box-shadow: 0 8px 24px rgba(0,0,0,0.15); ") 
+str(PlayfulBubble,
+"
+background: linear-gradient(135deg, #ffd6ff, #b8c0ff);
+border-radius: 50px;
+box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+color: #333;
+font-weight: 500"
+)
+str(Rounded bubbly style_ colorful and soft for friendly UIs, "background: linear-gradient(135deg, #ffd6ff, #b8c0ff);
+border-radius: 50px;
+box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+color: #333;
+font-weight: 500"
+)
+
+str(add border, "border: 2px solid #06f")
+str(like, ";") 
+str(no change to, ";") 
+str(let me explain, " ") 
+str(and_ , ";")
+str(then_, ";") 
+
+str(Modern3D,
+"/* Elevated 3D effect with strong shadows */
+background: #ffffff;
+border-radius: 16px;
+box-shadow:
+0 10px 25px rgba(0,0,0,0.1),
+0 6px 10px rgba(0,0,0,0.08),
+inset 0 1px 0 rgba(255,255,255,0.8);
+transform: translateY(-2px);
+transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);"
+)
+
+str(Elevated 3D effect with strong shadows, "
+background: #ffffff;
+border-radius: 16px;
+box-shadow:
+0 10px 25px rgba(0,0,0,0.1),
+0 6px 10px rgba(0,0,0,0.08),
+inset 0 1px 0 rgba(255,255,255,0.8);
+transform: translateY(-2px);
+transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);"
+)
+
+str(Holographic,
+"/* Iridescent holographic effect with color shifts */
+background: linear-gradient(135deg,
+rgba(255,255,255,0.8) 0%,
+rgba(255,255,255,0.4) 50%,
+rgba(255,255,255,0.8) 100%);
+backdrop-filter: blur(15px);
+border: 1px solid rgba(255,255,255,0.6);
+box-shadow:
+0 8px 32px rgba(0,0,0,0.1),
+0 0 0 1px rgba(255,255,255,0.3),
+inset 0 0 20px rgba(255,255,255,0.5);
+border-radius: 12px;"
+)
+
+str(Iridescent holographic effect with color shifts, "
+background: linear-gradient(135deg,
+rgba(255,255,255,0.8) 0%,
+rgba(255,255,255,0.4) 50%,
+rgba(255,255,255,0.8) 100%);
+backdrop-filter: blur(15px);
+border: 1px solid rgba(255,255,255,0.6);
+box-shadow:
+0 8px 32px rgba(0,0,0,0.1),
+0 0 0 1px rgba(255,255,255,0.3),
+inset 0 0 20px rgba(255,255,255,0.5);
+border-radius: 12px;"
+)
+
+str(Retros,
+"/* Bold neon colors and geometric patterns */
+background: linear-gradient(45deg, #ff0080, #8000ff);
+border: 3px solid #00ffff;
+box-shadow:
+0 0 15px #ff0080,
+0 0 30px #8000ff,
+inset 0 0 15px rgba(0,255,255,0.3);
+border-radius: 0;
+color: #ffffff;
+font-family: 'Courier New', monospace;"
+)
+
+str(Bold neon colors and geometric patterns 80s style, "
+background: linear-gradient(45deg, #ff0080, #8000ff);
+border: 3px solid #00ffff;
+box-shadow:
+0 0 15px #ff0080,
+0 0 30px #8000ff,
+inset 0 0 15px rgba(0,255,255,0.3);
+border-radius: 0;
+color: #ffffff;
+font-family: 'Courier New', monospace;"
+)
+
+str(EarthTones,
+"/* Natural organic colors and textures */
+background: #f5f1e8;
+border: 1px solid #d4c9b1;
+box-shadow:
+4px 4px 12px rgba(0,0,0,0.08),
+-4px -4px 12px rgba(255,255,255,0.8);
+border-radius: 8px;
+color: #5a4c3a;
+font-family: 'Georgia', serif;"
+)
+
+str(Natural organic colors and textures, "
+background: #f5f1e8;
+border: 1px solid #d4c9b1;
+box-shadow:
+4px 4px 12px rgba(0,0,0,0.08),
+-4px -4px 12px rgba(255,255,255,0.8);
+border-radius: 8px;
+color: #5a4c3a;
+font-family: 'Georgia', serif;"
+)
+
+str(FloatEffect,
+"/* Light floating card with subtle animation */
+background: rgba(255,255,255,0.95);
+backdrop-filter: blur(10px);
+border-radius: 20px;
+box-shadow:
+0 15px 35px rgba(0,0,0,0.1),
+0 3px 10px rgba(0,0,0,0.05);
+transform: translateY(0);
+transition: all 0.4s ease;
+animation: float 3s ease-in-out infinite;"
+)
+
+str(FloatEffect animation keyframes, "
+@keyframes float {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-10px); }
+}"
+)
+
+str(Light floating card with subtle animation, "
+background: rgba(255,255,255,0.95);
+backdrop-filter: blur(10px);
+border-radius: 20px;
+box-shadow:
+0 15px 35px rgba(0,0,0,0.1),
+0 3px 10px rgba(0,0,0,0.05);
+transform: translateY(0);
+transition: all 0.4s ease;
+animation: float 3s ease-in-out infinite;"
+)
+
+str(Metallic,
+"/* Shiny metallic surface with reflection */
+background: linear-gradient(135deg,
+#e0e0e0 0%,
+#f5f5f5 50%,
+#e0e0e0 100%);
+border: 1px solid #c0c0c0;
+box-shadow:
+0 4px 15px rgba(0,0,0,0.2),
+inset 0 1px 0 rgba(255,255,255,0.8),
+inset 0 -1px 0 rgba(0,0,0,0.1);
+border-radius: 12px;
+position: relative;
+overflow: hidden;"
+)
+
+str(Metallic after pseudo-element, "
+&::after {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 50%;
+height: 100%;
+background: linear-gradient(90deg,
+transparent,
+rgba(255,255,255,0.4),
+transparent);
+transform: skewX(-25deg);
+transition: left 0.5s;
+}"
+)
+
+str(Shiny metallic surface with reflection, "
+background: linear-gradient(135deg,
+#e0e0e0 0%,
+#f5f5f5 50%,
+#e0e0e0 100%);
+border: 1px solid #c0c0c0;
+box-shadow:
+0 4px 15px rgba(0,0,0,0.2),
+inset 0 1px 0 rgba(255,255,255,0.8),
+inset 0 -1px 0 rgba(0,0,0,0.1);
+border-radius: 12px;"
+)
+
+str(Cinematic,
+"/* Dark cinematic style with accent lighting */
+background: #1a1a1a;
+border: 1px solid #333;
+box-shadow:
+0 0 30px rgba(255,0,0,0.3),
+inset 0 0 50px rgba(0,0,0,0.5);
+border-radius: 4px;
+color: #fff;
+position: relative;
+overflow: hidden;"
+)
+
+str(Cinematic after glow, "
+&::after {
+content: '';
+position: absolute;
+top: 0;
+right: 0;
+width: 2px;
+height: 100%;
+background: linear-gradient(to bottom,
+transparent,
+#ff0000,
+transparent);
+box-shadow: 0 0 10px #ff0000;
+}"
+)
+
+str(Dark cinematic style with accent lighting, "
+background: #1a1a1a;
+border: 1px solid #333;
+box-shadow:
+0 0 30px rgba(255,0,0,0.3),
+inset 0 0 50px rgba(0,0,0,0.5);
+border-radius: 4px;
+color: #fff;"
+)
+
+str(add gradient text, "
+background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;"
+)
+
+str(add pulse animation, "
+animation: pulse 2s infinite;"
+)
+
+str(pulse keyframes, "
+@keyframes pulse {
+0%, 100% { transform: scale(1); }
+50% { transform: scale(1.05); }
+}"
+)
+
+str(make it responsive, "
+width: 100%;
+max-width: 100%;
+box-sizing: border-box;"
+)
+
+str(center content, "
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;"
+)
+
+str(add smooth hover, "
+transition: all 0.3s ease;
+&:hover {
+transform: translateY(-5px);
+box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}"
+) 
+*/
