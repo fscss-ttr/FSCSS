@@ -1,6 +1,7 @@
 
-
-/* str(width should be, "width:") 
+/* 
+exec(_log, "Prompts imported")
+str(width should be, "width:") 
 str(height should be, "height:")
 
 
@@ -845,4 +846,626 @@ str(add transform origin, "transform-origin: center;")
 str(add perspective, "perspective: 1000px;")
 str(add will change, "will-change: transform, opacity;")
 
+
+str(FixedTopMenu,
+"/* Fixed top navigation bar */
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+z-index: 1000;
+background: rgba(255,255,255,0.95);
+backdrop-filter: blur(20px);
+border-bottom: 1px solid rgba(0,0,0,0.1);
+padding: 1rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;"
+)
+
+str(Fixed top navigation bar, "
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+z-index: 1000;
+background: rgba(255,255,255,0.95);
+backdrop-filter: blur(20px);
+border-bottom: 1px solid rgba(0,0,0,0.1);
+padding: 1rem 2rem;
+display: flex;
+justify-content: space-between;
+align-items: center;"
+)
+
+str(FixedSideMenu,
+"/* Fixed side navigation panel */
+position: fixed;
+left: 0;
+top: 0;
+bottom: 0;
+width: 280px;
+z-index: 999;
+background: rgba(255,255,255,0.95);
+backdrop-filter: blur(20px);
+border-right: 1px solid rgba(0,0,0,0.1);
+padding: 2rem 1.5rem;
+overflow-y: auto;
+transition: transform 0.3s ease;"
+)
+
+str(Fixed left side navigation panel, "
+position: fixed;
+left: 0;
+top: 0;
+bottom: 0;
+width: 280px;
+z-index: 999;
+background: rgba(255,255,255,0.95);
+backdrop-filter: blur(20px);
+border-right: 1px solid rgba(0,0,0,0.1);
+padding: 2rem 1.5rem;
+overflow-y: auto;
+transition: transform 0.3s ease;"
+)
+
+str(FixedRightMenu,
+"/* Fixed right side panel */
+position: fixed;
+right: 0;
+top: 0;
+bottom: 0;
+width: 320px;
+z-index: 999;
+background: rgba(255,255,255,0.95);
+backdrop-filter: blur(20px);
+border-left: 1px solid rgba(0,0,0,0.1);
+padding: 2rem 1.5rem;
+overflow-y: auto;
+transition: transform 0.3s ease;"
+)
+
+str(Fixed right side panel, "
+position: fixed;
+right: 0;
+top: 0;
+bottom: 0;
+width: 320px;
+z-index: 999;
+background: rgba(255,255,255,0.95);
+backdrop-filter: blur(20px);
+border-left: 1px solid rgba(0,0,0,0.1);
+padding: 2rem 1.5rem;
+overflow-y: auto;
+transition: transform 0.3s ease;"
+)
+
+str(FixedBottomMenu,
+"/* Fixed bottom navigation bar */
+position: fixed;
+bottom: 0;
+left: 0;
+right: 0;
+z-index: 1000;
+background: rgba(255,255,255,0.95);
+backdrop-filter: blur(20px);
+border-top: 1px solid rgba(0,0,0,0.1);
+padding: 1rem 2rem;
+display: flex;
+justify-content: space-around;
+align-items: center;"
+)
+
+str(Fixed bottom navigation bar, "
+position: fixed;
+bottom: 0;
+left: 0;
+right: 0;
+z-index: 1000;
+background: rgba(255,255,255,0.95);
+backdrop-filter: blur(20px);
+border-top: 1px solid rgba(0,0,0,0.1);
+padding: 1rem 2rem;
+display: flex;
+justify-content: space-around;
+align-items: center;"
+)
+
+str(MenuToggleButton,
+"/* Hamburger menu toggle button */
+width: 40px;
+height: 40px;
+border: none;
+background: transparent;
+cursor: pointer;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 4px;
+padding: 8px;
+border-radius: 8px;
+transition: all 0.3s ease;"
+)
+
+str(Hamburger menu toggle button, "
+width: 40px;
+height: 40px;
+border: none;
+background: transparent;
+cursor: pointer;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 4px;
+padding: 8px;
+border-radius: 8px;
+transition: all 0.3s ease;"
+)
+
+str(MenuToggleLine,
+"/* Hamburger menu line */
+width: 24px;
+height: 2px;
+background: #333;
+transition: all 0.3s ease;
+transform-origin: center;"
+)
+
+str(Hamburger menu line, "
+width: 24px;
+height: 2px;
+background: #333;
+transition: all 0.3s ease;
+transform-origin: center;"
+)
+
+str(MenuToggleButton is active,
+"background: rgba(0,0,0,0.1);"
+)
+
+str(MenuToggleLine top is active,
+"transform: rotate(45deg) translate(6px, 6px);"
+)
+
+str(MenuToggleLine middle is active,
+"opacity: 0;"
+)
+
+str(MenuToggleLine bottom is active,
+"transform: rotate(-45deg) translate(6px, -6px);"
+)
+
+str(SideMenuList,
+"/* Side menu navigation list */
+list-style: none;
+padding: 0;
+margin: 2rem 0 0 0;
+display: flex;
+flex-direction: column;
+gap: 0.5rem;"
+)
+
+str(Side menu navigation list, "
+list-style: none;
+padding: 0;
+margin: 2rem 0 0 0;
+display: flex;
+flex-direction: column;
+gap: 0.5rem;"
+)
+
+str(MenuListItem,
+"/* Individual menu list item */
+padding: 0.75rem 1rem;
+border-radius: 8px;
+cursor: pointer;
+transition: all 0.2s ease;
+display: flex;
+align-items: center;
+gap: 0.75rem;
+color: #333;
+text-decoration: none;
+font-weight: 500;"
+)
+
+str(Individual menu list item, "
+padding: 0.75rem 1rem;
+border-radius: 8px;
+cursor: pointer;
+transition: all 0.2s ease;
+display: flex;
+align-items: center;
+gap: 0.75rem;
+color: #333;
+text-decoration: none;
+font-weight: 500;"
+)
+
+str(MenuListItem is hovering,
+"background: rgba(0,0,0,0.05);
+transform: translateX(4px);"
+)
+
+str(MenuListItem is active,
+"background: rgba(0,100,255,0.1);
+color: #0066ff;
+border-left: 3px solid #0066ff;"
+)
+
+str(FormContainer,
+"/* Form container styling */
+background: #ffffff;
+border-radius: 16px;
+padding: 2rem;
+box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+max-width: 500px;
+margin: 0 auto;"
+)
+
+str(Form container styling, "
+background: #ffffff;
+border-radius: 16px;
+padding: 2rem;
+box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+max-width: 500px;
+margin: 0 auto;"
+)
+
+str(FormGroup,
+"/* Form input group */
+margin-bottom: 1.5rem;
+display: flex;
+flex-direction: column;
+gap: 0.5rem;"
+)
+
+str(Form input group, "
+margin-bottom: 1.5rem;
+display: flex;
+flex-direction: column;
+gap: 0.5rem;"
+)
+
+str(FormLabel,
+"/* Form label styling */
+font-weight: 600;
+color: #333;
+font-size: 0.9rem;
+margin-bottom: 0.25rem;"
+)
+
+str(Form label styling, "
+font-weight: 600;
+color: #333;
+font-size: 0.9rem;
+margin-bottom: 0.25rem;"
+)
+
+str(FormInput,
+"/* Text input field styling */
+padding: 0.75rem 1rem;
+border: 2px solid #e0e0e0;
+border-radius: 8px;
+font-size: 1rem;
+transition: all 0.3s ease;
+background: #fff;
+color: #333;"
+)
+
+str(Text input field styling, "
+padding: 0.75rem 1rem;
+border: 2px solid #e0e0e0;
+border-radius: 8px;
+font-size: 1rem;
+transition: all 0.3s ease;
+background: #fff;
+color: #333;"
+)
+
+str(FormInput is focusing,
+"border-color: #0066ff;
+box-shadow: 0 0 0 3px rgba(0,102,255,0.1);
+outline: none;"
+)
+
+str(FormInput is invalid,
+"border-color: #ff4444;
+box-shadow: 0 0 0 3px rgba(255,68,68,0.1);"
+)
+
+str(FormTextarea,
+"/* Textarea styling */
+padding: 0.75rem 1rem;
+border: 2px solid #e0e0e0;
+border-radius: 8px;
+font-size: 1rem;
+transition: all 0.3s ease;
+background: #fff;
+color: #333;
+min-height: 120px;
+resize: vertical;
+font-family: inherit;"
+)
+
+str(Textarea styling, "
+padding: 0.75rem 1rem;
+border: 2px solid #e0e0e0;
+border-radius: 8px;
+font-size: 1rem;
+transition: all 0.3s ease;
+background: #fff;
+color: #333;
+min-height: 120px;
+resize: vertical;
+font-family: inherit;"
+)
+
+str(FormSelect,
+"/* Select dropdown styling */
+padding: 0.75rem 1rem;
+border: 2px solid #e0e0e0;
+border-radius: 8px;
+font-size: 1rem;
+transition: all 0.3s ease;
+background: #fff;
+color: #333;
+appearance: none;
+background-image: url('data:image/svg+xml;utf8,<svg fill=\"%23333\" viewBox=\"0 0 24 24\"><path d=\"M7 10l5 5 5-5z\"/></svg>');
+background-repeat: no-repeat;
+background-position: right 12px center;
+background-size: 16px;"
+)
+
+str(Select dropdown styling, "
+padding: 0.75rem 1rem;
+border: 2px solid #e0e0e0;
+border-radius: 8px;
+font-size: 1rem;
+transition: all 0.3s ease;
+background: #fff;
+color: #333;
+appearance: none;
+background-image: url('data:image/svg+xml;utf8,<svg fill=\"%23333\" viewBox=\"0 0 24 24\"><path d=\"M7 10l5 5 5-5z\"/></svg>');
+background-repeat: no-repeat;
+background-position: right 12px center;
+background-size: 16px;"
+)
+
+str(FormButton,
+"/* Form submit button */
+padding: 0.75rem 2rem;
+background: #0066ff;
+color: white;
+border: none;
+border-radius: 8px;
+font-size: 1rem;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.3s ease;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 0.5rem;"
+)
+
+str(Form submit button, "
+padding: 0.75rem 2rem;
+background: #0066ff;
+color: white;
+border: none;
+border-radius: 8px;
+font-size: 1rem;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.3s ease;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 0.5rem;"
+)
+
+str(FormButton is hovering,
+"background: #0052cc;
+transform: translateY(-2px);
+box-shadow: 0 4px 12px rgba(0,102,255,0.3);"
+)
+
+str(FormButton is active,
+"transform: translateY(0);
+box-shadow: 0 2px 6px rgba(0,102,255,0.3);"
+)
+
+str(FormButton secondary,
+"background: transparent;
+color: #666;
+border: 2px solid #e0e0e0;"
+)
+
+str(FormButton secondary is hovering,
+"background: #f5f5f5;
+border-color: #ccc;"
+)
+
+str(CheckboxGroup,
+"/* Checkbox container */
+display: flex;
+align-items: center;
+gap: 0.75rem;
+cursor: pointer;
+padding: 0.5rem 0;"
+)
+
+str(Checkbox container, "
+display: flex;
+align-items: center;
+gap: 0.75rem;
+cursor: pointer;
+padding: 0.5rem 0;"
+)
+
+str(CheckboxInput,
+"/* Custom checkbox */
+width: 18px;
+height: 18px;
+border: 2px solid #e0e0e0;
+border-radius: 4px;
+background: #fff;
+transition: all 0.2s ease;
+position: relative;
+cursor: pointer;"
+)
+
+str(Custom checkbox, "
+width: 18px;
+height: 18px;
+border: 2px solid #e0e0e0;
+border-radius: 4px;
+background: #fff;
+transition: all 0.2s ease;
+position: relative;
+cursor: pointer;"
+)
+
+str(CheckboxInput is checked,
+"background: #0066ff;
+border-color: #0066ff;"
+)
+
+str(CheckboxInput is checked after,
+"content: '';
+position: absolute;
+left: 5px;
+top: 2px;
+width: 4px;
+height: 8px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);"
+)
+
+str(RadioGroup,
+"/* Radio button group */
+display: flex;
+flex-direction: column;
+gap: 0.5rem;"
+)
+
+str(Radio button group, "
+display: flex;
+flex-direction: column;
+gap: 0.5rem;"
+)
+
+str(RadioOption,
+"/* Radio option container */
+display: flex;
+align-items: center;
+gap: 0.75rem;
+cursor: pointer;
+padding: 0.5rem;"
+)
+
+str(Radio option container, "
+display: flex;
+align-items: center;
+gap: 0.75rem;
+cursor: pointer;
+padding: 0.5rem;"
+)
+
+str(RadioInput,
+"/* Custom radio button */
+width: 18px;
+height: 18px;
+border: 2px solid #e0e0e0;
+border-radius: 50%;
+background: #fff;
+transition: all 0.2s ease;
+position: relative;
+cursor: pointer;"
+)
+
+str(Custom radio button, "
+width: 18px;
+height: 18px;
+border: 2px solid #e0e0e0;
+border-radius: 50%;
+background: #fff;
+transition: all 0.2s ease;
+position: relative;
+cursor: pointer;"
+)
+
+str(RadioInput is checked,
+"border-color: #0066ff;"
+)
+
+str(RadioInput is checked after,
+"content: '';
+position: absolute;
+top: 3px;
+left: 3px;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: #0066ff;"
+)
+
+str(FormError,
+"/* Form error message */
+color: #ff4444;
+font-size: 0.85rem;
+margin-top: 0.25rem;
+display: flex;
+align-items: center;
+gap: 0.5rem;"
+)
+
+str(Form error message, "
+color: #ff4444;
+font-size: 0.85rem;
+margin-top: 0.25rem;
+display: flex;
+align-items: center;
+gap: 0.5rem;"
+)
+
+str(FormSuccess,
+"/* Form success message */
+color: #00c851;
+font-size: 0.85rem;
+margin-top: 0.25rem;
+display: flex;
+align-items: center;
+gap: 0.5rem;"
+)
+
+str(Form success message, "
+color: #00c851;
+font-size: 0.85rem;
+margin-top: 0.25rem;
+display: flex;
+align-items: center;
+gap: 0.5rem;"
+)
+
+str(Form dark mode,
+"background: #1a1a1a;
+color: #fff;
+border-color: #333;"
+)
+
+str(Input dark mode,
+"background: #2d2d2d;
+color: #fff;
+border-color: #444;"
+)
+
+str(Button dark mode,
+"background: #0066ff;
+color: #fff;"
+)
+str(_and, "I don't understand _and, did you mean and_") 
 */
