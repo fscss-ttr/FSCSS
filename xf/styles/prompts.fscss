@@ -1,12 +1,10 @@
 
-/* 
-exec(_log, "Prompts imported")
-str(width should be, "width:") 
+/* str(width should be, "width:") 
 str(height should be, "height:")
 
 
 str(Neumorphism,
-"/* Soft 3D shadows and highlights; smooth, elegant interface */
+"
 background: rgba(255,255,255,0.5);
 backdrop-filter: blur(20px);
 box-shadow: 6px 6px 12px rgba(0,0,0,0.1), -6px -6px 12px rgba(255,255,255,0.7);
@@ -25,7 +23,7 @@ transition: all 0.3s ease;"
 )
 
 str(Glassmorphism,
-"/* Frosted glass transparency with soft glow and depth */
+"
 background: rgba(255,255,255,0.15);
 backdrop-filter: blur(25px);
 border: 1px solid rgba(255,255,255,0.3);
@@ -41,7 +39,7 @@ border-radius: 14px;"
 ) 
 
 str(Minimalist,
-"/* Clean, airy, focus on content; simple modern typography */
+"
 background: #fff;
 border: 1px solid #e0e0e0;
 border-radius: 8px;
@@ -183,7 +181,7 @@ str(and_ , ";")
 str(then_, ";") 
 
 str(Modern3D,
-"/* Elevated 3D effect with strong shadows */
+"
 background: #ffffff;
 border-radius: 16px;
 box-shadow:
@@ -206,7 +204,7 @@ transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);"
 )
 
 str(Holographic,
-"/* Iridescent holographic effect with color shifts */
+"
 background: linear-gradient(135deg,
 rgba(255,255,255,0.8) 0%,
 rgba(255,255,255,0.4) 50%,
@@ -235,7 +233,7 @@ border-radius: 12px;"
 )
 
 str(Retros,
-"/* Bold neon colors and geometric patterns */
+"
 background: linear-gradient(45deg, #ff0080, #8000ff);
 border: 3px solid #00ffff;
 box-shadow:
@@ -260,7 +258,7 @@ font-family: 'Courier New', monospace;"
 )
 
 str(EarthTones,
-"/* Natural organic colors and textures */
+"
 background: #f5f1e8;
 border: 1px solid #d4c9b1;
 box-shadow:
@@ -283,7 +281,7 @@ font-family: 'Georgia', serif;"
 )
 
 str(FloatEffect,
-"/* Light floating card with subtle animation */
+"
 background: rgba(255,255,255,0.95);
 backdrop-filter: blur(10px);
 border-radius: 20px;
@@ -315,7 +313,7 @@ animation: float 3s ease-in-out infinite;"
 )
 
 str(Metallic,
-"/* Shiny metallic surface with reflection */
+"
 background: linear-gradient(135deg,
 #e0e0e0 0%,
 #f5f5f5 50%,
@@ -361,7 +359,7 @@ border-radius: 12px;"
 )
 
 str(Cinematic,
-"/* Dark cinematic style with accent lighting */
+"
 background: #1a1a1a;
 border: 1px solid #333;
 box-shadow:
@@ -440,7 +438,7 @@ box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 
 
 str(BounceIn,
-"/* Bounce in animation with elastic effect */
+"
 animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);"
 )
 
@@ -465,7 +463,7 @@ str(BounceIn keyframes, "
 )
 
 str(FadeInUp,
-"/* Smooth fade in from below */
+"
 animation: fadeInUp 0.6s ease-out;"
 )
 
@@ -483,7 +481,7 @@ str(FadeInUp keyframes, "
 )
 
 str(GlitchEffect,
-"/* Digital glitch distortion effect */
+"
 position: relative;
 animation: glitch 2s infinite;"
 )
@@ -512,7 +510,7 @@ str(GlitchEffect keyframes, "
 )
 
 str(ShakeAnimation,
-"/* Attention-grabbing shake */
+"
 animation: shake 0.5s ease-in-out;"
 )
 
@@ -525,7 +523,7 @@ str(ShakeAnimation keyframes, "
 )
 
 str(Spin3D,
-"/* 3D rotation animation */
+"
 animation: spin3D 2s linear infinite;"
 )
 
@@ -541,7 +539,7 @@ str(Spin3D keyframes, "
 )
 
 str(MorphGradient,
-"/* Animated gradient background */
+"
 background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 background-size: 400% 400%;
 animation: gradientShift 15s ease infinite;"
@@ -562,7 +560,7 @@ str(MorphGradient keyframes, "
 )
 
 str(Typewriter,
-"/* Typewriter text effect */
+"
 overflow: hidden;
 border-right: 2px solid;
 white-space: nowrap;
@@ -581,7 +579,7 @@ str(Typewriter keyframes, "
 )
 
 str(BlurIn,
-"/* Blur fade in effect */
+"
 animation: blurIn 1s ease-out;"
 )
 
@@ -601,7 +599,7 @@ str(BlurIn keyframes, "
 )
 
 str(SlideInLeft,
-"/* Slide in from left */
+"
 animation: slideInLeft 0.5s ease-out;"
 )
 
@@ -619,7 +617,7 @@ str(SlideInLeft keyframes, "
 )
 
 str(ZoomIn,
-"/* Zoom in with fade */
+"
 animation: zoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);"
 )
 
@@ -637,7 +635,7 @@ str(ZoomIn keyframes, "
 )
 
 str(RippleEffect,
-"/* Click ripple animation */
+"
 position: relative;
 overflow: hidden;"
 )
@@ -668,7 +666,7 @@ str(RippleEffect keyframes, "
 )
 
 str(StaggerChildren,
-"/* Stagger animation for child elements */
+"
 & > * {
     animation: stagger 0.5s ease-out both;
     animation-delay: calc(var(--stagger-order, 0) * 0.1s);
@@ -689,7 +687,7 @@ str(StaggerChildren keyframes, "
 )
 
 str(ParallaxScrolling,
-"/* Parallax scroll effect */
+"
 background-attachment: fixed;
 background-position: center;
 background-repeat: no-repeat;
@@ -697,7 +695,7 @@ background-size: cover;"
 )
 
 str(TextShadowGlow,
-"/* Animated text glow */
+"
 animation: textGlow 2s ease-in-out infinite alternate;"
 )
 
@@ -713,7 +711,7 @@ str(TextShadowGlow keyframes, "
 )
 
 str(BorderFlow,
-"/* Animated border gradient */
+"
 position: relative;
 background: linear-gradient(90deg, #ff0080, #8000ff, #00ffff, #ff0080);
 background-size: 400% 400%;
@@ -729,7 +727,7 @@ str(BorderFlow keyframes, "
 )
 
 str(HoverLift,
-"/* Smooth lift on hover */
+"
 transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 &:hover {
     transform: translateY(-8px) scale(1.02);
@@ -738,7 +736,7 @@ transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 )
 
 str(HoverColorShift,
-"/* Color shift on hover */
+"
 transition: all 0.4s ease;
 &:hover {
     background: linear-gradient(45deg, #667eea, #764ba2);
@@ -747,7 +745,7 @@ transition: all 0.4s ease;
 )
 
 str(Hover3DRotate,
-"/* 3D rotate on hover */
+"
 transform-style: preserve-3d;
 transition: transform 0.6s ease;
 &:hover {
@@ -756,7 +754,7 @@ transition: transform 0.6s ease;
 )
 
 str(FocusGlow,
-"/* Glow effect on focus */
+"
 transition: all 0.3s ease;
 &:focus {
     box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
@@ -765,7 +763,7 @@ transition: all 0.3s ease;
 )
 
 str(LoadingSkeleton,
-"/* Loading skeleton animation */
+"
 background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
 background-size: 200% 100%;
 animation: loading 1.5s infinite;"
@@ -783,7 +781,7 @@ str(LoadingSkeleton keyframes, "
 )
 
 str(InfiniteScroll,
-"/* Infinite horizontal scroll */
+"
 animation: infiniteScroll 20s linear infinite;"
 )
 
@@ -799,7 +797,7 @@ str(InfiniteScroll keyframes, "
 )
 
 str(ConicGradient,
-"/* Animated conic gradient */
+"
 background: conic-gradient(from 0deg, #ff0080, #8000ff, #0080ff, #80ff00, #ff0080);
 animation: conicSpin 3s linear infinite;"
 )
@@ -813,7 +811,7 @@ str(ConicGradient keyframes, "
 )
 
 str(NeonFlicker,
-"/* Neon light flicker effect */
+"
 animation: neonFlicker 2s infinite alternate;"
 )
 
@@ -848,7 +846,7 @@ str(add will change, "will-change: transform, opacity;")
 
 
 str(FixedTopMenu,
-"/* Fixed top navigation bar */
+"
 position: fixed;
 top: 0;
 left: 0;
@@ -879,7 +877,7 @@ align-items: center;"
 )
 
 str(FixedSideMenu,
-"/* Fixed side navigation panel */
+"
 position: fixed;
 left: 0;
 top: 0;
@@ -910,7 +908,7 @@ transition: transform 0.3s ease;"
 )
 
 str(FixedRightMenu,
-"/* Fixed right side panel */
+"
 position: fixed;
 right: 0;
 top: 0;
@@ -941,7 +939,7 @@ transition: transform 0.3s ease;"
 )
 
 str(FixedBottomMenu,
-"/* Fixed bottom navigation bar */
+"
 position: fixed;
 bottom: 0;
 left: 0;
@@ -972,7 +970,7 @@ align-items: center;"
 )
 
 str(MenuToggleButton,
-"/* Hamburger menu toggle button */
+"
 width: 40px;
 height: 40px;
 border: none;
@@ -1005,7 +1003,7 @@ transition: all 0.3s ease;"
 )
 
 str(MenuToggleLine,
-"/* Hamburger menu line */
+"
 width: 24px;
 height: 2px;
 background: #333;
@@ -1038,7 +1036,7 @@ str(MenuToggleLine bottom is active,
 )
 
 str(SideMenuList,
-"/* Side menu navigation list */
+"
 list-style: none;
 padding: 0;
 margin: 2rem 0 0 0;
@@ -1057,7 +1055,7 @@ gap: 0.5rem;"
 )
 
 str(MenuListItem,
-"/* Individual menu list item */
+"
 padding: 0.75rem 1rem;
 border-radius: 8px;
 cursor: pointer;
@@ -1095,7 +1093,7 @@ border-left: 3px solid #0066ff;"
 )
 
 str(FormContainer,
-"/* Form container styling */
+"
 background: #ffffff;
 border-radius: 16px;
 padding: 2rem;
@@ -1114,7 +1112,7 @@ margin: 0 auto;"
 )
 
 str(FormGroup,
-"/* Form input group */
+"
 margin-bottom: 1.5rem;
 display: flex;
 flex-direction: column;
@@ -1129,7 +1127,7 @@ gap: 0.5rem;"
 )
 
 str(FormLabel,
-"/* Form label styling */
+"
 font-weight: 600;
 color: #333;
 font-size: 0.9rem;
@@ -1144,7 +1142,7 @@ margin-bottom: 0.25rem;"
 )
 
 str(FormInput,
-"/* Text input field styling */
+"
 padding: 0.75rem 1rem;
 border: 2px solid #e0e0e0;
 border-radius: 8px;
@@ -1176,7 +1174,7 @@ box-shadow: 0 0 0 3px rgba(255,68,68,0.1);"
 )
 
 str(FormTextarea,
-"/* Textarea styling */
+"
 padding: 0.75rem 1rem;
 border: 2px solid #e0e0e0;
 border-radius: 8px;
@@ -1203,7 +1201,7 @@ font-family: inherit;"
 )
 
 str(FormSelect,
-"/* Select dropdown styling */
+"
 padding: 0.75rem 1rem;
 border: 2px solid #e0e0e0;
 border-radius: 8px;
@@ -1234,7 +1232,7 @@ background-size: 16px;"
 )
 
 str(FormButton,
-"/* Form submit button */
+"
 padding: 0.75rem 2rem;
 background: #0066ff;
 color: white;
@@ -1289,7 +1287,7 @@ border-color: #ccc;"
 )
 
 str(CheckboxGroup,
-"/* Checkbox container */
+"
 display: flex;
 align-items: center;
 gap: 0.75rem;
@@ -1306,7 +1304,7 @@ padding: 0.5rem 0;"
 )
 
 str(CheckboxInput,
-"/* Custom checkbox */
+"
 width: 18px;
 height: 18px;
 border: 2px solid #e0e0e0;
@@ -1346,7 +1344,7 @@ transform: rotate(45deg);"
 )
 
 str(RadioGroup,
-"/* Radio button group */
+"
 display: flex;
 flex-direction: column;
 gap: 0.5rem;"
@@ -1359,7 +1357,7 @@ gap: 0.5rem;"
 )
 
 str(RadioOption,
-"/* Radio option container */
+"
 display: flex;
 align-items: center;
 gap: 0.75rem;
@@ -1414,7 +1412,7 @@ background: #0066ff;"
 )
 
 str(FormError,
-"/* Form error message */
+"
 color: #ff4444;
 font-size: 0.85rem;
 margin-top: 0.25rem;
@@ -1433,7 +1431,7 @@ gap: 0.5rem;"
 )
 
 str(FormSuccess,
-"/* Form success message */
+"
 color: #00c851;
 font-size: 0.85rem;
 margin-top: 0.25rem;
@@ -1467,5 +1465,6 @@ str(Button dark mode,
 "background: #0066ff;
 color: #fff;"
 )
-str(_and, "I don't understand _and, did you mean and_") 
+str(Typing animation, "exec(_log, 'do you mean Typewriter')")
 */
+
