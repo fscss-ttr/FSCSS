@@ -200,15 +200,6 @@ new exec({
 
 
 
-## Contributing
-
-We welcome contributions! Here's how to get started:
-
-1. Fork the repository
-2. Install dependencies: `npm install`
-3. Make your changes
-4. Submit a pull request
-
 ## License
 
 FSCSS is MIT licensed. See [LICENSE](https://github.com/figsh/xfscss/blob/main/LICENSE) for details.
