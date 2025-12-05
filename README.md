@@ -88,7 +88,7 @@ npm install fscss
 ```
 **CDN**
 ```html
-<script src="https://cdn.jsdelivr.net/npm/fscss@1.1.6" async></script>
+<script src="https://cdn.jsdelivr.net/npm/fscss@1.1.11/exec.min.js" defer></script>
 ```
 Usage
 
@@ -147,7 +147,7 @@ What features would make it production-ready?
 
 ## Documentation
 
-For complete documentation with examples, visit the [FSCSS Documentation](https://fscss.onrender.com/).
+For complete documentation with examples, visit the [FSCSS Documentation](https://fscss.devtem.org/).
 
 Documentation includes:
 - 📚 Full syntax reference
