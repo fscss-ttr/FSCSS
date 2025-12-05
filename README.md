@@ -188,5 +188,5 @@ FSCSS is MIT licensed. See [LICENSE](https://github.com/figsh/xfscss/blob/main/L
 
 ---
 
-**FSCSS** © 2025 Figsh.
+**FSCSS** — Figsh.
 Authored and maintained with ❤️ by developers for developers.
