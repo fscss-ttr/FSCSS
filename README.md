@@ -43,7 +43,34 @@ $(@keyframes trans, .box .card &[3s ease-in infinite]) {
   }
 }
 ```
+**Quick try**
 
+```html
+<script src="https://cdn.jsdelivr.net/npm/fscss@1.1.11/exec.min.js" defer>
+</script>
+
+<style>
+div{
+  margin: 10px;
+}
+$(@keyframes trans, .box, .card &[3s ease-in infinite alternate]){
+  from {
+    %2(width, height [: 0;]) 
+    background: red;
+  } 
+  to {
+    %2(width, height [: 200px;])
+    background: blue;
+  }
+}
+</style>
+
+<div class="box">
+</div>
+
+<div class="card">
+</div>
+```
 
 ---
 
