@@ -46,7 +46,7 @@ $(@keyframes trans, .box .card &[3s ease-in infinite]) {
 **Quick try**
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/fscss@1.1.11/exec.min.js" defer>
+<script src="https://cdn.jsdelivr.net/npm/fscss@1.1.13/exec.min.js" defer>
 </script>
 
 <style>
@@ -206,5 +206,5 @@ FSCSS is MIT licensed. See [LICENSE](https://github.com/figsh/xfscss/blob/main/L
 
 ---
 
-**FSCSS** — Figsh.
+Figsh—**FSCSS**.
 Authored and maintained with ❤️ by developers for developers.
