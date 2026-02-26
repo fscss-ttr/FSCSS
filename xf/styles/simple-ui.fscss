@@ -1,0 +1,121 @@
+/* ===============================
+FSCSS Modern UI Plugin Pack
+=============================== */
+
+
+/* 1. Modern Glass Button */
+
+str(Button_glass, "
+color: $/color || #fff;
+background: $/bg || rgba(255,255,255,.1);
+backdrop-filter: blur(10px);
+border: $/border || 1px solid rgba(255,255,255,.2);
+padding: $/padding || 12px 18px;
+border-radius: $/radius || 14px;
+transition: .3s ease;
+")
+
+
+/* 2. Soft UI Card */
+
+str(Card_soft, "
+background: $/bg || #fff;
+padding: $/padding || 20px;
+border-radius: $/radius || 18px;
+box-shadow: $/shadow || 0 10px 30px rgba(0,0,0,.08);
+border: $/border || 1px solid rgba(0,0,0,.05);
+")
+
+
+/* 3. Elevated Button */
+
+str(Button_elevated, "
+background: $/bg || #06f;
+color: $/color || #fff;
+padding: $/padding || 12px 20px;
+border-radius: $/radius || 12px;
+border: none;
+box-shadow: $/shadow || 0 6px 20px rgba(0,0,0,.15);
+transition: .2s ease;
+")
+
+
+/* 4. Outline Button */
+
+str(Button_outline, "
+background: transparent;
+color: $/color || #06f;
+border: $/border || 2px solid #06f;
+padding: $/padding || 10px 18px;
+border-radius: $/radius || 12px;
+transition: .2s ease;
+")
+
+
+/* 5. Gradient Text */
+
+str(Text_gradient, "
+background: $/bg || linear-gradient(45deg,#06f,#0ff);
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+font-weight: $/weight || 600;
+")
+
+
+/* 6. Neon Glow Button */
+
+str(Button_neon, "
+background: $/bg || #111;
+color: $/color || #0ff;
+border: 1px solid $/glow || #0ff;
+padding: $/padding || 12px 18px;
+border-radius: $/radius || 12px;
+box-shadow: 0 0 10px $/glow || #0ff;
+")
+
+
+/* 7. Modern Input */
+
+str(Input_modern, "
+background: $/bg || #f9f9f9;
+border: $/border || 1px solid #ddd;
+padding: $/padding || 12px 14px;
+border-radius: $/radius || 10px;
+outline: none;
+transition: .2s ease;
+")
+
+
+/* 8. Modern Badge */
+
+str(Badge_modern, "
+display: inline-block;
+background: $/bg || #06f;
+color: $/color || #fff;
+padding: $/padding || 4px 10px;
+border-radius: $/radius || 999px;
+font-size: $/size || 12px;
+")
+
+
+
+exec(_log, "Modern UI Plugin Pack Imported")
+
+/* ===============================
+Simple UI Plugin Registry
+=============================== */
+
+
+str(simple_ui_list, "
+exec(_log, '=== FSCSS Available Plugins ===')
+exec(_log, 'Button\_glass → Modern glassmorphism button')
+exec(_log, 'Button\_elevated → Elevated material-style button')
+exec(_log, 'Button\_outline → Outline minimal button')
+exec(_log, 'Button\_neon → Neon glow futuristic button')
+exec(_log, 'Card\_soft → Soft UI card container')
+exec(_log, 'Text\_gradient → Gradient text effect')
+exec(_log, 'Input\_modern → Clean modern input field')
+exec(_log, 'Badge\_modern → Rounded badge component')
+exec(_log, '===============================')
+")
