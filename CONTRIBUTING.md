@@ -1,6 +1,6 @@
 # Contributing to FSCSS
 
-Thank you for your interest in contributing to [FSCSS](https://www.npmjs.com/package/fscss) (Figured Shorthand Cascading Style Sheet) 🚀
+Thank you for your interest in contributing to [FSCSS](https://www.npmjs.com/package/fscss) (Figured Shorthand Cascading Style Sheet) 
 
 We welcome contributions from developers of all experience levels. Whether you're fixing bugs, improving documentation, building plugins, or proposing new features — your help is appreciated.
 
@@ -9,7 +9,7 @@ We welcome contributions from developers of all experience levels. Whether you'r
 **Support the cause! Contribute here: https://opencollective.com/fscss**
 ---
 
-## 📌 Table of Contents
+## Table of Contents
 
 - [Code of Conduct](#-code-of-conduct)
 - [How to Contribute](#-how-to-contribute)
@@ -24,7 +24,7 @@ We welcome contributions from developers of all experience levels. Whether you'r
 
 ---
 
-## 📜 Code of Conduct
+## Code of Conduct
 
 By participating in this project, you agree to:
 
@@ -37,7 +37,7 @@ We aim to maintain a friendly and professional community.
 
 ---
 
-## 🚀 How to Contribute
+## How to Contribute
 
 You can contribute by:
 
@@ -51,7 +51,7 @@ You can contribute by:
 
 ---
 
-## 🐞 Reporting Issues
+## Reporting Issues
 
 Before creating an issue:
 
@@ -67,7 +67,7 @@ Before creating an issue:
 
 ---
 
-## 💡 Suggesting Features
+## Suggesting Features
 
 When suggesting a feature:
 
@@ -78,7 +78,7 @@ When suggesting a feature:
 
 ---
 
-## 🔀 Submitting Pull Requests
+## Submitting Pull Requests
 
 1. **Fork** the repository
 2. **Create** a new branch
@@ -108,7 +108,7 @@ PR Guidelines
 
 ---
 
-🧩 Plugin Contributions
+Plugin Contributions
 
 FSCSS supports modular plugins.
 
@@ -122,7 +122,7 @@ When contributing a plugin:
 
 ---
 
-🛠 Development Setup
+Development Setup
 
 Runtime Testing (CDN)
 
@@ -148,7 +148,7 @@ fscss input.fscss output.css
 
 ---
 
-🧠 Coding Guidelines
+Coding Guidelines
 
 · Keep the core engine lightweight
 · Avoid bloating with unnecessary features
@@ -160,7 +160,7 @@ fscss input.fscss output.css
 
 ---
 
-📖 Documentation Contributions
+Documentation Contributions
 
 Documentation is as important as code.
 
@@ -183,7 +183,7 @@ All documentation should be:
 
 ---
 
-🎯 FSCSS Philosophy
+FSCSS Philosophy
 
 · Shorthand-first styling — Write less, do more
 · Modular architecture — Use what you need
