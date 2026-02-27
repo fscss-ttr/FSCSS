@@ -10,7 +10,7 @@ Think of it as CSS with superpowers — arrays, functions, variables, randomness
 
 ---
 
-### ✨ Example
+### Example
 ```css
 /* CSS */
 .box, .card {
@@ -74,7 +74,7 @@ $(@keyframes trans, .box, .card &[3s ease-in infinite alternate]){
 
 ---
 
-## 🚀 Core Features
+## Core Features
 
 - Variables ($var, str()) → define reusable values
 
@@ -107,7 +107,7 @@ $(@keyframes trans, .box, .card &[3s ease-in infinite alternate]){
 
 - exec() → debugging and runtime helpers
 
-### 📦 Installation
+### Installation
 
 **NPM**
 ```bash
@@ -129,19 +129,19 @@ Or import inside a style block:
 @import(exec(style.fscss))
 </style>
 ```
-**⚡ Async is required for script loading.**
+**Async is required for script loading.**
 
 
 ---
 
-### ⚡ Live Demo
+### Live Demo
 
-- 👉 CodePen Example https://codepen.io/David-Hux/pen/Kwdbyga
+- CodePen Example https://codepen.io/David-Hux/pen/Kwdbyga
 
 
 ---
 
-### 🧑‍💻 Why FSCSS?
+### Why FSCSS?
 
 - FSCSS takes a shorthand approach:
 
@@ -159,7 +159,7 @@ Or import inside a style block:
 
 ---
 
-## 🤔 Feedback Wanted
+## Feedback Wanted
 
 FSCSS is experimental — I’d love to hear from developers:
 
@@ -177,11 +177,11 @@ What features would make it production-ready?
 For complete documentation with examples, visit the [FSCSS Documentation](https://fscss.devtem.org/).
 
 Documentation includes:
-- 📚 Full syntax reference
-- 🎮 Interactive examples
-- 🧩 Feature deep dives
-- 🚀 Performance best practices
-- 🛠 Troubleshooting guide
+- Full syntax reference
+- Interactive examples
+- Feature deep dives
+- Performance best practices
+- Troubleshooting guide
 
 ## API Reference
 
