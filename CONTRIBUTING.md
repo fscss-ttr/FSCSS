@@ -5,6 +5,8 @@ Thank you for your interest in contributing to [FSCSS](https://www.npmjs.com/pac
 We welcome contributions from developers of all experience levels. Whether you're fixing bugs, improving documentation, building plugins, or proposing new features — your help is appreciated.
 
 **Main repository:** [https://github.com/Figsh/xfscss](https://github.com/Figsh/xfscss)
+
+**Support the cause! Contribute here: https://opencollective.com/fscss**
 ---
 
 ## 📌 Table of Contents
