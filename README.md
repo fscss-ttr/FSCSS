@@ -32,7 +32,7 @@ Think of it as CSS with superpowers — arrays, functions, variables, randomness
 ```
 ```css
 /* FSCSS */
-$(@keyframes trans, .box .card &[3s ease-in infinite]) {
+$(@keyframes trans, .box, .card &[3s ease-in infinite]) {
   from {
     %2(width, height [: 0;]) 
     background: red;
