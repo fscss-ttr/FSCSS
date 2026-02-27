@@ -169,17 +169,17 @@ body{
 
 <section class="features">
   <div class="card">
-    <h3>⚡ No Build Step</h3>
+    <h3>No Build Step</h3>
     <p>Run directly in the browser using CDN.</p>
   </div>
 
   <div class="card">
-    <h3>🎨 Fallback Operator</h3>
+    <h3>Fallback Operator</h3>
     <p>Use $/variable || fallback for safe styling.</p>
   </div>
 
   <div class="card">
-    <h3>🔌 Plugin Ready</h3>
+    <h3>Plugin Ready</h3>
     <p>Create reusable UI modules easily.</p>
   </div>
 </section>
