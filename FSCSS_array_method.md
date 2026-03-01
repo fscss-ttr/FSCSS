@@ -13,7 +13,6 @@ FSCSS arrays are data structures designed to generate CSS efficiently. Unlike tr
 - **String-native** – All transformations output final string values
 - **No method chaining** – Arrays return directly, not objects
 - **No nested execution** – Array declarations don't resolve inner arrays
-- **Compile-time only** – Optimized for CSS generation, not runtime logic
 
 ---
 
