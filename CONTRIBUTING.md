@@ -82,7 +82,7 @@ When suggesting a feature:
 
 1. **Fork** the repository
 2. **Create** a new branch
-   ```bash
+```bash
    git checkout -b feature/your-feature-name
 ```
 
@@ -135,6 +135,7 @@ Include in your HTML:
 CLI Development
 
 Install globally:
+
 
 ```bash
 npm install -g fscss
