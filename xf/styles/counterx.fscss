@@ -1,0 +1,15 @@
+/* name "counterx/fscss" use "counter\-init" */
+/* 
+@arr numlist[count(99)]
+  @arr counter-before[ing...,ing...,ed] 
+str(counter-init, "
+    0%{
+      content: '@arr.counter-before!.first0%'
+    } 
+    @arr.numlist[]%{
+      content: '@arr.counter-before[2]@arr.numlist[]%';
+    } 
+    100%{
+      content: '@arr.counter-before!.last';
+    }")
+    */
