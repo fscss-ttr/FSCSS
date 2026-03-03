@@ -1,5 +1,7 @@
 /* name "counterx/fscss" use "counter\-init" */
 
+exec(_log, "counterx.fscss linked\nUse counter-init inside @keyframes")
+
 @arr numlist[count(99)]
 @arr counter-before[ing...,ing...,ed] 
 
