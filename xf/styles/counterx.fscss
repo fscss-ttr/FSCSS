@@ -1,18 +1,17 @@
-/* name "counterx/fscss" use "counter\-init" */
+/* name "counterx/fscss" use "@counter\-init()" version 1.1.15+*/
 
-exec(_log, "counterx.fscss linked\nUse counter-init inside @keyframes")
+exec(_log, "counterx.fscss linked\nUse @counter\-init() inside @keyframes\nSupported version: 1.1.15")
 
 @arr numlist[count(99)]
-@arr counter-before[ing...,ing...,ed] 
 
-str(counter-init, "
-    0%{
-      content: '@arr.counter-before!.first0%'
-    } 
-    @arr.numlist[]%{
-      content: '@arr.counter-before[2]@arr.numlist[]%';
-    } 
-    100%{
-      content: '@arr.counter-before!.last';
-    }"
-)
+@define counter-init(start:ing..., process:ing..., end:ed){"
+0%{
+content: '@use(start)0%'
+}
+@arr.numlist[]%{
+content: '@use(process)@arr.numlist[]%';
+}
+100%{
+content: '@use(end)';
+}"
+}
