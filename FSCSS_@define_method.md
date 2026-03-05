@@ -26,7 +26,7 @@ FSCSS defines operate as direct string generators, injecting final CSS output du
 ### Define Declaration
 
 ```fscss
-@define name(param:default) { ... }
+@define name(a,b,...) { ... }
 ```
 
 Example
