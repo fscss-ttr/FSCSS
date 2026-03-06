@@ -12,7 +12,7 @@
   }
 `}
 
-@define reset-progress-page(b){`
+@define reset-progress-page(){`
 *, *::before, *::after { 
     box-sizing: border-box; margin: 0; padding: 0; 
   }
@@ -20,6 +20,18 @@
 
 @define progress-range(val:75){
 --progress-6fb4d3f: @use(val);
+}
+
+@define progress-size(size){
+--progress-size: @use(size);
+}
+
+@define progress-stroke(size:180px){
+--progress-stroke: @use(size);
+}
+
+@define progress-animate(time:1s){
+transition: --progress-6fb4d3f @use(time) ease;
 }
 
 @define circle-progress(sel:.progress-circle){`
