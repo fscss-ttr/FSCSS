@@ -129,3 +129,24 @@ display: flex;
 flex-wrap: wrap;
 gap: @use(gap);
 }
+
+@define flex-inline(){
+display: inline-flex;
+align-items: center;
+}
+
+@define flex-stack(gap){
+display: flex;
+flex-direction: column;
+gap: @use(gap);
+}
+
+@define flex-equal(gap){"
+display: flex;
+gap: @use(gap);
+
+> *{
+flex: 1;
+}
+"}
+
