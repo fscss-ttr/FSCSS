@@ -104,14 +104,28 @@ align-items: stretch;
 }
 
 /* Gap Helper */
-@define flex-gap($size){
+@define flex-gap(size){
 display: flex;
-gap: $size;
+gap: @use(size);
 }
 
 /* Column Gap */
-@define flex-col-gap($size){
+@define flex-col-gap(size){
 display: flex;
 flex-direction: column;
-gap: $size;
+gap: @use(size);
+}
+
+@define flex-layout(dir, justify, align, gap){
+display: flex;
+flex-direction: @use(dir);
+justify-content: @use(justify);
+align-items: @use(align);
+gap: @use(gap);
+}
+
+@define flex-responsive(gap){
+display: flex;
+flex-wrap: wrap;
+gap: @use(gap);
 }
