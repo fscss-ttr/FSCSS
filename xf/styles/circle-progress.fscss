@@ -1,0 +1,136 @@
+@define progress-root(root:root){`
+  :@use(root) {
+    --progress-size: 180px;
+    --progress-stroke: 14px;
+    --progress-6fb4d3f: 72; /* 0–100 */
+    --progress-color-bg: #0b0d12;
+    --progress-color-track: rgba(255,255,255,0.06);
+    --progress-color-arc: #00e5a0;
+    --progress-color-glow: rgba(0, 229, 160, 0.45);
+    --progress-color-label: #a0a8b8;
+    --progress-color-value: #f0f4ff;
+  }
+`}
+
+@define reset-progress-page(b){`
+*, *::before, *::after { 
+    box-sizing: border-box; margin: 0; padding: 0; 
+  }
+`}
+
+@define progress-range(val:75){
+--progress-6fb4d3f: @use(val);
+}
+
+@define circle-progress(sel:.progress-circle){`
+  
+  @use(sel){
+    position: relative;
+    width: var(--progress-size);
+    height: var(--progress-size);
+
+    /* centering inner text via flex */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* value label lives directly on the element */
+    font-family: 'Syne', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--progress-color-value);
+    letter-spacing: -0.03em;
+  }
+
+  /* ── ::before  →  conic-gradient arc track + progress ── */
+  .progress-circle::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+
+    /*
+      We build the arc with a conic-gradient:
+        • coloured slice  = progress %
+        • transparent gap = rest
+      Then punch a hole with a mask so only the ring shows.
+    */
+    background: conic-gradient(
+      var(--progress-color-arc) calc(var(--progress-6fb4d3f) * 1%),
+      var(--progress-color-track) 0%
+    );
+
+    /* rotate so arc starts at 12 o'clock */
+    transform: rotate(-90deg);
+
+    /* donut mask – inner radius = size − stroke */
+    --inner: calc(var(--progress-size) / 2 - var(--progress-stroke));
+    -webkit-mask: radial-gradient(
+      circle at center,
+      transparent calc(var(--inner) - 1px),
+      black       var(--inner)
+    );
+    mask: radial-gradient(
+      circle at center,
+      transparent calc(var(--inner) - 1px),
+      black       var(--inner)
+    );
+
+    /* subtle appear animation */
+    animation: progress-appear 0.5s ease both;
+  }
+
+  /* ── ::after  →  animated glowing sweep dot ── */
+  @use(sel)::after {
+    content: '';
+    position: absolute;
+    /* position the dot at the tip of the arc */
+    top: calc(var(--progress-stroke) / 2 - 5px);
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    margin-left: -5px;
+    border-radius: 50%;
+    background: var(--progress-color-arc);
+    box-shadow:
+      0 0 8px  4px var(--progress-color-glow),
+      0 0 20px 8px var(--progress-color-glow);
+
+    /* rotate around the circle center */
+    transform-origin: 50% calc(var(--progress-size) / 2 - var(--progress-stroke) / 2 + 5px);
+    transform: rotate(calc(var(--progress-6fb4d3f) * 3.6deg - 90deg));
+
+    /* pulse glow */
+    animation:
+      progress-pulse-dot 2s ease-in-out infinite,
+      appear 0.5s ease both;
+  }
+
+  /* ── animations ── */
+  @keyframes progress-appear {
+    from { opacity: 0; transform: scale(0.85); }
+    to   { opacity: 1; }
+  }
+
+  /* fix: ::after needs its own appear that keeps the rotation */
+  @use(sel)::after {
+    animation:
+      pulse-dot 2s ease-in-out infinite,
+      progress-fade-in 0.6s ease both;
+  }
+
+  @keyframes progress-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes progress-pulse-dot {
+    0%, 100% { box-shadow: 0 0 8px  4px var(--progress-color-glow), 0 0 20px  8px var(--progress-color-glow); }
+    50%       { box-shadow: 0 0 14px 8px var(--progress-color-glow), 0 0 36px 16px var(--progress-color-glow); }
+  }
+
+  /* ── interactive counter on hover ── */
+  @use(sel)[data-value]::before {
+    transition: background 0.6s ease;
+  }
+`}
