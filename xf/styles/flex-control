@@ -1,0 +1,117 @@
+/* =========================
+   FLEX CONTROL PLUGIN
+   ========================= */
+
+/* Base Flex */
+@define flex(){
+display: flex;
+}
+
+/* Center Everything */
+@define flex-center(){
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+/* Horizontal Center */
+@define flex-x(){
+display: flex;
+justify-content: center;
+}
+
+/* Vertical Center */
+@define flex-y(){
+display: flex;
+align-items: center;
+}
+
+/* Space Between */
+@define flex-between(){
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+/* Space Around */
+@define flex-around(){
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+
+/* Space Evenly */
+@define flex-even(){
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+}
+
+/* Flex Column */
+@define flex-col(){
+display: flex;
+flex-direction: column;
+}
+
+/* Column Center */
+@define flex-col-center(){
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+/* Row Center */
+@define flex-row-center(){
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+}
+
+/* Flex Wrap */
+@define flex-wrap(){
+display: flex;
+flex-wrap: wrap;
+}
+
+/* Wrap Center */
+@define flex-wrap-center(){
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+}
+
+/* Flex Start */
+@define flex-start(){
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+
+/* Flex End */
+@define flex-end(){
+display: flex;
+justify-content: flex-end;
+align-items: center;
+}
+
+/* Stretch */
+@define flex-stretch(){
+display: flex;
+align-items: stretch;
+}
+
+/* Gap Helper */
+@define flex-gap($size){
+display: flex;
+gap: $size;
+}
+
+/* Column Gap */
+@define flex-col-gap($size){
+display: flex;
+flex-direction: column;
+gap: $size;
+}
