@@ -2,7 +2,7 @@
    FLEX CONTROL PLUGIN
    ========================= */
 
-/* Base Flex */
+
 @define flex(){
 display: flex;
 }
