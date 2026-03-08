@@ -55,7 +55,7 @@ transition: --progress-6fb4d3f @use(time) ease;
   }
 
   /* ── ::before  →  conic-gradient arc track + progress ── */
-  .progress-circle::before {
+  @use(sel)::before {
     content: '';
     position: absolute;
     inset: 0;
