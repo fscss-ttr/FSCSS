@@ -218,7 +218,11 @@
 @icon-times()
 `}
 
-  @define icon(name){`
-  @icon-@use(name)()
-  `}
+@define icon(name, size:auto, color:auto){`
+@icon-@use(name)()
+.icon-@use(name){
+--f-icon-color:@use(color);
+%2(width, height[:var(--f-icon-size, @use(size));])
+}
+`}
 
