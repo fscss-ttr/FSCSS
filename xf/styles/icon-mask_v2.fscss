@@ -217,3 +217,8 @@
 @icon-menu()
 @icon-times()
 `}
+
+  @define icon(name){`
+  @icon-@use(name)()
+  `}
+
