@@ -46,7 +46,7 @@ $(@keyframes trans, .box, .card &[3s ease-in infinite]) {
 **Quick try**
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/fscss@1.1.13/exec.min.js" defer>
+<script src="https://cdn.jsdelivr.net/npm/fscss@1.1.16/exec.min.js" defer>
 </script>
 
 <style>
@@ -115,7 +115,7 @@ npm install fscss
 ```
 **CDN**
 ```html
-<script src="https://cdn.jsdelivr.net/npm/fscss@1.1.11/exec.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/fscss@1.1.16/exec.min.js" defer></script>
 ```
 Usage
 
@@ -188,7 +188,7 @@ Documentation includes:
 ### Compiler Options
 When using the JavaScript API:
 ```js
-import { exec } from "https://cdn.jsdelivr.net/npm/fscss@1.1.6/e/xfscss.min.js";
+import { exec } from "https://cdn.jsdelivr.net/npm/fscss@1.1.16/e/xfscss.min.js";
 
 new exec({
   type: "URL",      // Source type (URL, TEXT)
