@@ -219,11 +219,6 @@
 `}
 
 
-@define icon(name, size:$f-icon-size!, color:$f-icon-color!){`
+@define icon(name){`
 @icon-@use(name)()
-.icon-@use(name){
---f-icon-color: @use(color);
---f-icon-size: @use(size);
-}
 `}
-
