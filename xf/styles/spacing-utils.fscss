@@ -16,7 +16,15 @@
 .padding-@arr.padding[]{
   padding:@arr.padding[]px;
 }
+.padding-x-@arr.padding[]{
+padding-left:@arr.padding[]px;
+padding-right:@arr.padding[]px;
+}
 
+.padding-y-@arr.padding[]{
+padding-top:@arr.padding[]px;
+padding-bottom:@arr.padding[]px;
+}
 .padding-top-@arr.padding[]{
   padding-top:@arr.padding[]px;
 }
@@ -197,3 +205,4 @@ margin-inline-end:@arr.margin[]px;
 }
 
 `}
+
