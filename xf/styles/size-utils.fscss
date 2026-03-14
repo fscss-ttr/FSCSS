@@ -1,0 +1,44 @@
+@define size-util(){`
+
+@arr size[count(500)]
+
+/* zero */
+
+.width-0{width:0;}
+.height-0{height:0;}
+
+.min-width-0{min-width:0;}
+.max-width-0{max-width:0;}
+
+.min-height-0{min-height:0;}
+.max-height-0{max-height:0;}
+
+/* width */
+
+.width-@arr.size[]{
+  width:@arr.size[]px;
+}
+
+.min-width-@arr.size[]{
+  min-width:@arr.size[]px;
+}
+
+.max-width-@arr.size[]{
+  max-width:@arr.size[]px;
+}
+
+/* height */
+
+.height-@arr.size[]{
+  height:@arr.size[]px;
+}
+
+.min-height-@arr.size[]{
+  min-height:@arr.size[]px;
+}
+
+.max-height-@arr.size[]{
+  max-height:@arr.size[]px;
+}
+
+`}
