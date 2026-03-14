@@ -1,0 +1,70 @@
+@define grid-util(){`
+
+@arr grid[count(12)]
+@arr grid-gap[count(200)]
+
+/* base grid */
+
+.grid{
+  display:grid;
+}
+
+.inline-grid{
+  display:inline-grid;
+}
+
+/* columns */
+
+.grid-@arr.grid[]{
+  grid-template-columns: repeat(@arr.grid[], 1fr);
+}
+
+/* auto grid */
+
+.grid-auto{
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* alignment */
+
+.grid-center{
+  place-items:center;
+}
+
+.grid-start{
+  place-items:start;
+}
+
+.grid-end{
+  place-items:end;
+}
+
+/* column span */
+
+.col-@arr.grid[]{
+  grid-column: span @arr.grid[];
+}
+
+/* row span */
+
+.row-@arr.grid[]{
+  grid-row: span @arr.grid[];
+}
+
+/* gap utilities */
+
+.grid-gap-0{gap:0;}
+
+.grid-gap-@arr.grid-gap[]{
+  gap:@arr.grid-gap[]px;
+}
+
+.grid-row-gap-@arr.grid-gap[]{
+  row-gap:@arr.grid-gap[]px;
+}
+
+.grid-col-gap-@arr.grid-gap[]{
+  column-gap:@arr.grid-gap[]px;
+}
+
+`}
