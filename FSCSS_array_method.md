@@ -34,11 +34,15 @@ Example
 
 Access Modes
 
-Direct Output (Space Separated)
+Direct Output 
 
-```fscss
+```css
 @arr.name
-// Returns: item1 item2 item3
+// Returns: [item, item2, item3]
+```
+Example using with `@random`
+```css
+@random(@arr.name) 
 ```
 
 Method Access Mode
