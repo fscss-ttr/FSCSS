@@ -60,13 +60,6 @@ transition: --progress-6fb4d3f @use(time) ease;
     position: absolute;
     inset: 0;
     border-radius: 50%;
-
-    /*
-      We build the arc with a conic-gradient:
-        • coloured slice  = progress %
-        • transparent gap = rest
-      Then punch a hole with a mask so only the ring shows.
-    */
     background: conic-gradient(
       var(--progress-color-arc) calc(var(--progress-6fb4d3f) * 1%),
       var(--progress-color-track) 0%
