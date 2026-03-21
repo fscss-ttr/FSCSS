@@ -280,13 +280,13 @@ Responsive Helper
 
 ```fscss
 @define mobile(size) {
-  "
+  `
   @media (max-width: @use(size)) {
     .box {
       padding: 10px;
     }
   }
-  "
+  `
 }
 
 @mobile(768px)
