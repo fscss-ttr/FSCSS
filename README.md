@@ -188,7 +188,7 @@ Documentation includes:
 ### Compiler Options
 When using the JavaScript API:
 ```js
-import { exec } from "https://cdn.jsdelivr.net/npm/fscss@1.1.16/e/xfscss.min.js";
+import { exec } from "https://cdn.jsdelivr.net/npm/fscss@1.1.20/e/xfscss.min.js";
 
 new exec({
   type: "URL",      // Source type (URL, TEXT)
