@@ -1,3 +1,4 @@
+@define camelCase(){
 str(backgroundColor, "background-color")
 str(textAlign, "text-align")
 str(fontSize, "font-size")
@@ -306,3 +307,4 @@ str(insetBlockEnd, "inset-block-end")
 str(insetInlineStart, "inset-inline-start")
 str(insetInlineEnd, "inset-inline-end")
 str(colorMix, "color-mix")
+}
