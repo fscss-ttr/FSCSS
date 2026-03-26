@@ -1,4 +1,4 @@
-@define snark_case{
+@define snake_case{
 str(background_color, "background-color")
 str(text_align, "text-align")
 str(font_size, "font-size")
