@@ -159,7 +159,7 @@ top: calc(num(-@use(y)+100)% - 6px); %2(width, height[: @use(size);]) border-rad
 
 @define st-cat-bar-fill(st:.st-cat-bar-fill, range:0){`
 @use(st){
---st-cat-bar-fill-range: @use(range);
+--st-cat-bar-fill-range: @use(range)%;
 height: 100%;
 width: var(--st-cat-bar-fill-range);
 border-radius: 999px;
