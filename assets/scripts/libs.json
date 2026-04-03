@@ -1,0 +1,9 @@
+{
+  "remotes": [
+    "https://github.com/fscss-ttr/st-core.fscss",
+    "https://github.com/Figsh/Circle-progress.fscss",
+    "https://github.com/fscss-ttr/css_snake_case.fscss",
+    "https://github.com/Figsh/camelcase_css.fscss",
+    "https://github.com/Figsh/counterx.fscss"
+  ]
+}
