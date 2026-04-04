@@ -1,18 +1,17 @@
-@define icon-color(color: #6366f1 ){
-  --f-icon-color:@use(color);
+define icon-color(color: #6366f1){
+  --f-icon-color: @use(color);
 }
 
-@define icon-size(size:24px){
-  --f-icon-size:@use(size);
+@define icon-size(size: 24px){
+  --f-icon-size: @use(size);
 }
 
-@define icon-base(elem:.icon, size:24px){`
-@use(elem){
+@define icon-base(elem: .icon, size: 24px){`
+@use(elem) {
   display: inline-block;
   %2(width, height[:var(--f-icon-size, @use(size));])
   background-color: var(--f-icon-color, #6366f1);
   vertical-align: middle;
-  
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
@@ -217,7 +216,6 @@
 @icon-menu()
 @icon-times()
 `}
-
 
 @define icon(name){`
 @icon-@use(name)()
