@@ -159,15 +159,9 @@ Or import inside a style block:
 
 ---
 
-## Feedback Wanted
+## Get started 
 
-FSCSS is experimental — I’d love to hear from developers:
-
-Does this shorthand-first style improve readability?
-
-Would you try this for prototyping or animation-heavy projects?
-
-What features would make it production-ready?
+Start with our templates and remote library's https://fscss.devtem.org/libraries 
 
 ---
 
