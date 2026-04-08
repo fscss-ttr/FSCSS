@@ -4,10 +4,10 @@
 
 ## FSCSS (Figured Shorthand CSS)
 
-FSCSS is a shorthand CSS preprocessor that reduces boilerplate and adds powerful new syntax for rapid styling.
+FSCSS is a lightweight, modern CSS preprocessor that reduces boilerplate and adds powerful new syntax for rapid styling.
 Think of it as CSS with superpowers — arrays, functions, variables, randomness, shorthand repetition, and more.
 
-
+## main repository: https://github.com/Figsh/xfscss
 ---
 
 ### Example
@@ -46,7 +46,7 @@ $(@keyframes trans, .box, .card &[3s ease-in infinite]) {
 **Quick try**
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/fscss@1.1.20/exec.min.js" defer>
+<script src="https://cdn.jsdelivr.net/npm/fscss@1.1.24/exec.min.js" defer>
 </script>
 
 <style>
@@ -115,7 +115,7 @@ npm install fscss
 ```
 **CDN**
 ```html
-<script src="https://cdn.jsdelivr.net/npm/fscss@1.1.20/exec.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/fscss@1.1.24/exec.min.js" defer></script>
 ```
 Usage
 
@@ -182,7 +182,7 @@ Documentation includes:
 ### Compiler Options
 When using the JavaScript API:
 ```js
-import { exec } from "https://cdn.jsdelivr.net/npm/fscss@1.1.20/e/xfscss.min.js";
+import { exec } from "https://cdn.jsdelivr.net/npm/fscss@1.1.24/e/xfscss.min.js";
 
 new exec({
   type: "URL",      // Source type (URL, TEXT)
@@ -200,5 +200,5 @@ FSCSS is MIT licensed. See [LICENSE](https://github.com/figsh/xfscss/blob/main/L
 
 ---
 
-Figsh—**FSCSS**.
+**FSCSS**.
 Authored and maintained with ❤️ by developers for developers.
