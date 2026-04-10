@@ -1,12 +1,11 @@
 # Contributing to FSCSS
 
-Thank you for your interest in contributing to [FSCSS](https://www.npmjs.com/package/fscss) (Figured Shorthand Cascading Style Sheet) 
+Thank you for your interest in contributing to [FSCSS](https://www.npmjs.com/package/fscss) (Figured Shorthand Cascading Style Sheet).
 
-We welcome contributions from developers of all experience levels. Whether you're fixing bugs, improving documentation, building plugins, or proposing new features — your help is appreciated.
+**Core repository:** [https://github.com/Figsh/xfscss](https://github.com/Figsh/xfscss)  
+**Plugin ecosystem:** [https://github.com/fscss-ttr](https://github.com/fscss-ttr)  
+**Support the project:** [https://opencollective.com/fscss](https://opencollective.com/fscss)
 
-**Main repository:** [https://github.com/Figsh/xfscss](https://github.com/Figsh/xfscss)
-
-**Support the project: https://opencollective.com/fscss**
 ---
 
 ## Table of Contents
@@ -16,8 +15,8 @@ We welcome contributions from developers of all experience levels. Whether you'r
 - [Reporting Issues](#-reporting-issues)
 - [Suggesting Features](#-suggesting-features)
 - [Submitting Pull Requests](#-submitting-pull-requests)
-- [Plugin Contributions](#-plugin-contributions)
 - [Development Setup](#-development-setup)
+- [Plugin Guidelines](#-plugin-guidelines)
 - [Coding Guidelines](#-coding-guidelines)
 - [Documentation Contributions](#-documentation-contributions)
 - [FSCSS Philosophy](#-fscss-philosophy)
@@ -39,15 +38,16 @@ We aim to maintain a friendly and professional community.
 
 ## How to Contribute
 
-You can contribute by:
+The **fscss-ttr** org is the home of the FSCSS plugin ecosystem. Contributions here include:
 
-- Fixing bugs
-- Improving performance
-- Adding new features
-- Creating plugins
+- Building new plugins
+- Fixing bugs in existing plugins
+- Improving plugin performance
+- Adding or refining plugin-specific features
+- Writing examples, demos, and tutorials
 - Enhancing documentation
-- Writing examples and tutorials
-- Improving CLI functionality
+
+> Looking to contribute to the **core FSCSS engine**? Head over to [Figsh/xfscss](https://github.com/Figsh/xfscss) instead.
 
 ---
 
@@ -59,6 +59,7 @@ Before creating an issue:
 2. **Use** a clear and descriptive title.
 3. **Provide:**
    - FSCSS version
+   - Plugin name and version
    - Environment (Browser / Node / CLI)
    - Steps to reproduce
    - Expected behavior
@@ -74,7 +75,8 @@ When suggesting a feature:
 - Explain the problem it solves
 - Provide example usage
 - Describe how it fits into FSCSS philosophy
-- Mention if it's runtime-only or CLI-compatible
+- Mention if it's runtime-only, CLI-compatible, or both
+- Note whether it belongs in an existing plugin or warrants a new one
 
 ---
 
@@ -83,59 +85,45 @@ When suggesting a feature:
 1. **Fork** the repository
 2. **Create** a new branch
 ```bash
-   git checkout -b feature/your-feature-name
+git checkout -b feature/your-feature-name
 ```
+3. Make your changes
+4. Test thoroughly
+5. Commit clearly
+```bash
+git commit -m "feat: add new chart utility"
+```
+6. Push your branch
+```bash
+git push origin feature/your-feature-name
+```
+7. Open a Pull Request
 
-1. Make your changes
-2. Test thoroughly
-3. Commit clearly
-   ```bash
-   git commit -m "feat: add new gradient utility"
-   ```
-4. Push your branch
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-5. Open a Pull Request
+**PR Guidelines**
 
-PR Guidelines
-
-· Keep changes focused and modular
-· Do not mix unrelated fixes
-· Write clear commit messages
-· Update documentation when needed
-· Ensure backward compatibility when possible
-
----
-
-Plugin Contributions
-
-FSCSS supports modular plugins.
-
-When contributing a plugin:
-
-· Ensure safe execution
-· Keep it lightweight
-· Provide fallback values for variables
-· Document usage examples
-· Test across different environments
+- Keep changes focused and modular
+- Do not mix unrelated fixes
+- Write clear commit messages
+- Update documentation when needed
+- Ensure backward compatibility when possible
 
 ---
 
-Development Setup
+## Development Setup
 
-Runtime Testing (CDN)
+**Runtime Testing (CDN)**
 
-Include in your HTML:
+Include the FSCSS runtime in your HTML:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/fscss@latest/exec.min.js" defer></script>
 ```
 
-CLI Development
+Then load your plugin stylesheet as you would any `.fscss` file.
+
+**CLI Development**
 
 Install globally:
-
 
 ```bash
 npm install -g fscss
@@ -149,48 +137,60 @@ fscss input.fscss output.css
 
 ---
 
-Coding Guidelines
+## Plugin Guidelines
 
-· Keep the core engine lightweight
-· Avoid bloating with unnecessary features
-· Maintain shorthand philosophy
-· Follow consistent naming patterns
-· Ensure compatibility with both runtime and CLI modes
-· Write clean, readable code
-· Add comments for complex logic
+All plugins in the `fscss-ttr` ecosystem should follow these conventions:
+
+- **Lightweight** — Do one thing well, avoid bloat
+- **Safe** — No unsafe eval or side effects
+- **Documented** — Include a clear `README.md` with usage examples
+- **Prefixed** — Use a consistent macro prefix (e.g. `@st-`, `@icon-`, `@flex-`)
+- **Fallback-friendly** — Provide sensible defaults for all variables
+- **Compatible** — Test across both runtime (browser) and CLI environments
+
+Browse existing plugins in the [fscss-ttr](https://github.com/fscss-ttr) org for conventions and structure before starting a new one.
 
 ---
 
-Documentation Contributions
+## Coding Guidelines
 
-Documentation is as important as code.
+- Keep plugins lightweight and focused
+- Avoid bloating with unnecessary features
+- Maintain the shorthand philosophy
+- Follow consistent naming patterns
+- Ensure compatibility with both runtime and CLI modes
+- Write clean, readable code
+- Add comments for complex logic
 
-You can help by:
+---
 
-· Fixing grammar issues
-· Improving clarity
-· Adding examples
-· Writing tutorials
-· Creating plugin guides
+## Documentation Contributions
 
-Documentation Standards
+Documentation is as important as code. You can help by:
+
+- Fixing grammar or clarity issues
+- Adding usage examples
+- Writing tutorials or demo guides
+- Improving plugin READMEs
+
+**Documentation Standards**
 
 All documentation should be:
 
-· Clear — Easy to understand
-· Concise — No unnecessary fluff
-· Beginner-friendly — Accessible to new users
-· Consistent — Follows FSCSS style and terminology
+- **Clear** — Easy to understand
+- **Concise** — No unnecessary fluff
+- **Beginner-friendly** — Accessible to new users
+- **Consistent** — Follows FSCSS style and terminology
 
 ---
 
-FSCSS Philosophy
+## FSCSS Philosophy
 
-· Shorthand-first styling — Write less, do more
-· Modular architecture — Use what you need
-· Runtime + build-time support — Flexible deployment options
-· Minimal overhead — Lightweight and fast
-· Developer productivity focused — Make styling enjoyable
+- **Shorthand-first styling** — Write less, do more
+- **Modular architecture** — Use what you need
+- **Runtime + build-time support** — Flexible deployment options
+- **Minimal overhead** — Lightweight and fast
+- **Developer productivity focused** — Make styling enjoyable
 
 If your contribution aligns with this philosophy, you're on the right track.
 
