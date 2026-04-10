@@ -10,7 +10,7 @@ Thank you for your interest in contributing to [FSCSS](https://www.npmjs.com/pac
 
 ## Table of Contents
 
-- [Code of Conduct](#-code-of-conduct)
+- [Code of Conduct](#code-of-conduct)
 - [How to Contribute](#-how-to-contribute)
 - [Reporting Issues](#-reporting-issues)
 - [Suggesting Features](#-suggesting-features)
