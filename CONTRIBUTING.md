@@ -6,7 +6,7 @@ We welcome contributions from developers of all experience levels. Whether you'r
 
 **Main repository:** [https://github.com/Figsh/xfscss](https://github.com/Figsh/xfscss)
 
-**Support the cause! Contribute here: https://opencollective.com/fscss**
+**Support the project: https://opencollective.com/fscss**
 ---
 
 ## Table of Contents
