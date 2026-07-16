@@ -7,7 +7,7 @@
 FSCSS is a lightweight, modern CSS preprocessor that reduces boilerplate and adds powerful new syntax for rapid styling.
 Think of it as CSS with superpowers — arrays, functions, variables, randomness, shorthand repetition, and more.
 
-## main repository: https://github.com/Figsh/xfscss
+## FSCSS NPM repository: https://github.com/Figsh/xfscss
 ---
 
 ### Example
@@ -196,7 +196,7 @@ new exec({
 
 ## License
 
-FSCSS is MIT licensed. See [LICENSE](https://github.com/figsh/xfscss/blob/main/LICENSE) for details.
+FSCSS is MIT licensed.
 
 ---
 
