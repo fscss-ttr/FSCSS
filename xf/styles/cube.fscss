@@ -1,0 +1,310 @@
+/* ============================================
+   cube.fscss — 3D Cube Module
+   Prefix: cube-
+   Requires FSCSS v1.1.24+
+   ============================================ */
+
+/* ---- 0. Design Tokens ----*/
+@define cube-root(root:root){`
+:@use(root){
+  /* geometry */
+  --cube-size: 200px;
+  --cube-half: 100px;
+
+  /* materials */
+  --cube-bg: rgba(255,255,255,0.85);
+  --cube-border: #489;
+  --cube-text: #1a2a3a;
+
+  /* motion */
+  --cube-speed: 5s;
+
+  /* dice */
+  --cube-dot-color: #1a2a3a;
+  --cube-dot-size: 8px;
+}
+`}
+
+/* ---- 0b. Size Helper — call inside a cube selector to resize everything at once ---- */
+@define cube-size(size: 200px){
+  --cube-size: @use(size);
+  --cube-half: calc(@use(size) / 2);
+  --cube-dot-size: calc(@use(size) / 25);
+}
+
+/* ============================================
+   1. Structure
+   ============================================ */
+
+/* Full-viewport flex scene — useful for demos/wrappers */
+@define cube-scene(scene:.cube-scene) {`
+@use(scene) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 800px;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  background: #eef;
+}
+`}
+
+/* The 3D space the faces live in — apply your own animation/rotation on this element */
+@define cube-wrapper(wrapper:.cube-wrapper) {`
+@use(wrapper) {
+  width: var(--cube-size);
+  height: var(--cube-size);
+  position: relative;
+  transform-style: preserve-3d;
+}
+`}
+
+/* Generic face box — shared by all 6 faces */
+@define cube-face(face:.cube-face) {`
+@use(face) {
+  height: var(--cube-size);
+  width: var(--cube-size);
+  background: var(--cube-bg);
+  border: 2px solid var(--cube-border);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: calc(var(--cube-size) / 3);
+  font-weight: bolder;
+  color: var(--cube-text);
+  box-sizing: border-box;
+  backface-visibility: visible;
+}
+`}
+
+/* Optional inner wrapper — gives content micros a clean slate to animate independently of the face */
+@define cube-inner(inner:.cube-inner) {`
+@use(inner) {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+`}
+
+/* ---- 2. Face Positions ---- */
+@define cube-face-front(face:.cube-front) {`
+@use(face) { transform: translateZ(var(--cube-half)); }
+`}
+
+@define cube-face-back(face:.cube-back) {`
+@use(face) { transform: rotateY(180deg) translateZ(var(--cube-half)); }
+`}
+
+@define cube-face-top(face:.cube-top) {`
+@use(face) { transform: rotateX(90deg) translateZ(var(--cube-half)); }
+`}
+
+@define cube-face-bottom(face:.cube-bottom) {`
+@use(face) { transform: rotateX(-90deg) translateZ(var(--cube-half)); }
+`}
+
+@define cube-face-right(face:.cube-right) {`
+@use(face) { transform: rotateY(90deg) translateZ(var(--cube-half)); }
+`}
+
+@define cube-face-left(face:.cube-left) {`
+@use(face) { transform: rotateY(-90deg) translateZ(var(--cube-half)); }
+`}
+
+/* ============================================
+   3. Content Micros — animated face materials
+   Apply to a face or a .cube-inner child
+   ============================================ */
+
+/* Fire / lava — gradient text that pulses and floats */
+@define cube-micro-fire(target:.fire) {`
+@keyframes firePulse {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes fireFloat {
+  0%   { transform: translateY(0px) scale(1); filter: drop-shadow(0 0 10px #ff4e00); }
+  100% { transform: translateY(-6px) scale(1.08); filter: drop-shadow(0 0 25px #ff9900); }
+}
+
+@use(target) {
+  background: linear-gradient(45deg, #cc3300, #ff6600, #ffcc00, #ff6600, #cc3300);
+  background-size: 300% 300%;
+  -*-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: firePulse 2s ease-in-out infinite, fireFloat 1.5s ease-in-out infinite alternate;
+}
+`}
+
+/* Matrix / digital rain */
+@define cube-micro-matrix(target:.matrix) {`
+@keyframes matrixScroll {
+  0% { background-position: 0% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+@use(target) {
+  background: #001a00;
+  color: #00ff41;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  text-shadow: 0 0 10px #00ff41, 0 0 20px #00aa22;
+  border: 1px solid #00ff41;
+  box-shadow: inset 0 0 50px rgba(0, 255, 65, 0.2);
+  overflow: hidden;
+}
+
+@use(target)::before {
+  content: '01 10 11 00 10 01 11 00 01 10 11 00 10 01 11 00 01 10 11 00 10 01 11 00';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  font-size: 14px;
+  line-height: 1.8;
+  letter-spacing: 4px;
+  text-align: center;
+  color: #00ff41;
+  opacity: 0.15;
+  background: repeating-linear-gradient(0deg, #00ff41 0px, transparent 4px, #00ff41 8px);
+  background-size: 100% 20px;
+  animation: matrixScroll 4s linear infinite;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+@use(target) .inner-text {
+  position: relative;
+  z-index: 2;
+  font-size: 24px;
+  mix-blend-mode: difference;
+}
+`}
+
+/* Neon pulse — cyber glow border */
+@define cube-micro-neon(target:.neon) {`
+@keyframes neonPulse {
+  0% { border-color: #0ff; box-shadow: 0 0 10px #0ff, inset 0 0 10px #0ff; }
+  100% { border-color: #f0f; box-shadow: 0 0 30px #f0f, inset 0 0 30px #f0f; }
+}
+
+@use(target) {
+  background: #110022;
+  color: #fff;
+  border: 3px solid #0ff;
+  animation: neonPulse 1.2s ease-in-out infinite alternate;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+`}
+
+/* Floating particle — subtle bounce, works on any content */
+@define cube-micro-float(target:.float) {`
+@keyframes softFloat {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-12px) rotate(2deg); }
+}
+@use(target) {
+  animation: softFloat 2.5s ease-in-out infinite alternate;
+}
+`}
+
+/* Frosted glass */
+@define cube-micro-glass(target:.glass) {`
+@use(target) {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px) saturate(180%);
+  -*-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+}
+`}
+
+/* Holographic shifting gradient text */
+@define cube-micro-holo(target:.holo) {`
+@keyframes holoShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+@use(target) {
+  background: linear-gradient(115deg, #ff00cc, #3333ff, #00ffee, #ff00cc);
+  background-size: 400% 400%;
+  animation: holoShift 4s linear infinite;
+  -*-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
+}
+`}
+
+/* Glitch text */
+@define cube-micro-glitch(target:.glitch) {`
+@keyframes glitchShift {
+  0%, 100% { transform: translate(0,0); text-shadow: 2px 0 #ff0040, -2px 0 #00fff9; }
+  20% { transform: translate(-2px, 1px); }
+  40% { transform: translate(2px, -1px); }
+  60% { transform: translate(-1px, 2px); text-shadow: -2px 0 #ff0040, 2px 0 #00fff9; }
+  80% { transform: translate(1px, -2px); }
+}
+@use(target) {
+  background: #0a0a0a;
+  color: #fff;
+  font-weight: 900;
+  animation: glitchShift 1.8s steps(2, jump-none) infinite;
+}
+`}
+
+/* Dice pips — apply once, then add .dice-1 through .dice-6 to each face */
+@define cube-micro-dice(target:.dice) {`
+@use(target) { font-size: 0; background-color: #fefefe; }
+
+@use(target).dice-1 {
+  background-image: radial-gradient(circle var(--cube-dot-size) at 50% 50%, var(--cube-dot-color) 99%, transparent 100%);
+}
+@use(target).dice-2 {
+  background-image:
+    radial-gradient(circle var(--cube-dot-size) at 25% 25%, var(--cube-dot-color) 99%, transparent 100%),
+    radial-gradient(circle var(--cube-dot-size) at 75% 75%, var(--cube-dot-color) 99%, transparent 100%);
+}
+@use(target).dice-3 {
+  background-image:
+    radial-gradient(circle var(--cube-dot-size) at 25% 25%, var(--cube-dot-color) 99%, transparent 100%),
+    radial-gradient(circle var(--cube-dot-size) at 50% 50%, var(--cube-dot-color) 99%, transparent 100%),
+    radial-gradient(circle var(--cube-dot-size) at 75% 75%, var(--cube-dot-color) 99%, transparent 100%);
+}
+@use(target).dice-4 {
+  background-image:
+    radial-gradient(circle var(--cube-dot-size) at 25% 25%, var(--cube-dot-color) 99%, transparent 100%),
+    radial-gradient(circle var(--cube-dot-size) at 75% 25%, var(--cube-dot-color) 99%, transparent 100%),
+    radial-gradient(circle var(--cube-dot-size) at 25% 75%, var(--cube-dot-color) 99%, transparent 100%),
+    radial-gradient(circle var(--cube-dot-size) at 75% 75%, var(--cube-dot-color) 99%, transparent 100%);
+}
+@use(target).dice-5 {
+  background-image:
+    radial-gradient(circle var(--cube-dot-size) at 25% 25%, var(--cube-dot-color) 99%, transparent 100%),
+    radial-gradient(circle var(--cube-dot-size) at 75% 25%, var(--cube-dot-color) 99%, transparent 100%),
+    radial-gradient(circle var(--cube-dot-size) at 50% 50%, var(--cube-dot-color) 99%, transparent 100%),
+    radial-gradient(circle var(--cube-dot-size) at 25% 75%, var(--cube-dot-color) 99%, transparent 100%),
+    radial-gradient(circle var(--cube-dot-size) at 75% 75%, var(--cube-dot-color) 99%, transparent 100%);
+}
+@use(target).dice-6 {
+  background-image:
+    radial-gradient(circle var(--cube-dot-size) at 25% 20%, var(--cube-dot-color) 99%, transparent 100%),
+    radial-gradient(circle var(--cube-dot-size) at 75% 20%, var(--cube-dot-color) 99%, transparent 100%),
+    radial-gradient(circle var(--cube-dot-size) at 25% 50%, var(--cube-dot-color) 99%, transparent 100%),
+    radial-gradient(circle var(--cube-dot-size) at 75% 50%, var(--cube-dot-color) 99%, transparent 100%),
+    radial-gradient(circle var(--cube-dot-size) at 25% 80%, var(--cube-dot-color) 99%, transparent 100%),
+    radial-gradient(circle var(--cube-dot-size) at 75% 80%, var(--cube-dot-color) 99%, transparent 100%);
+}
+`}
