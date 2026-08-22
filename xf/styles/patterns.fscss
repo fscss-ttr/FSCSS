@@ -1,0 +1,186 @@
+@define pattern-root(sel:root){`
+:@use(sel){
+/* ========== Design Tokens ========== */
+--pattern-accent: #764ba2;
+--pattern-accent-light: #667eea;
+--pattern-accent-dark: #5a3d8a;
+--pattern-surface: #ffffff;
+--pattern-surface-soft: #f8f7fc;
+--pattern-text: #e2e0f0;
+--pattern-text-muted: #a89fc4;
+--pattern-text-on-accent: #ffffff;
+--pattern-radius-lg: 16px;
+--pattern-radius-md: 10px;
+--pattern-radius-sm: 6px;
+--pattern-shadow: 0 10px 30px rgba(0,0,0,0.25);
+--pattern-shadow-hover: 0 16px 40px rgba(0,0,0,0.35);
+--pattern-pad-lg: 28px;
+--pattern-pad-md: 12px 24px;
+--pattern-pad-sm: 8px 16px;
+--pattern-transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+--pattern-border-width: 2px;
+}
+`}
+
+@define patterns(thr:0.65){`
+
+/* ========== Cards ========== */
+pattern(@use(thr): "beautiful gradient hello world card", "
+border-radius: var(--pattern-radius-lg);
+padding: var(--pattern-pad-lg);
+background: linear-gradient(135deg, var(--pattern-accent-light), var(--pattern-accent));
+color: var(--pattern-text);
+box-shadow: var(--pattern-shadow);
+transition: var(--pattern-transition);
+")
+
+pattern(@use(thr): "soft elevated white card with subtle shadow", "
+background: var(--pattern-surface);
+border-radius: var(--pattern-radius-lg);
+padding: var(--pattern-pad-lg);
+box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+border: 1px solid rgba(0,0,0,0.04);
+")
+
+/* ========== Buttons ========== */
+pattern(@use(thr): "white background button with purple label", "
+border: none;
+border-radius: var(--pattern-radius-md);
+padding: var(--pattern-pad-md);
+background: var(--pattern-surface);
+color: var(--pattern-accent);
+font-weight: 600;
+cursor: pointer;
+transition: var(--pattern-transition);
+")
+
+pattern(@use(thr): "solid purple primary button with white label", "
+border: none;
+border-radius: var(--pattern-radius-md);
+padding: var(--pattern-pad-md);
+background: var(--pattern-accent);
+color: var(--pattern-text-on-accent);
+font-weight: 600;
+cursor: pointer;
+transition: var(--pattern-transition);
+")
+
+pattern(@use(thr): "ghost outline button with purple border", "
+background: transparent;
+border: 2px solid var(--pattern-accent);
+color: var(--pattern-accent);
+border-radius: var(--pattern-radius-md);
+padding: var(--pattern-pad-md);
+font-weight: 600;
+cursor: pointer;
+transition: var(--pattern-transition);
+")
+
+/* ========== Hover & Interactive Effects ========== */
+/* Each of these now includes its own &:hover rule, nested inside
+   the selector it is invoked from, so the effect is self-contained. */
+
+pattern(@use(thr): "lift up on hover with stronger shadow", "
+transition: var(--pattern-transition);
+&:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--pattern-shadow-hover);
+}
+")
+
+pattern(@use(thr): "scale slightly on hover", "
+transition: transform 0.2s ease;
+&:hover {
+  transform: scale(1.05);
+}
+")
+
+pattern(@use(thr): "glow purple on hover", "
+transition: box-shadow 0.3s ease;
+&:hover {
+  box-shadow: 0 0 20px rgba(118, 75, 162, 0.5);
+}
+")
+
+/* ========== Animations ========== */
+pattern(@use(thr): "smooth fade in animation from bottom", "
+animation: fadeInUp 0.6s ease forwards;
+")
+
+pattern(@use(thr): "gentle pulse attention animation", "
+animation: gentlePulse 2s ease-in-out infinite;
+")
+
+pattern(@use(thr): "spin loading animation", "
+animation: spin 1s linear infinite;
+")
+
+/* Keyframes (block patterns) */
+pattern(@use(thr): "fade in up keyframes", "
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+")
+
+pattern(@use(thr): "gentle pulse keyframes", "
+@keyframes gentlePulse {
+0%, 100% { transform: scale(1); opacity: 1; }
+50% { transform: scale(1.03); opacity: 0.9; }
+}
+")
+
+pattern(@use(thr): "spin keyframes for loader", "
+@keyframes spin {
+from { transform: rotate(0deg); }
+to { transform: rotate(360deg); }
+}
+")
+
+/* ========== Real UI Components ========== */
+pattern(@use(thr): "modern input field with soft focus ring", "
+border: 1.5px solid #e0dcec;
+border-radius: var(--pattern-radius-sm);
+padding: 12px 16px;
+background: var(--pattern-surface);
+color: #333;
+outline: none;
+transition: border-color 0.2s, box-shadow 0.2s;
+")
+
+pattern(@use(thr): "badge or tag with rounded pill shape", "
+display: inline-flex;
+align-items: center;
+padding: 4px 12px;
+border-radius: 999px;
+background: var(--pattern-accent-light);
+color: white;
+font-size: 0.8rem;
+font-weight: 600;
+")
+
+pattern(@use(thr): "glass morphism frosted glass effect", "
+background: rgba(255, 255, 255, 0.15);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border: 1px solid rgba(255, 255, 255, 0.2);
+border-radius: var(--pattern-radius-lg);
+")
+
+pattern(@use(thr): "dark elegant tooltip or popover", "
+background: #1a1a2e;
+color: #eee;
+padding: 10px 14px;
+border-radius: var(--pattern-radius-sm);
+box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+font-size: 0.875rem;
+")
+
+pattern(@use(thr): "border initial", "border: var(--pattern-border-width) solid;")
+`}
