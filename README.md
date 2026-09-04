@@ -9,6 +9,8 @@ Think of it as CSS with superpowers — arrays, functions, variables, randomness
 
 ## FSCSS NPM repository: https://github.com/Figsh/xfscss
 
+![FSCSS repo stats](https://raw.githubusercontent.com/Figsh/xfscss/refs/heads/main/docs/charts/repo-overview.svg) 
+
 ---
 
 ### Why FSCSS?
