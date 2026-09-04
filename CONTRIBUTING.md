@@ -5,7 +5,7 @@ Thank you for your interest in contributing to **FSCSS** (Figured Shorthand Casc
 | Role | Repository | Purpose |
 |------|------------|---------|
 | **Core engine** | [Figsh/xfscss](https://github.com/Figsh/xfscss) | Compiler, runtime, CLI, language features |
-| **Libraries / registry** | [fscss-ttr/FSCSS](https://github.com/fscss-ttr/FSCSS) | Plugin discovery (`libs.json`), docs site assets, named-import integration |
+| **Libraries / registry** | [fscss-ttr/FSCSS](https://github.com/fscss-ttr/FSCSS) | styling lib discovery (`libs.json`), docs site assets, named-import integration |
 | **Individual modules** | Various under [fscss-ttr](https://github.com/fscss-ttr) and community | Standalone `.fscss` packages |
 
 **Support the project:** [github.com/sponsors/Figsh](https://github.com/sponsors/Figsh) · [opencollective.com/fscss](https://opencollective.com/fscss)
@@ -20,7 +20,7 @@ Thank you for your interest in contributing to **FSCSS** (Figured Shorthand Casc
 - [Suggesting Features](#suggesting-features)
 - [Submitting Pull Requests](#submitting-pull-requests)
 - [Development Setup](#development-setup)
-- [Contributing Libraries / Plugins](#contributing-libraries--plugins)
+- [Contributing Libraries](#contributing-libraries)
 - [Coding Guidelines](#coding-guidelines)
 - [Documentation Contributions](#documentation-contributions)
 - [FSCSS Philosophy](#fscss-philosophy)
@@ -136,8 +136,6 @@ Maintainers review all PRs before merge. Please allow reasonable time for feedba
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/fscss@latest/runtime.min.js" defer></script>
-<!-- or the exec entry point used by many plugins -->
-<script src="https://cdn.jsdelivr.net/npm/fscss@latest/exec.min.js" defer></script>
 ```
 
 ### CLI
@@ -158,7 +156,7 @@ npm install
 
 ---
 
-## Contributing Libraries / Plugins
+## Contributing Libraries
 
 This is the recommended path for sharing a new `.fscss` module with the community.
 
