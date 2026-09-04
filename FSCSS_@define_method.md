@@ -212,7 +212,7 @@ Output
 Defines can be shared through external files.
 
 ```css
-@import(exec(./your_ui_components.fscss)) /*or plugins*/
+@import(exec(./your_ui_components.fscss)) 
 ```
 
 This enables reusable libraries such as:
@@ -310,7 +310,7 @@ Feature Benefit
 Reusable styles Reduce repetition
 Parameter support Flexible components
 Direct expansion Predictable output
-Plugin‑friendly Share define libraries
+Library‑friendly Share define libraries
 
 ---
 
