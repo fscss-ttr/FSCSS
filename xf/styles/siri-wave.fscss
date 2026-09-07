@@ -1,0 +1,125 @@
+/* siri-wave.fscss */
+
+@define siri-tokens(root:root){`
+  :@use(root){
+    /* Container */
+    --siri-wave-container-width: 100%;
+    --siri-wave-container-max-width: 560px;
+    --siri-wave-container-height: 160px;
+    --siri-wave-container-bg: #000;
+    --siri-wave-container-radius: 28px;
+
+    /* Baseline line */
+    --siri-wave-line-width: 88%;
+    --siri-wave-line-height: 1px;
+    --siri-wave-line-bg: rgba(255, 255, 255, 0.18);
+    --siri-wave-line-shadow: 0 0 6px rgba(255, 255, 255, 0.35);
+    --siri-wave-line-z: 1;
+
+    /* Shared blob */
+    --blob-radius: 50%;
+    --blob-filter: blur(10px);
+    --blob-blend: screen;
+    --blob-opacity: 0.9;
+    --blob-anim: siri-pulse 2.2s infinite ease-in-out alternate;
+    --blob-will-change: transform, opacity;
+
+    /* Individual blobs */
+    --blob-magenta-width: 78px;  --blob-magenta-height: 42px;  --blob-magenta-bg: #c42bff; --blob-magenta-left: 22%; --blob-magenta-delay: 0s;    --blob-magenta-duration: 1.9s;
+    --blob-cyan-width: 68px;     --blob-cyan-height: 38px;     --blob-cyan-bg: #00c2ff;    --blob-cyan-left: 30%;    --blob-cyan-delay: 0.25s; --blob-cyan-duration: 2.1s;
+    --blob-green-width: 90px;    --blob-green-height: 52px;    --blob-green-bg: #30d158;   --blob-green-left: 42%;   --blob-green-delay: 0.45s; --blob-green-duration: 2.3s;
+    --blob-purple-width: 72px;   --blob-purple-height: 40px;   --blob-purple-bg: #af52de;  --blob-purple-left: 55%;  --blob-purple-delay: 0.15s; --blob-purple-duration: 2.0s;
+    --blob-orange-width: 64px;   --blob-orange-height: 36px;   --blob-orange-bg: #ff375f;  --blob-orange-left: 64%;  --blob-orange-delay: 0.35s; --blob-orange-duration: 1.8s;
+    --blob-blue-width: 70px;     --blob-blue-height: 40px;     --blob-blue-bg: #0a84ff;    --blob-blue-left: 72%;    --blob-blue-delay: 0.55s; --blob-blue-duration: 2.4s;
+  }
+
+  @keyframes siri-pulse {
+    0%   { transform: scaleY(0.25) scaleX(0.75) translateX(-8px); opacity: 0.35; }
+    35%  { transform: scaleY(1.35) scaleX(1.15) translateX(4px);  opacity: 0.95; }
+    70%  { transform: scaleY(0.7)  scaleX(0.95) translateX(10px); opacity: 0.65; }
+    100% { transform: scaleY(0.45) scaleX(0.85) translateX(-4px); opacity: 0.5;  }
+  }
+`}
+
+
+@define siri-base(st:.siri-wave){`
+  @use(st), @use(st) *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+`}
+
+@define siri-wave(st:.siri-wave){`
+  @use(st){
+    position: relative;
+    width: var(--siri-wave-container-width, 100%);
+    max-width: var(--siri-wave-container-max-width, 520px);
+    height: var(--siri-wave-container-height, 140px);
+    background: var(--siri-wave-container-bg, #000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: var(--siri-wave-container-radius, 24px);
+  }
+`}
+
+
+@define siri-line(st:.siri-line){`
+  @use(st){
+    position: absolute;
+    width: var(--siri-wave-line-width, 88%);
+    height: var(--siri-wave-line-height, 1px);
+    background: var(--siri-wave-line-bg, rgba(255, 255, 255, 0.18));
+    box-shadow: var(--siri-wave-line-shadow, 0 0 6px rgba(255, 255, 255, 0.35));
+    z-index: var(--siri-wave-line-z, 1);
+  }
+`}
+
+
+@define siri-blob(st:.blob){`
+  @use(st){
+    position: absolute;
+    border-radius: var(--blob-radius, 50%);
+    filter: var(--blob-filter, blur(10px));
+    mix-blend-mode: var(--blob-blend, screen);
+    opacity: var(--blob-opacity, 0.9);
+    animation: var(--blob-anim, siri-pulse 2.2s infinite ease-in-out alternate);
+    will-change: var(--blob-will-change, transform, opacity);
+  }
+`}
+
+
+@define siri-blob-variant(st, color){`
+  @use(st){
+    width: var(--blob-@use(color)-width, 70px);
+    height: var(--blob-@use(color)-height, 40px);
+    background: var(--blob-@use(color)-bg, #fff);
+    left: var(--blob-@use(color)-left, 50%);
+    animation-delay: var(--blob-@use(color)-delay, 0s);
+    animation-duration: var(--blob-@use(color)-duration, 2s);
+  }
+`}
+
+
+@define siri-blob-colors(st:.blob){`
+  @arr siri-colors[magenta, cyan, green, purple, orange, blue]
+  @arr siri-colors-i[count(6,1)] 
+  
+  @siri-blob-variant(@use(st).@arr.siri-colors[@arr.siri-colors-i[]], @arr.siri-colors[@arr.siri-colors-i[]])
+  
+  @use(st){
+  /* Need a block to trigger the loop */
+  --siri-loop-index: @arr.siri-colors-i[];
+  }
+`}
+
+
+@define siri-wave-preset(st:.siri-wave){`
+  @siri-base(@use(st))
+  @siri-wave(@use(st))
+  @siri-line(@use(st) .siri-line)
+  @siri-blob(@use(st) .blob)
+  @siri-blob-colors(@use(st) .blob)
+`}
