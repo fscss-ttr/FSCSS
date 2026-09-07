@@ -76,7 +76,7 @@ Before opening an issue:
 
    - FSCSS version (e.g. `1.1.25`)
    - Environment (Browser / Node / CLI)
-   - Plugin name + version (if applicable)
+   - library name + version (if applicable)
    - Minimal steps to reproduce
    - Expected vs actual behavior
    - Relevant code snippets or a minimal `.fscss` file
@@ -91,7 +91,7 @@ Security issues must **not** be reported publicly. See [SECURITY.md](./SECURITY.
 - Provide concrete usage examples
 - Show how it fits the FSCSS philosophy (shorthand, lightweight, modular)
 - Note whether it is runtime-only, CLI-compatible, or both
-- For plugins: indicate whether it belongs in an existing library or needs a new one
+- For libraries: indicate whether it belongs in an existing library or needs a new one
 
 ---
 
