@@ -1,4 +1,4 @@
-@define snake_case{
+@define snake_case(){
 str(background_color, "background-color")
 str(text_align, "text-align")
 str(font_size, "font-size")
@@ -308,3 +308,4 @@ str(inset_inline_start, "inset-inline-start")
 str(inset_inline_end, "inset-inline-end")
 str(color_mix, "color-mix")
 }
+@snake_case()
