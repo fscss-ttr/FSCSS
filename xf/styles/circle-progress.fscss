@@ -1,95 +1,108 @@
+/* ═══════════════════════════════════════════════════════════════
+   circle-progress.fscss  ·  Circular UI module for FSCSS
+   Since FSCSS 1.1.15 (define)
+*/
+
 @define progress-root(root:root){`
-  :@use(root) {
-    --progress-size: 180px;
-    --progress-stroke: 14px;
-    --progress-6fb4d3f: 72; /* 0–100 */
-    --progress-color-bg: #0b0d12;
-    --progress-color-track: rgba(255,255,255,0.06);
-    --progress-color-arc: #00e5a0;
-    --progress-color-glow: rgba(0, 229, 160, 0.45);
-    --progress-color-label: #a0a8b8;
-    --progress-color-value: #f0f4ff;
-  }
+:@use(root) {
+  --progress-size: 180px;
+  --progress-stroke: 14px;
+  --progress-value: 72;              /* 0–100  (was --progress-6fb4d3f) */
+  --progress-color-bg: #0b0d12;
+  --progress-color-track: rgba(255,255,255,0.06);
+  --progress-color-arc: #00e5a0;
+  --progress-color-glow: rgba(0, 229, 160, 0.45);
+  --progress-color-label: #a0a8b8;
+  --progress-color-value: #f0f4ff;
+
+  /* multi / pie extras */
+  --progress-gap: 2%;
+  --progress-track-2: rgba(255,255,255,0.04);
+  --progress-arc-2: #4d9fff;
+  --progress-arc-3: #ffb830;
+  --progress-arc-4: #ff5070;
+}
+`}
+
+@define progress-root-compat(){`
+:root {
+  --progress-6fb4d3f: var(--progress-value);
+}
 `}
 
 @define reset-progress-page(){`
-*, *::before, *::after { 
-    box-sizing: border-box; margin: 0; padding: 0; 
-  }
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 `}
 
+
 @define progress-range(val:75){
---progress-6fb4d3f: @use(val);
+  --progress-value: @use(val);
+  --progress-6fb4d3f: @use(val);   /* back-compat */
 }
 
 @define progress-size(size){
---progress-size: @use(size);
+  --progress-size: @use(size);
 }
 
-@define progress-stroke(size:180px){
---progress-stroke: @use(size);
+@define progress-stroke(size:14px){
+  --progress-stroke: @use(size);
 }
 
 @define progress-animate(time:1s){
-transition: --progress-6fb4d3f @use(time) ease;
+  transition: --progress-value @use(time) ease;
+}
+
+@define progress-colors(arc, glow){
+  --progress-color-arc: @use(arc);
+  --progress-color-glow: @use(glow);
 }
 
 @define circle-progress(sel:.progress-circle){`
-  
-  @use(sel){
-    position: relative;
-    width: var(--progress-size);
-    height: var(--progress-size);
+@use(sel){
+  position: relative;
+  width: var(--progress-size);
+  height: var(--progress-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Syne', system-ui, sans-serif;
+  font-size: calc(var(--progress-size) * 0.2);
+  font-weight: 800;
+  color: var(--progress-color-value);
+  letter-spacing: -0.03em;
+}
 
-    /* centering inner text via flex */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@use(sel)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--progress-color-arc) calc(var(--progress-value) * 1%),
+    var(--progress-color-track) 0%
+  );
+  transform: rotate(-90deg);
+  --inner: calc(var(--progress-size) / 2 - var(--progress-stroke));
+  -webkit-mask: radial-gradient(
+    circle at center,
+    transparent calc(var(--inner) - 0.5px),
+    black var(--inner)
+  );
+  mask: radial-gradient(
+    circle at center,
+    transparent calc(var(--inner) - 0.5px),
+    black var(--inner)
+  );
+  animation: progress-appear 0.5s ease both;
+}
 
-    /* value label lives directly on the element */
-    font-family: 'Syne', sans-serif;
-    font-size: 36px;
-    font-weight: 800;
-    color: var(--progress-color-value);
-    letter-spacing: -0.03em;
-  }
-
-  /* ── ::before  →  conic-gradient arc track + progress ── */
-  @use(sel)::before {
-    content: '';
+@use(sel)::after {
+  content: '';
     position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    background: conic-gradient(
-      var(--progress-color-arc) calc(var(--progress-6fb4d3f) * 1%),
-      var(--progress-color-track) 0%
-    );
-
-    /* rotate so arc starts at 12 o'clock */
-    transform: rotate(-90deg);
-
-    /* donut mask – inner radius = size − stroke */
-    --inner: calc(var(--progress-size) / 2 - var(--progress-stroke));
-    -webkit-mask: radial-gradient(
-      circle at center,
-      transparent calc(var(--inner) - 1px),
-      black       var(--inner)
-    );
-    mask: radial-gradient(
-      circle at center,
-      transparent calc(var(--inner) - 1px),
-      black       var(--inner)
-    );
-
-    /* subtle appear animation */
-    animation: progress-appear 0.5s ease both;
-  }
-
-  /* ── ::after  →  animated glowing sweep dot ── */
-  @use(sel)::after {
-    content: '';
-    position: absolute;
-    /* position the dot at the tip of the arc */
     top: calc(var(--progress-stroke) / 2 - 5px);
     left: 50%;
     width: 10px;
@@ -101,41 +114,207 @@ transition: --progress-6fb4d3f @use(time) ease;
       0 0 8px  4px var(--progress-color-glow),
       0 0 20px 8px var(--progress-color-glow);
 
-    /* rotate around the circle center */
     transform-origin: 50% calc(var(--progress-size) / 2 - var(--progress-stroke) / 2 + 5px);
     transform: rotate(calc(var(--progress-6fb4d3f) * 3.6deg - 90deg));
+}
 
-    /* pulse glow */
-    animation:
-      progress-pulse-dot 2s ease-in-out infinite,
-      appear 0.5s ease both;
+@keyframes progress-appear {
+  from { opacity: 0; transform: rotate(-90deg) scale(0.85); }
+  to   { opacity: 1; transform: rotate(-90deg) scale(1); }
+}
+@keyframes progress-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes progress-pulse-dot {
+  0%, 100% {
+    box-shadow: 0 0 8px 4px var(--progress-color-glow), 0 0 20px 8px var(--progress-color-glow);
   }
-
-  /* ── animations ── */
-  @keyframes progress-appear {
-    from { opacity: 0; transform: scale(0.85); }
-    to   { opacity: 1; }
+  50% {
+    box-shadow: 0 0 14px 8px var(--progress-color-glow), 0 0 36px 16px var(--progress-color-glow);
   }
-
-  /* fix: ::after needs its own appear that keeps the rotation */
-  @use(sel)::after {
-    animation:
-      pulse-dot 2s ease-in-out infinite,
-      progress-fade-in 0.6s ease both;
-  }
-
-  @keyframes progress-fade-in {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-
-  @keyframes progress-pulse-dot {
-    0%, 100% { box-shadow: 0 0 8px  4px var(--progress-color-glow), 0 0 20px  8px var(--progress-color-glow); }
-    50%       { box-shadow: 0 0 14px 8px var(--progress-color-glow), 0 0 36px 16px var(--progress-color-glow); }
-  }
-
-  /* ── interactive counter on hover ── */
-  @use(sel)[data-value]::before {
-    transition: background 0.6s ease;
-  }
+}
 `}
+
+
+@define circle-pie(sel:.circle-pie){`
+@use(sel){
+  position: relative;
+  width: var(--progress-size);
+  height: var(--progress-size);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Syne', system-ui, sans-serif;
+  font-size: calc(var(--progress-size) * 0.18);
+  font-weight: 700;
+  color: var(--progress-color-value);
+  background: conic-gradient(
+    var(--progress-color-arc) calc(var(--progress-value) * 1%),
+    var(--progress-color-track) 0%
+  );
+  /* optional subtle ring */
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+}
+`}
+
+@define circle-pie-multi(sel:.circle-pie-multi){`
+@use(sel){
+  position: relative;
+  width: var(--progress-size);
+  height: var(--progress-size);
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--progress-color-arc) 0% calc(var(--pie-a, 25) * 1%),
+    var(--progress-arc-2)     calc(var(--pie-a, 25) * 1%) calc((var(--pie-a, 25) + var(--pie-b, 25)) * 1%),
+    var(--progress-arc-3)     calc((var(--pie-a, 25) + var(--pie-b, 25)) * 1%) calc((var(--pie-a, 25) + var(--pie-b, 25) + var(--pie-c, 25)) * 1%),
+    var(--progress-arc-4)     calc((var(--pie-a, 25) + var(--pie-b, 25) + var(--pie-c, 25)) * 1%) calc((var(--pie-a, 25) + var(--pie-b, 25) + var(--pie-c, 25) + var(--pie-d, 25)) * 1%),
+    var(--progress-color-track) 0%
+  );
+}
+`}
+
+@define circle-multi(sel:.circle-multi){`
+@use(sel){
+  position: relative;
+  width: var(--progress-size);
+  height: var(--progress-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Syne', system-ui, sans-serif;
+  font-weight: 800;
+  color: var(--progress-color-value);
+  font-size: calc(var(--progress-size) * 0.14);
+}
+
+/* outer track */
+@use(sel)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--progress-color-arc) calc(var(--mt-1, var(--progress-value)) * 1%),
+    var(--progress-color-track) 0%
+  );
+  transform: rotate(-90deg);
+  --outer-inner: calc(var(--progress-size) / 2 - var(--progress-stroke));
+  -webkit-mask: radial-gradient(circle at center, transparent calc(var(--outer-inner) - 0.5px), black var(--outer-inner));
+  mask: radial-gradient(circle at center, transparent calc(var(--outer-inner) - 0.5px), black var(--outer-inner));
+}
+
+/* middle track via background layer on element itself */
+@use(sel){
+  background: conic-gradient(
+    from -90deg,
+    var(--progress-arc-2) calc(var(--mt-2, 50) * 1%),
+    var(--progress-track-2) 0%
+  );
+  --mid-hole: calc(var(--progress-size) / 2 - var(--progress-stroke) * 2.4);
+  -webkit-mask:
+    radial-gradient(circle at center, transparent calc(var(--mid-hole) - 0.5px), black var(--mid-hole)),
+    radial-gradient(circle at center, black calc(var(--progress-size) / 2 - var(--progress-stroke) * 1.3), transparent calc(var(--progress-size) / 2 - var(--progress-stroke) * 1.3));
+  -webkit-mask-composite: source-in;
+  mask:
+    radial-gradient(circle at center, transparent calc(var(--mid-hole) - 0.5px), black var(--mid-hole));
+}
+`}
+
+
+@define circle-steps(sel:.circle-steps){`
+@use(sel){
+  position: relative;
+  width: var(--progress-size);
+  height: var(--progress-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Syne', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: calc(var(--progress-size) * 0.16);
+  color: var(--progress-color-value);
+  --steps-total: 8;
+  --steps-done: 5;
+  --seg: calc(100% / var(--steps-total));
+  --gap: var(--progress-gap, 2%);
+}
+
+@use(sel)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  /* filled portion + track; gaps via hard stops approximation */
+  background: conic-gradient(
+    from -90deg,
+    var(--progress-color-arc) 0 calc(var(--steps-done) * var(--seg) - var(--gap)),
+    transparent calc(var(--steps-done) * var(--seg) - var(--gap)) calc(var(--steps-done) * var(--seg)),
+    var(--progress-color-track) calc(var(--steps-done) * var(--seg)) 100%
+  );
+  --inner: calc(var(--progress-size) / 2 - var(--progress-stroke));
+  -webkit-mask: radial-gradient(circle at center, transparent calc(var(--inner) - 0.5px), black var(--inner));
+  mask: radial-gradient(circle at center, transparent calc(var(--inner) - 0.5px), black var(--inner));
+}
+`}
+
+@define steps-done(n:5){
+  --steps-done: @use(n);
+}
+@define steps-total(n:8){
+  --steps-total: @use(n);
+}
+
+
+@define circle-bars-host(sel:.circle-bars){`
+@use(sel){
+  position: relative;
+  width: var(--progress-size);
+  height: var(--progress-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+@use(sel) > span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--progress-stroke);
+  height: calc(var(--progress-size) * 0.22);
+  margin-left: calc(var(--progress-stroke) / -2);
+  margin-top: calc(var(--progress-size) * -0.5);
+  transform-origin: 50% calc(var(--progress-size) / 2);
+  background: var(--progress-color-track);
+  border-radius: 999px;
+}
+@use(sel) > span.is-on {
+  background: var(--progress-color-arc);
+  box-shadow: 0 0 8px var(--progress-color-glow);
+}
+`}
+
+
+@define progress-theme-mint(){
+  --progress-color-arc: #00e5a0;
+  --progress-color-glow: rgba(0, 229, 160, 0.45);
+}
+@define progress-theme-blue(){
+  --progress-color-arc: #4d9fff;
+  --progress-color-glow: rgba(77, 159, 255, 0.45);
+}
+@define progress-theme-amber(){
+  --progress-color-arc: #ffb830;
+  --progress-color-glow: rgba(255, 184, 48, 0.4);
+}
+@define progress-theme-rose(){
+  --progress-color-arc: #ff5070;
+  --progress-color-glow: rgba(255, 80, 112, 0.4);
+}
+@define progress-theme-violet(){
+  --progress-color-arc: #9d7eff;
+  --progress-color-glow: rgba(157, 126, 255, 0.45);
+}
+
+
