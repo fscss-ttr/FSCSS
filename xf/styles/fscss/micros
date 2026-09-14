@@ -1,0 +1,36 @@
+/* ═════════════════════════
+   micros.fscss
+   ═════════════════════════ */
+
+
+@define mirror(data, idx){
+  @arr @use(idx)[count(@arr.@use(data)!.length)]
+}
+
+
+@define scoped-reset(st){`
+@use(st),
+@use(st) * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+`}
+
+
+@define stagger(idx, step:0.2){
+  num(@use(idx) * @use(step))s
+}
+
+@define stagger-items(sel:.item-, idxArr, step:0.2){`
+empty{
+  /* preserve */
+}
+@use(sel)@arr.@use(idxArr)[] {
+  animation-delay: num(@arr.@use(idxArr)[] * @use(step))s;
+}
+`}
+
+@define alpha(color, amt:35%){
+  color-mix(in srgb, @use(color) @use(amt), transparent)
+}
