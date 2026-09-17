@@ -13,17 +13,27 @@ Think of it as CSS with superpowers — arrays, functions, variables, randomness
 
 ---
 
+## FSCSS Modern Remote Module Protocol
+
+The Modern Remote Module Protocol is a core design choice built directly into the FSCSS compiler. Instead of forcing developers to download package archives via node modules just to write a styling prototype, the FSCSS engine resolves imports over the air on-demand.
+
+**Files:** [xf/styles](/xf/styles)
+
+**Repositories:** [/assets/scripts/libs.json](/assets/scripts/libs.json)
+
+---
+
 ### Why FSCSS?
 
 - FSCSS takes a shorthand approach:
 
-- Less boilerplate → shorter files
+- Less boilerplate: shorter files
 
-- Array + function logic → more expressive
+- Array + function logic: more expressive
 
-- Built-in randomness & numeric ops → great for dynamic UIs
+- Built-in randomness & numeric ops: great for dynamic UIs
 
-- Vendor prefixing → no need for autoprefixer
+- Vendor prefixing: no need for autoprefixer
 
 - Designed for dynamic content, 3D animations, and complex prototypes
 
