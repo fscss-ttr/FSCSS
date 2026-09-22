@@ -45,6 +45,26 @@ The Modern Remote Module Protocol is a core design choice built directly into th
 
 Start with our templates and remote library's https://fscss.devtem.org/libraries 
 
+**version 1.2.4+ pattern**
+<br/>Define:
+```css
+pattern(0.6: "rounded primary button with color: white, bg: red", `
+background: @match(background:?\s([#\w\d-_]+)) @match(bg:?\s([#\w\d-_]+));
+color: @match(color:?\s([#\w\d-_]+)) @match(text:?\s([#\w\d-_]+));
+border-radius: 25px;
+padding: 10px 20px;
+border: 2px solid;
+font-weight: 700;
+`)
+```
+<br/>Then use:
+```css
+.primary {
+  rounded primary button with color: #0BCEAE, background: midnightblue
+}
+```
+https://fscss.devtem.org/pattern
+
 ---
 
 
