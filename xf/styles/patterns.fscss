@@ -1,214 +1,384 @@
-/* patterns.fscss — demo library (FSCSS 1.2.4+)
-   Custom values: --_x: @match(...);  property: var(--_x, var(--pattern-token));
-   Never: property: @match(...) var(--token);
-   https://github.com/fscss-ttr/patterns.fscss
+/* patterns.fscss - demo library (FSCSS 1.2.4+)
 */
 
 @define pattern-root(sel:root){`
 :@use(sel) {
-  --pattern-accent: #764ba2;
-  --pattern-accent-light: #667eea;
-  --pattern-accent-dark: #5a3d8a;
-  --pattern-surface: #ffffff;
-  --pattern-surface-soft: #f8f7fc;
-  --pattern-text: #e2e0f0;
-  --pattern-text-muted: #a89fc4;
-  --pattern-text-on-accent: #ffffff;
-  --pattern-radius-lg: 16px;
-  --pattern-radius-md: 10px;
-  --pattern-radius-sm: 6px;
-  --pattern-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  --pattern-shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.35);
-  --pattern-pad-lg: 28px;
-  --pattern-pad-md: 12px 24px;
-  --pattern-pad-sm: 8px 16px;
-  --pattern-transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  --pattern-border-width: 2px;
+--pattern-accent: #764ba2;
+--pattern-accent-light: #667eea;
+--pattern-accent-dark: #5a3d8a;
+--pattern-surface: #ffffff;
+--pattern-surface-soft: #f8f7fc;
+--pattern-text: #e2e0f0;
+--pattern-text-muted: #a89fc4;
+--pattern-text-on-accent: #ffffff;
+--pattern-radius-lg: 16px;
+--pattern-radius-md: 10px;
+--pattern-radius-sm: 6px;
+--pattern-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+--pattern-shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.35);
+--pattern-pad-lg: 28px;
+--pattern-pad-md: 12px 24px;
+--pattern-pad-sm: 8px 16px;
+--pattern-transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+--pattern-border-width: 2px;
 }
 `}
 
 @define patterns(thr:0.65){`
 
 
-pattern(@use(thr): "beautiful gradient hello world card", "
-  --_from: @match(from:\s*([#\w(),.%-]+));
-  --_to: @match(to:\s*([#\w(),.%-]+));
-  --_color: @match((?:color|text):\s*([#\w()-]+));
-  border-radius: var(--pattern-radius-lg);
-  padding: var(--pattern-pad-lg);
-  background: linear-gradient(
-    135deg,
-    var(--_from, var(--pattern-accent-light)),
-    var(--_to, var(--pattern-accent))
-  );
-  color: var(--_color, var(--pattern-text));
-  box-shadow: var(--pattern-shadow);
-  transition: var(--pattern-transition);
+pattern(@use(thr): "vibrant two tone gradient card", "
+--_from: @match(from:\s*([#\w(),.%-]+));
+--_to: @match(to:\s*([#\w(),.%-]+));
+--_color: @match((?:color|text):\s*([#\w()-]+));
+border-radius: var(--pattern-radius-lg);
+padding: var(--pattern-pad-lg);
+background: linear-gradient(
+135deg,
+var(--_from, var(--pattern-accent-light)),
+var(--_to, var(--pattern-accent))
+);
+color: var(--_color, var(--pattern-text));
+box-shadow: var(--pattern-shadow);
+transition: var(--pattern-transition);
 ")
 
-pattern(@use(thr): "soft elevated white card with subtle shadow", "
-  --_bg: @match((?:bg|background):\s*([#\w()-]+));
-  --_radius: @match(radius:\s*([\d.]+(?:px|rem|em)?));
-  background: var(--_bg, var(--pattern-surface));
-  border-radius: var(--_radius, var(--pattern-radius-lg));
-  padding: var(--pattern-pad-lg);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+pattern(@use(thr): "soft elevated surface card with subtle shadow", "
+--_bg: @match((?:bg|background):\s*([#\w()-]+));
+--_radius: @match(radius:\s*([\d.]+(?:px|rem|em)?));
+background: var(--_bg, var(--pattern-surface));
+border-radius: var(--_radius, var(--pattern-radius-lg));
+padding: var(--pattern-pad-lg);
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+border: 1px solid rgba(0, 0, 0, 0.04);
 ")
 
-pattern(@use(thr): "white background button with purple label", "
-  --_bg: @match((?:bg|background):\s*([#\w()-]+));
-  --_fg: @match((?:color|label|text):\s*([#\w()-]+));
-  border: none;
-  border-radius: var(--pattern-radius-md);
-  padding: var(--pattern-pad-md);
-  background: var(--_bg, var(--pattern-surface));
-  color: var(--_fg, var(--pattern-accent));
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--pattern-transition);
+
+pattern(@use(thr): "surface button with accent label", "
+--_bg: @match((?:bg|background):\s*([#\w()-]+));
+--_fg: @match((?:color|label|text):\s*([#\w()-]+));
+border: none;
+border-radius: var(--pattern-radius-md);
+padding: var(--pattern-pad-md);
+background: var(--_bg, var(--pattern-surface));
+color: var(--_fg, var(--pattern-accent));
+font-weight: 600;
+cursor: pointer;
+transition: var(--pattern-transition);
 ")
 
-pattern(@use(thr): "solid purple primary button with white label", "
-  --_bg: @match((?:bg|background):\s*([#\w()-]+));
-  --_fg: @match((?:color|label|text):\s*([#\w()-]+));
-  border: none;
-  border-radius: var(--pattern-radius-md);
-  padding: var(--pattern-pad-md);
-  background: var(--_bg, var(--pattern-accent));
-  color: var(--_fg, var(--pattern-text-on-accent));
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--pattern-transition);
+pattern(@use(thr): "solid filled primary button", "
+--_bg: @match((?:bg|background):\s*([#\w()-]+));
+--_fg: @match((?:color|label|text):\s*([#\w()-]+));
+border: none;
+border-radius: var(--pattern-radius-md);
+padding: var(--pattern-pad-md);
+background: var(--_bg, var(--pattern-accent));
+color: var(--_fg, var(--pattern-text-on-accent));
+font-weight: 600;
+cursor: pointer;
+transition: var(--pattern-transition);
 ")
 
-pattern(@use(thr): "ghost outline button with purple border", "
-  --_border: @match(border:\s*([#\w()-]+));
-  --_fg: @match((?:color|text):\s*([#\w()-]+));
-  background: transparent;
-  border: 2px solid var(--_border, var(--pattern-accent));
-  color: var(--_fg, var(--pattern-accent));
-  border-radius: var(--pattern-radius-md);
-  padding: var(--pattern-pad-md);
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--pattern-transition);
+pattern(@use(thr): "ghost outline button with accent border", "
+--_border: @match(border:\s*([#\w()-]+));
+--_fg: @match((?:color|text):\s*([#\w()-]+));
+background: transparent;
+border: 2px solid var(--_border, var(--pattern-accent));
+color: var(--_fg, var(--pattern-accent));
+border-radius: var(--pattern-radius-md);
+padding: var(--pattern-pad-md);
+font-weight: 600;
+cursor: pointer;
+transition: var(--pattern-transition);
 ")
 
 
 pattern(@use(thr): "lift up on hover with stronger shadow", "
-  --_lift: @match(lift:\s*(-?[\d.]+(?:px|rem)?));
-  transition: var(--pattern-transition);
-  &:hover {
-    transform: translateY(var(--_lift, -4px));
-    box-shadow: var(--pattern-shadow-hover);
-  }
+--_lift: @match(lift:\s*(-?[\d.]+(?:px|rem)?));
+transition: var(--pattern-transition);
+&:hover {
+transform: translateY(var(--_lift, -4px));
+box-shadow: var(--pattern-shadow-hover);
+}
 ")
 
 pattern(@use(thr): "scale slightly on hover", "
-  --_scale: @match(scale:\s*([\d.]+));
-  transition: transform 0.2s ease;
-  &:hover {
-    transform: scale(var(--_scale, 1.05));
-  }
+--_scale: @match(scale:\s*([\d.]+));
+transition: transform 0.2s ease;
+&:hover {
+transform: scale(var(--_scale, 1.05));
+}
 ")
 
-pattern(@use(thr): "glow purple on hover", "
-  --_glow: @match((?:glow|color):\s*([#\w(),.%\s-]+));
-  transition: box-shadow 0.3s ease;
-  &:hover {
-    box-shadow: 0 0 20px var(--_glow, rgba(118, 75, 162, 0.5));
-  }
+pattern(@use(thr): "glow accent color on hover", "
+--_glow: @match((?:glow|color):\s*([#\w(),.%\s-]+));
+transition: box-shadow 0.3s ease;
+&:hover {
+box-shadow: 0 0 20px var(--_glow, rgba(118, 75, 162, 0.5));
+}
 ")
 
 
 pattern(@use(thr): "smooth fade in animation from bottom", "
-  --_dur: @match((?:duration|time):\s*([\d.]+s?));
-  animation: fadeInUp var(--_dur, 0.6s) ease forwards;
+--_dur: @match((?:duration|time):\s*([\d.]+s?));
+animation: patternFadeInUp var(--_dur, 0.6s) ease forwards;
 ")
 
 pattern(@use(thr): "gentle pulse attention animation", "
-  --_dur: @match((?:duration|time):\s*([\d.]+s?));
-  animation: gentlePulse var(--_dur, 2s) ease-in-out infinite;
+--_dur: @match((?:duration|time):\s*([\d.]+s?));
+animation: patternPulse var(--_dur, 2s) ease-in-out infinite;
 ")
 
 pattern(@use(thr): "spin loading animation", "
-  --_dur: @match((?:duration|time):\s*([\d.]+s?));
-  animation: spin var(--_dur, 1s) linear infinite;
+--_dur: @match((?:duration|time):\s*([\d.]+s?));
+animation: patternSpin var(--_dur, 1s) linear infinite;
 ")
 
 pattern(@use(thr): "fade in up keyframes", "
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+@keyframes patternFadeInUp {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
 }
 ")
 
 pattern(@use(thr): "gentle pulse keyframes", "
-@keyframes gentlePulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50%      { transform: scale(1.03); opacity: 0.9; }
+@keyframes patternPulse {
+0%, 100% { transform: scale(1); opacity: 1; }
+50% { transform: scale(1.03); opacity: 0.9; }
 }
 ")
 
 pattern(@use(thr): "spin keyframes for loader", "
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+@keyframes patternSpin {
+from { transform: rotate(0deg); }
+to { transform: rotate(360deg); }
+}
+")
+
+pattern(@use(thr): "shimmer keyframes for skeleton loader", "
+@keyframes patternShimmer {
+0% { background-position: -200px 0; }
+100% { background-position: calc(200px + 100%) 0; }
 }
 ")
 
 
+
+pattern(@use(thr): "centered max width container with side padding", "
+--_maxw: @match(max(?:width)?:\s*([\d.]+(?:px|rem|%)?));
+--_pad: @match(pad(?:ding)?:\s*([\d.]+(?:px|rem)?));
+width: 100%;
+max-width: var(--_maxw, 1200px);
+margin-inline: auto;
+padding-inline: var(--_pad, 20px);
+")
+
+pattern(@use(thr): "responsive auto fit grid layout", "
+--_min: @match(min(?:width)?:\s*([\d.]+(?:px|rem)?));
+--_gap: @match(gap:\s*([\d.]+(?:px|rem)?));
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(var(--_min, 220px), 1fr));
+gap: var(--_gap, 20px);
+")
+
+pattern(@use(thr): "sticky translucent header bar with blur", "
+--_bg: @match((?:bg|background):\s*([#\w(),.%\s-]+));
+position: sticky;
+top: 0;
+z-index: 100;
+background: var(--_bg, rgba(255, 255, 255, 0.8));
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+")
+
+pattern(@use(thr): "subtle horizontal divider line", "
+--_color: @match(color:\s*([#\w()-]+));
+--_gap: @match((?:gap|margin):\s*([\d.]+(?:px|rem)?));
+border: none;
+border-top: 1px solid var(--_color, rgba(0, 0, 0, 0.08));
+margin-block: var(--_gap, 20px);
+")
+
+
 pattern(@use(thr): "modern input field with soft focus ring", "
-  --_border: @match(border:\s*([#\w()-]+));
-  --_bg: @match((?:bg|background):\s*([#\w()-]+));
-  --_fg: @match(color:\s*([#\w()-]+));
-  border: 1.5px solid var(--_border, #e0dcec);
-  border-radius: var(--pattern-radius-sm);
-  padding: 12px 16px;
-  background: var(--_bg, var(--pattern-surface));
-  color: var(--_fg, #333);
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
+--_border: @match(border:\s*([#\w()-]+));
+--_bg: @match((?:bg|background):\s*([#\w()-]+));
+--_fg: @match(color:\s*([#\w()-]+));
+border: 1.5px solid var(--_border, #e0dcec);
+border-radius: var(--pattern-radius-sm);
+padding: 12px 16px;
+background: var(--_bg, var(--pattern-surface));
+color: var(--_fg, #333);
+outline: none;
+transition: border-color 0.2s, box-shadow 0.2s;
 ")
 
 pattern(@use(thr): "badge or tag with rounded pill shape", "
-  --_bg: @match((?:bg|background):\s*([#\w()-]+));
-  --_fg: @match((?:color|text):\s*([#\w()-]+));
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 12px;
-  border-radius: 999px;
-  background: var(--_bg, var(--pattern-accent-light));
-  color: var(--_fg, white);
-  font-size: 0.8rem;
-  font-weight: 600;
+--_bg: @match((?:bg|background):\s*([#\w()-]+));
+--_fg: @match((?:color|text):\s*([#\w()-]+));
+display: inline-flex;
+align-items: center;
+padding: 4px 12px;
+border-radius: 999px;
+background: var(--_bg, var(--pattern-accent-light));
+color: var(--_fg, white);
+font-size: 0.8rem;
+font-weight: 600;
 ")
 
 pattern(@use(thr): "glass morphism frosted glass effect", "
-  --_blur: @match(blur:\s*([\d.]+(?:px)?));
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(var(--_blur, 12px));
-  -webkit-backdrop-filter: blur(var(--_blur, 12px));
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: var(--pattern-radius-lg);
+--_blur: @match(blur:\s*([\d.]+(?:px)?));
+background: rgba(255, 255, 255, 0.15);
+backdrop-filter: blur(var(--_blur, 12px));
+-webkit-backdrop-filter: blur(var(--_blur, 12px));
+border: 1px solid rgba(255, 255, 255, 0.2);
+border-radius: var(--pattern-radius-lg);
 ")
 
 pattern(@use(thr): "dark elegant tooltip or popover", "
-  --_bg: @match((?:bg|background):\s*([#\w()-]+));
-  --_fg: @match((?:color|text):\s*([#\w()-]+));
-  background: var(--_bg, #1a1a2e);
-  color: var(--_fg, #eee);
-  padding: 10px 14px;
-  border-radius: var(--pattern-radius-sm);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-  font-size: 0.875rem;
+--_bg: @match((?:bg|background):\s*([#\w()-]+));
+--_fg: @match((?:color|text):\s*([#\w()-]+));
+background: var(--_bg, #1a1a2e);
+color: var(--_fg, #eee);
+padding: 10px 14px;
+border-radius: var(--pattern-radius-sm);
+box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+font-size: 0.875rem;
 ")
 
 pattern(@use(thr): "border initial", "
-  --_width: @match(width:\s*([\d.]+(?:px)?));
-  --_color: @match(color:\s*([#\w()-]+));
-  border: var(--_width, var(--pattern-border-width)) solid var(--_color, currentColor);
+--_width: @match(width:\s*([\d.]+(?:px)?));
+--_color: @match(color:\s*([#\w()-]+));
+border: var(--_width, var(--pattern-border-width)) solid var(--_color, currentColor);
+")
+
+pattern(@use(thr): "circular avatar image with ring border", "
+--_size: @match(size:\s*([\d.]+(?:px|rem)?));
+--_ring: @match(ring:\s*([#\w()-]+));
+width: var(--_size, 48px);
+height: var(--_size, 48px);
+border-radius: 50%;
+object-fit: cover;
+border: 2px solid var(--_ring, var(--pattern-surface));
+box-shadow: 0 0 0 2px var(--pattern-accent-light);
+")
+
+pattern(@use(thr): "skeleton loading shimmer placeholder", "
+--_bg: @match((?:bg|background):\s*([#\w()-]+));
+background: var(--_bg, #eceaf4);
+background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+background-size: 200px 100%;
+background-repeat: no-repeat;
+border-radius: var(--pattern-radius-sm);
+animation: patternShimmer 1.4s ease-in-out infinite;
+")
+
+pattern(@use(thr): "toggle switch track", "
+--_w: @match(width:\s*([\d.]+(?:px|rem)?));
+--_bg: @match((?:bg|background):\s*([#\w()-]+));
+display: inline-block;
+width: var(--_w, 44px);
+height: calc(var(--_w, 44px) / 1.83);
+border-radius: 999px;
+background: var(--_bg, #d8d5e6);
+position: relative;
+cursor: pointer;
+transition: background 0.2s ease;
+")
+
+pattern(@use(thr): "progress bar track", "
+--_bg: @match((?:track|bg):\s*([#\w()-]+));
+--_radius: @match(radius:\s*([\d.]+(?:px|rem)?));
+width: 100%;
+height: 8px;
+border-radius: var(--_radius, 999px);
+background: var(--_bg, #ece9f5);
+overflow: hidden;
+")
+
+pattern(@use(thr): "progress bar fill indicator", "
+--_bg: @match((?:fill|color):\s*([#\w()-]+));
+height: 100%;
+border-radius: inherit;
+background: var(--_bg, var(--pattern-accent));
+transition: width 0.3s ease;
+")
+
+pattern(@use(thr): "status alert banner with icon spacing", "
+--_bg: @match((?:bg|background):\s*([#\w(),.%\s-]+));
+--_fg: @match((?:color|text):\s*([#\w()-]+));
+--_border: @match(border:\s*([#\w()-]+));
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 12px 16px;
+border-radius: var(--pattern-radius-sm);
+background: var(--_bg, #f3f1fa);
+color: var(--_fg, var(--pattern-accent-dark));
+border: 1px solid var(--_border, rgba(118, 75, 162, 0.2));
+")
+
+pattern(@use(thr): "underline tab active indicator", "
+--_color: @match(color:\s*([#\w()-]+));
+--_thick: @match(thick(?:ness)?:\s*([\d.]+(?:px)?));
+position: relative;
+padding-bottom: 8px;
+&::after {
+content: '';
+position: absolute;
+left: 0;
+bottom: 0;
+width: 100%;
+height: var(--_thick, 2px);
+background: var(--_color, var(--pattern-accent));
+}
+")
+
+pattern(@use(thr): "custom thin scrollbar styling", "
+--_thumb: @match(thumb:\s*([#\w()-]+));
+scrollbar-width: thin;
+&::-webkit-scrollbar {
+width: 8px;
+height: 8px;
+}
+&::-webkit-scrollbar-thumb {
+background: var(--_thumb, var(--pattern-accent-light));
+border-radius: 999px;
+}
+")
+
+
+pattern(@use(thr): "truncate single line text with ellipsis", "
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+")
+
+pattern(@use(thr): "clamp text to a number of lines", "
+--_lines: @match(lines:\s*(\d+));
+display: -webkit-box;
+-webkit-line-clamp: var(--_lines, 3);
+-webkit-box-orient: vertical;
+overflow: hidden;
+")
+
+
+pattern(@use(thr): "accessible focus ring outline on keyboard focus", "
+--_color: @match(color:\s*([#\w()-]+));
+&:focus-visible {
+outline: 2px solid var(--_color, var(--pattern-accent-light));
+outline-offset: 2px;
+}
+")
+
+pattern(@use(thr): "disabled muted low opacity state", "
+&:disabled, &[disabled] {
+opacity: 0.5;
+cursor: not-allowed;
+pointer-events: none;
+}
 ")
 
 `}
