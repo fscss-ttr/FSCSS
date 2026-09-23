@@ -29,7 +29,7 @@
 
 @define patterns(thr:0.65){`
 
-
+/* patterns */
 pattern(@use(thr): "beautiful gradient hello world card", `
   --_from: @match(from:\s*([#\w(),.%-]+));
   --_to: @match(to:\s*([#\w(),.%-]+));
