@@ -1,4 +1,7 @@
-/* patterns.fscss - demo library (FSCSS 1.2.4+)
+/* patterns.fscss — FSCSS 1.2.4+ demo library
+   Safer @match regexes + cascade fallbacks.
+   When @match fails it emits an empty value; an empty/invalid
+   declaration is discarded, so the preceding default wins.
 */
 
 @define pattern-root(sel:root){`
@@ -26,66 +29,63 @@
 
 @define patterns(thr:0.65){`
 
+/* ---------- cards / surfaces ---------- */
 
 pattern(@use(thr): "vibrant two tone gradient card", "
---_from: @match(from:\s*([#\w(),.%-]+));
---_to: @match(to:\s*([#\w(),.%-]+));
---_color: @match((?:color|text):\s*([#\w()-]+));
 border-radius: var(--pattern-radius-lg);
 padding: var(--pattern-pad-lg);
-background: linear-gradient(
-135deg,
-var(--_from, var(--pattern-accent-light)),
-var(--_to, var(--pattern-accent))
-);
-color: var(--_color, var(--pattern-text));
+background: linear-gradient(135deg, var(--pattern-accent-light), var(--pattern-accent));
+background: linear-gradient(135deg, @match(from:\s*([#\w().%-]+)), @match(to:\s*([#\w().%-]+)));
+color: var(--pattern-text);
+color: @match((?:color|text):\s*([#\w().%-]+));
 box-shadow: var(--pattern-shadow);
 transition: var(--pattern-transition);
 ")
 
 pattern(@use(thr): "soft elevated surface card with subtle shadow", "
---_bg: @match((?:bg|background):\s*([#\w()-]+));
---_radius: @match(radius:\s*([\d.]+(?:px|rem|em)?));
-background: var(--_bg, var(--pattern-surface));
-border-radius: var(--_radius, var(--pattern-radius-lg));
+background: var(--pattern-surface);
+background: @match((?:bg|background):\s*([#\w().%-]+));
+border-radius: var(--pattern-radius-lg);
+border-radius: @match(radius:\s*([\d.]+(?:px|rem|em)?));
 padding: var(--pattern-pad-lg);
 box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 border: 1px solid rgba(0, 0, 0, 0.04);
 ")
 
+/* ---------- buttons ---------- */
 
 pattern(@use(thr): "surface button with accent label", "
---_bg: @match((?:bg|background):\s*([#\w()-]+));
---_fg: @match((?:color|label|text):\s*([#\w()-]+));
 border: none;
 border-radius: var(--pattern-radius-md);
 padding: var(--pattern-pad-md);
-background: var(--_bg, var(--pattern-surface));
-color: var(--_fg, var(--pattern-accent));
+background: var(--pattern-surface);
+background: @match((?:bg|background):\s*([#\w().%-]+));
+color: var(--pattern-accent);
+color: @match((?:color|label|text):\s*([#\w().%-]+));
 font-weight: 600;
 cursor: pointer;
 transition: var(--pattern-transition);
 ")
 
 pattern(@use(thr): "solid filled primary button", "
---_bg: @match((?:bg|background):\s*([#\w()-]+));
---_fg: @match((?:color|label|text):\s*([#\w()-]+));
 border: none;
 border-radius: var(--pattern-radius-md);
 padding: var(--pattern-pad-md);
-background: var(--_bg, var(--pattern-accent));
-color: var(--_fg, var(--pattern-text-on-accent));
+background: var(--pattern-accent);
+background: @match((?:bg|background):\s*([#\w().%-]+));
+color: var(--pattern-text-on-accent);
+color: @match((?:color|label|text):\s*([#\w().%-]+));
 font-weight: 600;
 cursor: pointer;
 transition: var(--pattern-transition);
 ")
 
 pattern(@use(thr): "ghost outline button with accent border", "
---_border: @match(border:\s*([#\w()-]+));
---_fg: @match((?:color|text):\s*([#\w()-]+));
 background: transparent;
-border: 2px solid var(--_border, var(--pattern-accent));
-color: var(--_fg, var(--pattern-accent));
+border: 2px solid var(--pattern-accent);
+border-color: @match(border:\s*([#\w().%-]+));
+color: var(--pattern-accent);
+color: @match((?:color|text):\s*([#\w().%-]+));
 border-radius: var(--pattern-radius-md);
 padding: var(--pattern-pad-md);
 font-weight: 600;
@@ -93,155 +93,159 @@ cursor: pointer;
 transition: var(--pattern-transition);
 ")
 
+/* ---------- hover / motion ---------- */
 
 pattern(@use(thr): "lift up on hover with stronger shadow", "
---_lift: @match(lift:\s*(-?[\d.]+(?:px|rem)?));
 transition: var(--pattern-transition);
 &:hover {
-transform: translateY(var(--_lift, -4px));
-box-shadow: var(--pattern-shadow-hover);
+  transform: translateY(-4px);
+  transform: translateY(@match(lift:\s*(-?[\d.]+(?:px|rem)?)));
+  box-shadow: var(--pattern-shadow-hover);
 }
 ")
 
 pattern(@use(thr): "scale slightly on hover", "
---_scale: @match(scale:\s*([\d.]+));
 transition: transform 0.2s ease;
 &:hover {
-transform: scale(var(--_scale, 1.05));
+  transform: scale(1.05);
+  transform: scale(@match(scale:\s*([\d.]+)));
 }
 ")
 
 pattern(@use(thr): "glow accent color on hover", "
---_glow: @match((?:glow|color):\s*([#\w(),.%\s-]+));
 transition: box-shadow 0.3s ease;
 &:hover {
-box-shadow: 0 0 20px var(--_glow, rgba(118, 75, 162, 0.5));
+  box-shadow: 0 0 20px rgba(118, 75, 162, 0.5);
+  box-shadow: 0 0 20px @match((?:glow|color):\s*([#\w().%-]+));
 }
 ")
 
+/* ---------- animations ---------- */
 
 pattern(@use(thr): "smooth fade in animation from bottom", "
---_dur: @match((?:duration|time):\s*([\d.]+s?));
-animation: patternFadeInUp var(--_dur, 0.6s) ease forwards;
+animation: patternFadeInUp 0.6s ease forwards;
+animation: patternFadeInUp @match((?:duration|time):\s*([\d.]+s?)) ease forwards;
 ")
 
 pattern(@use(thr): "gentle pulse attention animation", "
---_dur: @match((?:duration|time):\s*([\d.]+s?));
-animation: patternPulse var(--_dur, 2s) ease-in-out infinite;
+animation: patternPulse 2s ease-in-out infinite;
+animation: patternPulse @match((?:duration|time):\s*([\d.]+s?)) ease-in-out infinite;
 ")
 
 pattern(@use(thr): "spin loading animation", "
---_dur: @match((?:duration|time):\s*([\d.]+s?));
-animation: patternSpin var(--_dur, 1s) linear infinite;
+animation: patternSpin 1s linear infinite;
+animation: patternSpin @match((?:duration|time):\s*([\d.]+s?)) linear infinite;
 ")
 
 pattern(@use(thr): "fade in up keyframes", "
 @keyframes patternFadeInUp {
-from { opacity: 0; transform: translateY(20px); }
-to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 ")
 
 pattern(@use(thr): "gentle pulse keyframes", "
 @keyframes patternPulse {
-0%, 100% { transform: scale(1); opacity: 1; }
-50% { transform: scale(1.03); opacity: 0.9; }
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.03); opacity: 0.9; }
 }
 ")
 
 pattern(@use(thr): "spin keyframes for loader", "
 @keyframes patternSpin {
-from { transform: rotate(0deg); }
-to { transform: rotate(360deg); }
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 ")
 
 pattern(@use(thr): "shimmer keyframes for skeleton loader", "
 @keyframes patternShimmer {
-0% { background-position: -200px 0; }
-100% { background-position: calc(200px + 100%) 0; }
+  0%   { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
 }
 ")
 
-
+/* ---------- layout ---------- */
 
 pattern(@use(thr): "centered max width container with side padding", "
---_maxw: @match(max(?:width)?:\s*([\d.]+(?:px|rem|%)?));
---_pad: @match(pad(?:ding)?:\s*([\d.]+(?:px|rem)?));
 width: 100%;
-max-width: var(--_maxw, 1200px);
+max-width: 1200px;
+max-width: @match(max(?:width)?:\s*([\d.]+(?:px|rem|%)?));
 margin-inline: auto;
-padding-inline: var(--_pad, 20px);
+padding-inline: 20px;
+padding-inline: @match(pad(?:ding)?:\s*([\d.]+(?:px|rem)?));
 ")
 
 pattern(@use(thr): "responsive auto fit grid layout", "
---_min: @match(min(?:width)?:\s*([\d.]+(?:px|rem)?));
---_gap: @match(gap:\s*([\d.]+(?:px|rem)?));
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(var(--_min, 220px), 1fr));
-gap: var(--_gap, 20px);
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+grid-template-columns: repeat(auto-fit, minmax(@match(min(?:width)?:\s*([\d.]+(?:px|rem)?)), 1fr));
+gap: 20px;
+gap: @match(gap:\s*([\d.]+(?:px|rem)?));
 ")
 
 pattern(@use(thr): "sticky translucent header bar with blur", "
---_bg: @match((?:bg|background):\s*([#\w(),.%\s-]+));
 position: sticky;
 top: 0;
 z-index: 100;
-background: var(--_bg, rgba(255, 255, 255, 0.8));
+background: rgba(255, 255, 255, 0.8);
+background: @match((?:bg|background):\s*([#\w().,%\s-]+));
 backdrop-filter: blur(10px);
 -webkit-backdrop-filter: blur(10px);
 border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 ")
 
 pattern(@use(thr): "subtle horizontal divider line", "
---_color: @match(color:\s*([#\w()-]+));
---_gap: @match((?:gap|margin):\s*([\d.]+(?:px|rem)?));
 border: none;
-border-top: 1px solid var(--_color, rgba(0, 0, 0, 0.08));
-margin-block: var(--_gap, 20px);
+border-top: 1px solid rgba(0, 0, 0, 0.08);
+border-top-color: @match(color:\s*([#\w().%-]+));
+margin-block: 20px;
+margin-block: @match((?:gap|margin):\s*([\d.]+(?:px|rem)?));
 ")
 
+/* ---------- form controls ---------- */
 
 pattern(@use(thr): "modern input field with soft focus ring", "
---_border: @match(border:\s*([#\w()-]+));
---_bg: @match((?:bg|background):\s*([#\w()-]+));
---_fg: @match(color:\s*([#\w()-]+));
-border: 1.5px solid var(--_border, #e0dcec);
+border: 1.5px solid #e0dcec;
+border-color: @match(border:\s*([#\w().%-]+));
 border-radius: var(--pattern-radius-sm);
 padding: 12px 16px;
-background: var(--_bg, var(--pattern-surface));
-color: var(--_fg, #333);
+background: var(--pattern-surface);
+background: @match((?:bg|background):\s*([#\w().%-]+));
+color: #333;
+color: @match(color:\s*([#\w().%-]+));
 outline: none;
 transition: border-color 0.2s, box-shadow 0.2s;
 ")
 
 pattern(@use(thr): "badge or tag with rounded pill shape", "
---_bg: @match((?:bg|background):\s*([#\w()-]+));
---_fg: @match((?:color|text):\s*([#\w()-]+));
 display: inline-flex;
 align-items: center;
 padding: 4px 12px;
 border-radius: 999px;
-background: var(--_bg, var(--pattern-accent-light));
-color: var(--_fg, white);
+background: var(--pattern-accent-light);
+background: @match((?:bg|background):\s*([#\w().,%\s-]+?)(?=\s+(?:color|text)\b|$));
+color: white;
+color: @match((?:color|text):\s*([#\w().%-]+));
 font-size: 0.8rem;
 font-weight: 600;
 ")
 
 pattern(@use(thr): "glass morphism frosted glass effect", "
---_blur: @match(blur:\s*([\d.]+(?:px)?));
 background: rgba(255, 255, 255, 0.15);
-backdrop-filter: blur(var(--_blur, 12px));
--webkit-backdrop-filter: blur(var(--_blur, 12px));
+backdrop-filter: blur(12px);
+backdrop-filter: blur(@match(blur:\s*([\d.]+(?:px)?)));
+-webkit-backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(@match(blur:\s*([\d.]+(?:px)?)));
 border: 1px solid rgba(255, 255, 255, 0.2);
 border-radius: var(--pattern-radius-lg);
 ")
 
 pattern(@use(thr): "dark elegant tooltip or popover", "
---_bg: @match((?:bg|background):\s*([#\w()-]+));
---_fg: @match((?:color|text):\s*([#\w()-]+));
-background: var(--_bg, #1a1a2e);
-color: var(--_fg, #eee);
+background: #1a1a2e;
+background: @match((?:bg|background):\s*([#\w().%-]+));
+color: #eee;
+color: @match((?:color|text):\s*([#\w().%-]+));
 padding: 10px 14px;
 border-radius: var(--pattern-radius-sm);
 box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
@@ -249,25 +253,26 @@ font-size: 0.875rem;
 ")
 
 pattern(@use(thr): "border initial", "
---_width: @match(width:\s*([\d.]+(?:px)?));
---_color: @match(color:\s*([#\w()-]+));
-border: var(--_width, var(--pattern-border-width)) solid var(--_color, currentColor);
+border: var(--pattern-border-width) solid currentColor;
+border-width: @match(width:\s*([\d.]+(?:px)?));
+border-color: @match(color:\s*([#\w().%-]+));
 ")
 
 pattern(@use(thr): "circular avatar image with ring border", "
---_size: @match(size:\s*([\d.]+(?:px|rem)?));
---_ring: @match(ring:\s*([#\w()-]+));
-width: var(--_size, 48px);
-height: var(--_size, 48px);
+width: 48px;
+width: @match(size:\s*([\d.]+(?:px|rem)?));
+height: 48px;
+height: @match(size:\s*([\d.]+(?:px|rem)?));
 border-radius: 50%;
 object-fit: cover;
-border: 2px solid var(--_ring, var(--pattern-surface));
+border: 2px solid var(--pattern-surface);
+border-color: @match(ring:\s*([#\w().%-]+));
 box-shadow: 0 0 0 2px var(--pattern-accent-light);
 ")
 
 pattern(@use(thr): "skeleton loading shimmer placeholder", "
---_bg: @match((?:bg|background):\s*([#\w()-]+));
-background: var(--_bg, #eceaf4);
+background: #eceaf4;
+background: @match((?:bg|background):\s*([#\w().%-]+));
 background-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
 background-size: 200px 100%;
 background-repeat: no-repeat;
@@ -276,79 +281,81 @@ animation: patternShimmer 1.4s ease-in-out infinite;
 ")
 
 pattern(@use(thr): "toggle switch track", "
---_w: @match(width:\s*([\d.]+(?:px|rem)?));
---_bg: @match((?:bg|background):\s*([#\w()-]+));
 display: inline-block;
-width: var(--_w, 44px);
-height: calc(var(--_w, 44px) / 1.83);
+width: 44px;
+width: @match(width:\s*([\d.]+(?:px|rem)?));
+height: calc(44px / 1.83);
+height: calc(@match(width:\s*([\d.]+(?:px|rem)?)) / 1.83);
 border-radius: 999px;
-background: var(--_bg, #d8d5e6);
+background: #d8d5e6;
+background: @match((?:bg|background):\s*([#\w().%-]+));
 position: relative;
 cursor: pointer;
 transition: background 0.2s ease;
 ")
 
 pattern(@use(thr): "progress bar track", "
---_bg: @match((?:track|bg):\s*([#\w()-]+));
---_radius: @match(radius:\s*([\d.]+(?:px|rem)?));
 width: 100%;
 height: 8px;
-border-radius: var(--_radius, 999px);
-background: var(--_bg, #ece9f5);
+border-radius: 999px;
+border-radius: @match(radius:\s*([\d.]+(?:px|rem)?));
+background: #ece9f5;
+background: @match((?:track|bg):\s*([#\w().%-]+));
 overflow: hidden;
 ")
 
 pattern(@use(thr): "progress bar fill indicator", "
---_bg: @match((?:fill|color):\s*([#\w()-]+));
 height: 100%;
 border-radius: inherit;
-background: var(--_bg, var(--pattern-accent));
+background: var(--pattern-accent);
+background: @match((?:fill|color):\s*([#\w().%-]+));
 transition: width 0.3s ease;
 ")
 
 pattern(@use(thr): "status alert banner with icon spacing", "
---_bg: @match((?:bg|background):\s*([#\w(),.%\s-]+));
---_fg: @match((?:color|text):\s*([#\w()-]+));
---_border: @match(border:\s*([#\w()-]+));
 display: flex;
 align-items: center;
 gap: 10px;
 padding: 12px 16px;
 border-radius: var(--pattern-radius-sm);
-background: var(--_bg, #f3f1fa);
-color: var(--_fg, var(--pattern-accent-dark));
-border: 1px solid var(--_border, rgba(118, 75, 162, 0.2));
+background: #f3f1fa;
+background: @match((?:bg|background):\s*([#\w().%-]+));
+color: var(--pattern-accent-dark);
+color: @match((?:color|text):\s*([#\w().%-]+));
+border: 1px solid rgba(118, 75, 162, 0.2);
+border-color: @match(border:\s*([#\w().%-]+));
 ")
 
 pattern(@use(thr): "underline tab active indicator", "
---_color: @match(color:\s*([#\w()-]+));
---_thick: @match(thick(?:ness)?:\s*([\d.]+(?:px)?));
 position: relative;
 padding-bottom: 8px;
 &::after {
-content: '';
-position: absolute;
-left: 0;
-bottom: 0;
-width: 100%;
-height: var(--_thick, 2px);
-background: var(--_color, var(--pattern-accent));
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  height: @match(thick(?:ness)?:\s*([\d.]+(?:px)?));
+  background: var(--pattern-accent);
+  background: @match(color:\s*([#\w().%-]+));
 }
 ")
 
 pattern(@use(thr): "custom thin scrollbar styling", "
---_thumb: @match(thumb:\s*([#\w()-]+));
 scrollbar-width: thin;
 &::-webkit-scrollbar {
-width: 8px;
-height: 8px;
+  width: 8px;
+  height: 8px;
 }
 &::-webkit-scrollbar-thumb {
-background: var(--_thumb, var(--pattern-accent-light));
-border-radius: 999px;
+  background: var(--pattern-accent-light);
+  background: @match(thumb:\s*([#\w().%-]+));
+  border-radius: 999px;
 }
 ")
 
+/* ---------- text utilities ---------- */
 
 pattern(@use(thr): "truncate single line text with ellipsis", "
 overflow: hidden;
@@ -357,27 +364,27 @@ text-overflow: ellipsis;
 ")
 
 pattern(@use(thr): "clamp text to a number of lines", "
---_lines: @match(lines:\s*(\d+));
 display: -webkit-box;
--webkit-line-clamp: var(--_lines, 3);
+-webkit-line-clamp: 3;
+-webkit-line-clamp: @match(lines:\s*(\d+));
 -webkit-box-orient: vertical;
 overflow: hidden;
 ")
 
 
 pattern(@use(thr): "accessible focus ring outline on keyboard focus", "
---_color: @match(color:\s*([#\w()-]+));
 &:focus-visible {
-outline: 2px solid var(--_color, var(--pattern-accent-light));
-outline-offset: 2px;
+  outline: 2px solid var(--pattern-accent-light);
+  outline-color: @match(color:\s*([#\w().%-]+));
+  outline-offset: 2px;
 }
 ")
 
 pattern(@use(thr): "disabled muted low opacity state", "
 &:disabled, &[disabled] {
-opacity: 0.5;
-cursor: not-allowed;
-pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 ")
 
