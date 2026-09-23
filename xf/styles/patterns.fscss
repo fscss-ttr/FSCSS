@@ -29,8 +29,8 @@
 
 @define patterns(thr:0.65){`
 
-/* patterns */
-pattern(@use(thr): "beautiful gradient hello world card", `
+
+pattern(@use(thr): "beautiful gradient hello world card", "
   --_from: @match(from:\s*([#\w(),.%-]+));
   --_to: @match(to:\s*([#\w(),.%-]+));
   --_color: @match((?:color|text):\s*([#\w()-]+));
@@ -44,9 +44,9 @@ pattern(@use(thr): "beautiful gradient hello world card", `
   color: var(--_color, var(--pattern-text));
   box-shadow: var(--pattern-shadow);
   transition: var(--pattern-transition);
-`)
+")
 
-pattern(@use(thr): "soft elevated white card with subtle shadow", `
+pattern(@use(thr): "soft elevated white card with subtle shadow", "
   --_bg: @match((?:bg|background):\s*([#\w()-]+));
   --_radius: @match(radius:\s*([\d.]+(?:px|rem|em)?));
   background: var(--_bg, var(--pattern-surface));
@@ -54,10 +54,9 @@ pattern(@use(thr): "soft elevated white card with subtle shadow", `
   padding: var(--pattern-pad-lg);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.04);
-`)
+")
 
-
-pattern(@use(thr): "white background button with purple label", `
+pattern(@use(thr): "white background button with purple label", "
   --_bg: @match((?:bg|background):\s*([#\w()-]+));
   --_fg: @match((?:color|label|text):\s*([#\w()-]+));
   border: none;
@@ -68,9 +67,9 @@ pattern(@use(thr): "white background button with purple label", `
   font-weight: 600;
   cursor: pointer;
   transition: var(--pattern-transition);
-`)
+")
 
-pattern(@use(thr): "solid purple primary button with white label", `
+pattern(@use(thr): "solid purple primary button with white label", "
   --_bg: @match((?:bg|background):\s*([#\w()-]+));
   --_fg: @match((?:color|label|text):\s*([#\w()-]+));
   border: none;
@@ -81,9 +80,9 @@ pattern(@use(thr): "solid purple primary button with white label", `
   font-weight: 600;
   cursor: pointer;
   transition: var(--pattern-transition);
-`)
+")
 
-pattern(@use(thr): "ghost outline button with purple border", `
+pattern(@use(thr): "ghost outline button with purple border", "
   --_border: @match(border:\s*([#\w()-]+));
   --_fg: @match((?:color|text):\s*([#\w()-]+));
   background: transparent;
@@ -94,73 +93,73 @@ pattern(@use(thr): "ghost outline button with purple border", `
   font-weight: 600;
   cursor: pointer;
   transition: var(--pattern-transition);
-`)
+")
 
 
-pattern(@use(thr): "lift up on hover with stronger shadow", `
+pattern(@use(thr): "lift up on hover with stronger shadow", "
   --_lift: @match(lift:\s*(-?[\d.]+(?:px|rem)?));
   transition: var(--pattern-transition);
   &:hover {
     transform: translateY(var(--_lift, -4px));
     box-shadow: var(--pattern-shadow-hover);
   }
-`)
+")
 
-pattern(@use(thr): "scale slightly on hover", `
+pattern(@use(thr): "scale slightly on hover", "
   --_scale: @match(scale:\s*([\d.]+));
   transition: transform 0.2s ease;
   &:hover {
     transform: scale(var(--_scale, 1.05));
   }
-`)
+")
 
-pattern(@use(thr): "glow purple on hover", `
+pattern(@use(thr): "glow purple on hover", "
   --_glow: @match((?:glow|color):\s*([#\w(),.%\s-]+));
   transition: box-shadow 0.3s ease;
   &:hover {
     box-shadow: 0 0 20px var(--_glow, rgba(118, 75, 162, 0.5));
   }
-`)
+")
 
 
-pattern(@use(thr): "smooth fade in animation from bottom", `
+pattern(@use(thr): "smooth fade in animation from bottom", "
   --_dur: @match((?:duration|time):\s*([\d.]+s?));
   animation: fadeInUp var(--_dur, 0.6s) ease forwards;
-`)
+")
 
-pattern(@use(thr): "gentle pulse attention animation", `
+pattern(@use(thr): "gentle pulse attention animation", "
   --_dur: @match((?:duration|time):\s*([\d.]+s?));
   animation: gentlePulse var(--_dur, 2s) ease-in-out infinite;
-`)
+")
 
-pattern(@use(thr): "spin loading animation", `
+pattern(@use(thr): "spin loading animation", "
   --_dur: @match((?:duration|time):\s*([\d.]+s?));
   animation: spin var(--_dur, 1s) linear infinite;
-`)
+")
 
-pattern(@use(thr): "fade in up keyframes", `
+pattern(@use(thr): "fade in up keyframes", "
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-`)
+")
 
-pattern(@use(thr): "gentle pulse keyframes", `
+pattern(@use(thr): "gentle pulse keyframes", "
 @keyframes gentlePulse {
   0%, 100% { transform: scale(1); opacity: 1; }
   50%      { transform: scale(1.03); opacity: 0.9; }
 }
-`)
+")
 
-pattern(@use(thr): "spin keyframes for loader", `
+pattern(@use(thr): "spin keyframes for loader", "
 @keyframes spin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
-`)
+")
 
 
-pattern(@use(thr): "modern input field with soft focus ring", `
+pattern(@use(thr): "modern input field with soft focus ring", "
   --_border: @match(border:\s*([#\w()-]+));
   --_bg: @match((?:bg|background):\s*([#\w()-]+));
   --_fg: @match(color:\s*([#\w()-]+));
@@ -171,9 +170,9 @@ pattern(@use(thr): "modern input field with soft focus ring", `
   color: var(--_fg, #333);
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
-`)
+")
 
-pattern(@use(thr): "badge or tag with rounded pill shape", `
+pattern(@use(thr): "badge or tag with rounded pill shape", "
   --_bg: @match((?:bg|background):\s*([#\w()-]+));
   --_fg: @match((?:color|text):\s*([#\w()-]+));
   display: inline-flex;
@@ -184,18 +183,18 @@ pattern(@use(thr): "badge or tag with rounded pill shape", `
   color: var(--_fg, white);
   font-size: 0.8rem;
   font-weight: 600;
-`)
+")
 
-pattern(@use(thr): "glass morphism frosted glass effect", `
+pattern(@use(thr): "glass morphism frosted glass effect", "
   --_blur: @match(blur:\s*([\d.]+(?:px)?));
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(var(--_blur, 12px));
   -webkit-backdrop-filter: blur(var(--_blur, 12px));
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--pattern-radius-lg);
-`)
+")
 
-pattern(@use(thr): "dark elegant tooltip or popover", `
+pattern(@use(thr): "dark elegant tooltip or popover", "
   --_bg: @match((?:bg|background):\s*([#\w()-]+));
   --_fg: @match((?:color|text):\s*([#\w()-]+));
   background: var(--_bg, #1a1a2e);
@@ -204,12 +203,12 @@ pattern(@use(thr): "dark elegant tooltip or popover", `
   border-radius: var(--pattern-radius-sm);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   font-size: 0.875rem;
-`)
+")
 
-pattern(@use(thr): "border initial", `
+pattern(@use(thr): "border initial", "
   --_width: @match(width:\s*([\d.]+(?:px)?));
   --_color: @match(color:\s*([#\w()-]+));
   border: var(--_width, var(--pattern-border-width)) solid var(--_color, currentColor);
-`)
+")
 
 `}
