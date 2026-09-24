@@ -1,4 +1,4 @@
-define icon-color(color: #6366f1){
+@define icon-color(color: #6366f1){
   --f-icon-color: @use(color);
 }
 
