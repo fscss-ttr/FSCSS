@@ -18,13 +18,13 @@ FSCSS arrays are data structures designed to generate CSS efficiently. Unlike tr
 
 ## Array Declaration
 
-```fscss
+```css
 @arr name[item1, item2, item3]
 ```
 
 Example
 
-```fscss
+```css
 @arr colors[#1E2783, #8C29B2, #C41348]
 @arr spacing[4, 8, 12, 16]
 @arr variants[primary, secondary, accent]
@@ -38,7 +38,7 @@ Direct Output
 
 ```css
 @arr.name
-// Returns: [item, item2, item3]
+/* Returns: [item, item2, item3] */
 ```
 Example using with `@random`
 ```css
@@ -49,9 +49,9 @@ Method Access Mode
 
 Append ! to enable method calls:
 
-```fscss
+```css
 @arr.name!
-// Enables: @arr.name!.reverse, @arr.name!.length, etc.
+/* Enables: @arr.name!.reverse, @arr.name!.length, etc. */
 ```
 
 ---
@@ -85,14 +85,14 @@ Array Mutation
 
 Add Items
 
-```fscss
+```css
 @arr.name!+[item4, item5]
 ```
 
 Remove Item (1-based index)
 
-```fscss
-@arr.name!-[2] // Removes second item
+```css
+@arr.name!-[2] /* Removes second item */
 ```
 
 ---
@@ -109,12 +109,12 @@ The following will not work:
 
 Each method returns a string, not an array object.
 
-❌ No Nested Array Execution
+Nested Array Execution works on version 1.2.3+
 
-The following will not resolve the inner array:
+Example:
 
 ```fscss
-@arr.b[@arr.a!.list] // Stores literal string, doesn't execute
+@arr.b[@arr.a!.list] /* create b */
 ```
 
 ---
@@ -151,9 +151,9 @@ Gradient Generator
 
 Spacing Utilities
 
-```fscss
+```css
 @arr spaces[4, 8, 12, 16, 24]
-
+empty{ /* preserve */ }
 .m-@arr.spaces[] {
   margin: @arr.spaces[]px;
 }
@@ -161,7 +161,7 @@ Spacing Utilities
 
 Component Variants
 
-```fscss
+```css
 @arr colors[#0066FF, #6B7280, transparent]
 
 .btn-a {
@@ -229,7 +229,6 @@ FSCSS arrays provide a pragmatic approach to data structures for CSS generation.
 **Avoid them for:**
 
 - Complex data manipulation
-- Nested data structures
 
 ---
 
