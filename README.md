@@ -45,6 +45,31 @@ The Modern Remote Module Protocol is a core design choice built directly into th
 
 Start with our templates and remote library's https://fscss.devtem.org/libraries 
 
+**version 1.2.5+ shorthands**
+<br/>Example This:
+```css
+.media-frame {
+  pos: relative;
+  w: 100%;
+  aspect: 16 / 9;
+}
+.media-frame > img {
+  inset: ratio-fit(16 / 9);
+  obj-fit: cover;
+}
+.card {
+  stack: 12px;
+  px: 16px;
+  py: 14px;
+  rounded: 12px;
+  bg: #12121a;
+  border-x: 1px solid rgba(255,255,255,.08);
+  shadow: 0 8px 24px rgba(0,0,0,.35);
+  max-w: 360px;
+}
+.avatar { size: 40px; rounded: 50%; }
+```
+
 **version 1.2.4+ pattern**
 <br/>Define:
 ```css
