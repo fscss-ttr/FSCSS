@@ -1,11 +1,10 @@
 @define ou-root(root:root){`
-/* ── Design tokens ── */
 :@use(root) {
   --ou-ring: #17203a;
   --ou-ease: cubic-bezier(.3, 1.3, .5, 1);
   --ou-time: .35s;
 
-  /* avatar-overlap defaults */
+  /* avatar-overlap */
   --ou-size: 44px;
   --ou-overlap: -14px;
   --ou-gap: 6px;
@@ -13,7 +12,7 @@
   --ou-letter: #fff;
   --ou-ring-width: 3px;
 
-  /* card-overlap defaults */
+  /* card-overlap */
   --ou-peek: 34px;
   --ou-card-h: 76px;
   --ou-card-gap: 10px;
@@ -26,7 +25,7 @@
   --ou-card-thumb: 48px;
   --ou-card-thumb-radius: 12px;
 
-  /* img-overlap defaults */
+  /* img-overlap */
   --ou-img: 96px;
   --ou-img-overlap: -52px;
   --ou-img-gap: 12px;
@@ -34,6 +33,12 @@
   --ou-img-border: 3px;
   --ou-img-tilt: -5deg;
   --ou-img-tilt-even: 4deg;
+
+  /* circle-overlap */
+  --ou-item: 48px;
+  --ou-r: 86px;
+  --ou-center-bg: #ec4899;
+  --n: 6;
 }
 `}
 
@@ -50,6 +55,11 @@
 @define ou-img-size(size:96px, overlap:-52px){
   --ou-img: @use(size);
   --ou-img-overlap: @use(overlap);
+}
+
+@define ou-circle-size(item:48px, radius:86px){
+  --ou-item: @use(item);
+  --ou-r: @use(radius);
 }
 
 @define ou-avatar-colors(){`
@@ -123,7 +133,6 @@
   object-fit: cover;
 }
 
-/* fallback color for unknown data-alph */
 @use(sel) > li[data-alph] {
   --ou-c: @arr.ou-colors[37] !important;
 }
@@ -260,11 +269,98 @@
 }
 `}
 
+
+
+@define circle-overlap(sel:.circle-overlap){`
+@use(sel) {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  width: var(--ou-item);
+  height: var(--ou-item);
+  margin: calc(var(--ou-r) + var(--ou-item));
+}
+
+@use(sel) > * {
+  --c: #6366f1;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--c);
+  color: #fff;
+  font: 700 18px/1 system-ui, sans-serif;
+  text-decoration: none;
+  box-shadow: 0 0 0 var(--ou-ring-width) var(--ou-ring);
+  cursor: pointer;
+}
+
+@use(sel) > :first-child {
+  z-index: 2;
+  background: var(--ou-center-bg);
+  transition: transform var(--ou-time) var(--ou-ease);
+}
+
+@use(sel) > :not(:first-child) {
+  --a: calc(360deg / var(--n) * var(--i, 0));
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(.5);
+  transition:
+    transform var(--ou-time) var(--ou-ease),
+    opacity .2s ease;
+  transition-delay: calc(var(--i, 0) * 30ms);
+}
+
+@use(sel):hover::before,
+@use(sel):focus-within::before {
+  content: "";
+  position: absolute;
+  inset: calc((var(--ou-r) + var(--ou-item)) * -1);
+  border-radius: 50%;
+}
+
+@use(sel):hover > :not(:first-child),
+@use(sel):focus-within > :not(:first-child) {
+  opacity: 1;
+  pointer-events: auto;
+  transform:
+    rotate(var(--a))
+    translateY(calc(var(--ou-r) * -1))
+    rotate(calc(var(--a) * -1));
+}
+
+@use(sel):hover > :first-child,
+@use(sel):focus-within > :first-child {
+  transform: rotate(45deg);
+}
+
+@use(sel) > :not(:first-child):hover {
+  filter: brightness(1.15);
+}
+
+@use(sel) > :nth-child(2)  { --i: 0; }
+@use(sel) > :nth-child(3)  { --i: 1; --c: #f59e0b; }
+@use(sel) > :nth-child(4)  { --i: 2; --c: #22c55e; }
+@use(sel) > :nth-child(5)  { --i: 3; --c: #06b6d4; }
+@use(sel) > :nth-child(6)  { --i: 4; --c: #ef4444; }
+@use(sel) > :nth-child(7)  { --i: 5; --c: #8b5cf6; }
+@use(sel) > :nth-child(8)  { --i: 6; --c: #14b8a6; }
+@use(sel) > :nth-child(9)  { --i: 7; --c: #f97316; }
+@use(sel) > :nth-child(10) { --i: 8; --c: #84cc16; }
+@use(sel) > :nth-child(11) { --i: 9; --c: #e11d48; }
+@use(sel) > :nth-child(12) { --i: 10; --c: #0ea5e9; }
+@use(sel) > :nth-child(13) { --i: 11; --c: #a855f7; }
+`}
+
 @define ou-reduced-motion(){`
 @media (prefers-reduced-motion: reduce) {
   .avatar-overlap > li,
   .card-overlap > div,
-  .img-overlap > img {
+  .img-overlap > img,
+  .circle-overlap > * {
     transition: none;
   }
 }
@@ -273,11 +369,13 @@
 @define overlapui(
   avatar:.avatar-overlap,
   card:.card-overlap,
-  img:.img-overlap
+  img:.img-overlap,
+  circle:.circle-overlap
 ){`
 @ou-root()
 @avatar-overlap(@use(avatar))
 @card-overlap(@use(card))
 @img-overlap(@use(img))
+@circle-overlap(@use(circle))
 @ou-reduced-motion()
 `}
