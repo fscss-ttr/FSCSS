@@ -37,7 +37,10 @@ The Modern Remote Module Protocol is a core design choice built directly into th
 
 - Designed for dynamic content, 3D animations, and complex prototypes
 
+- semantic matchings
 
+> We push W3C/CSSWG for better native CSS.
+While waiting, we build the smallest possible tool that gives us the missing powers (arrays, better mixins, semantic matching, modular generators) — and the final output must stay pure CSS
 
 ---
 
