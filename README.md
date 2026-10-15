@@ -1,6 +1,7 @@
 [![npm version](https://img.shields.io/npm/v/fscss.svg?style=flat-square)](https://www.npmjs.com/package/fscss)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Minified Size](https://img.shields.io/bundlephobia/min/fscss?style=flat-square)](https://bundlephobia.com/package/fscss)
+[![IDE Status](https://img.shields.io/badge/IDE-Passed-brightgreen)](https://fscss.devtem.org/ide)
 
 ## FSCSS (Figured Shorthand CSS)
 
