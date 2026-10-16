@@ -1,1 +1,2 @@
 *.fscss linguist-language=css
+*.xfcmd linguist-language=yml
