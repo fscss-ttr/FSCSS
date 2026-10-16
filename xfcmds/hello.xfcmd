@@ -1,0 +1,5 @@
+# hello.xfcmd
+# Runs when you type: xfcmd hello
+say "Hello from xfcmd."
+run command "ls"
+toast "Hello from xfcmd" ok
