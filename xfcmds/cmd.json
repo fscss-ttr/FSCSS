@@ -1,0 +1,16 @@
+{
+  "xfcmds": 1,
+  "about": "IDE command scripts for FSCSS packages, written in the .xfcmd sentence format.",
+  "packages": {
+    "st-core": {
+      "enable": "st-core.xfcmd",
+      "about": "Adds st-* helper snippets and a stats demo file"
+    }
+  },
+  "commands": {
+    "hello": {
+      "script": "hello.xfcmd",
+      "about": "Prints a greeting and lists your files"
+    }
+  }
+}
