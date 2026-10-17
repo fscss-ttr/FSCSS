@@ -27,6 +27,10 @@
     "snippets-pack": {
       "script": "snippets-pack.xfcmd",
       "about": "Adds card, flexc and grid3 snippets"
+    }, 
+    "st-core-chart": {
+  "script": "st-core-chart.xfcmd",
+  "about": "Creates a pure CSS area+line chart project with st-core@v2"
     }
   }
 }
