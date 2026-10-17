@@ -33,7 +33,7 @@ create file starter/index.html with:
   <head>
     <meta charset="utf-8">
     <title>Starter</title>
-    <link type="fscss" rel="stylesheet" href="styles/theme.fscss">
+    <link type="fscss" href="styles/theme.fscss">
   </head>
   <body>
     <button class="btn">Hello FSCSS</button>
