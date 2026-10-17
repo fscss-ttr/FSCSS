@@ -1,0 +1,6 @@
+# package-disable.template.xfcmd
+# TEMPLATE for a disable script. Runs on: liboff <your-package>
+# Register it in cmd.json: "disable": "<your-package>.disable.xfcmd"
+# Snippets added by the package are removed automatically. Files are never deleted.
+say "Disabled {name}."
+say "Demo files were kept. Delete demos/{name}-demo.fscss if you do not need it."

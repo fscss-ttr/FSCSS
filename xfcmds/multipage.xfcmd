@@ -1,0 +1,67 @@
+# multipage.xfcmd
+# Run with: xfcmd multipage
+# A two page site with a shared partial. Shows imports, links and routes working together.
+say "Creating a two page site in site/"
+create file site/styles/_base.fscss with:
+  $ink: #1b1b1f;
+  $accent: #0BCEAE;
+
+  body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    color: $ink!;
+  }
+
+  a {
+    color: $accent!;
+  }
+end
+create file site/styles/site.fscss with:
+  @import((*) from ./_base.fscss)
+
+  nav {
+    display: flex;
+    gap: 16px;
+    padding: 16px 24px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  main {
+    padding: 24px;
+  }
+end
+set entry {file}
+create file site/index.html with:
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles/site.fscss">
+  </head>
+  <body>
+    <nav><a href="index.html">Home</a><a href="about.html">About</a></nav>
+    <main><h1>Home</h1><p>Click About. The preview switches pages.</p></main>
+  </body>
+  </html>
+end
+create file site/about.html with:
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>About</title>
+    <link rel="stylesheet" href="styles/site.fscss">
+  </head>
+  <body>
+    <nav><a href="index.html">Home</a><a href="about.html">About</a></nav>
+    <main><h1>About</h1><p>Same stylesheet, one compile.</p></main>
+  </body>
+  </html>
+end
+open file site/index.html
+compile
+show preview
+run command "routes"
+run command "deps site/styles/site.fscss"
+say "Try renaming site/styles/_base.fscss. The import updates by itself."

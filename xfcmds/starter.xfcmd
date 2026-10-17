@@ -1,0 +1,47 @@
+# starter.xfcmd
+# Run with: xfcmd starter
+# Creates a small project in starter/ with a theme, a page and a script,
+# then compiles it and opens the preview.
+say "Creating the starter project in starter/"
+create file starter/styles/theme.fscss with:
+  $primary: #0BCEAE;
+  $radius: 8px;
+
+  body {
+    margin: 0;
+    padding: 24px;
+    font-family: system-ui, sans-serif;
+  }
+
+  .btn {
+    bg: $primary!;
+    color: #111;
+    px: 16px;
+    py: 8px;
+    rounded: $radius!;
+    border: none;
+    fw: 600;
+  }
+end
+set entry {file}
+create file starter/app.js with:
+  console.log("starter ready");
+end
+create file starter/index.html with:
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Starter</title>
+    <link rel="stylesheet" href="styles/theme.fscss">
+  </head>
+  <body>
+    <button class="btn">Hello FSCSS</button>
+    <script src="app.js"></script>
+  </body>
+  </html>
+end
+open file {file}
+compile
+show preview
+say "Starter ready. Edit starter/styles/theme.fscss and press Ctrl+Enter."

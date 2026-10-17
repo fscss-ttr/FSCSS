@@ -1,0 +1,21 @@
+# package-enable.template.xfcmd
+# TEMPLATE for a package enable script.
+# 1. Copy to xfcmds/<your-package>.xfcmd
+# 2. Register it in cmd.json under "packages": { "<your-package>": { "enable": "<your-package>.xfcmd" } }
+# 3. Test in the IDE: libck <your-package>
+#
+# Variables: {name} {version} {author} {description} {license} {repo} {import} {helpers} {fscss} {file}
+say "Setting up {name}@{version} by {author}"
+say "Helpers: {helpers}"
+add snippets for helpers
+create file demos/{name}-demo.fscss with:
+  /* {name} demo */
+  @import((*) from {import})
+
+  /* Call a helper here. Type its name for a snippet.
+     {helpers} */
+end
+open file {file}
+compile
+show terminal
+say "Import it anywhere with: @import((*) from {import})"

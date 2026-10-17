@@ -1,0 +1,16 @@
+# command.template.xfcmd
+# TEMPLATE for a standalone command.
+# 1. Copy to xfcmds/<name>.xfcmd
+# 2. Register it in cmd.json under "commands": { "<name>": { "script": "<name>.xfcmd", "about": "..." } }
+# 3. Run it in the IDE: xfcmd <name>
+#
+# In commands, package variables are empty. Only {file} (last created file) is filled in.
+say "My command is running"
+create file my-folder/example.fscss with:
+  .example {
+    color: red;
+  }
+end
+open file {file}
+compile
+say "Done"

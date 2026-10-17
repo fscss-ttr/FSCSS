@@ -1,0 +1,8 @@
+# snippets-pack.xfcmd
+# Run with: xfcmd snippets-pack
+# Adds editor snippets. They last until you reload the page.
+add snippet card "Card block" as ".card{\n  padding: ${1:16px};\n  rounded: ${2:8px};\n}"
+add snippet flexc "Flex center" as "display: flex;\nalign-items: center;\njustify-content: center;"
+add snippet grid3 "Three column grid" as "display: grid;\ngrid-template-columns: repeat(3, 1fr);\ngap: ${1:16px};"
+show snippets
+say "Added card, flexc and grid3. Type a key in an .fscss file to use it."

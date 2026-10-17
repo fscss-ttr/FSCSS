@@ -1,0 +1,34 @@
+# imports-demo.xfcmd
+# Run with: xfcmd imports-demo
+# main.fscss imports colors.fscss and buttons.fscss. buttons.fscss imports colors.fscss too.
+# The shared file is included once.
+say "Creating demo-imports/"
+create file demo-imports/colors.fscss with:
+  $brand: #0BCEAE;
+  $ink: #111;
+end
+create file demo-imports/buttons.fscss with:
+  @import((*) from ./colors.fscss)
+
+  .btn {
+    bg: $brand!;
+    color: $ink!;
+    px: 16px;
+    py: 8px;
+    rounded: 8px;
+  }
+end
+create file demo-imports/main.fscss with:
+  @import((*) from ./colors.fscss)
+  @import((*) from ./buttons.fscss)
+
+  .page {
+    padding: 24px;
+  }
+end
+set entry {file}
+open file {file}
+compile
+show terminal
+run command "deps demo-imports/main.fscss"
+say "colors.fscss and buttons.fscss are partials. Compile all only builds main.fscss."
