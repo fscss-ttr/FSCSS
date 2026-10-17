@@ -11,6 +11,22 @@
     "hello": {
       "script": "hello.xfcmd",
       "about": "Prints a greeting and lists your files"
+    },
+    "starter": {
+      "script": "starter.xfcmd",
+      "about": "Creates a small project (theme, page, script) and opens the preview"
+    },
+    "multipage": {
+      "script": "multipage.xfcmd",
+      "about": "Two page site with a shared partial, links and routes"
+    },
+    "imports-demo": {
+      "script": "imports-demo.xfcmd",
+      "about": "Workspace imports with a shared partial"
+    },
+    "snippets-pack": {
+      "script": "snippets-pack.xfcmd",
+      "about": "Adds card, flexc and grid3 snippets"
     }
   }
 }
