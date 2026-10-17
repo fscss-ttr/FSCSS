@@ -23,6 +23,14 @@ The Modern Remote Module Protocol is a core design choice built directly into th
 **Repositories:** [/assets/scripts/libs.json](/assets/scripts/libs.json)
 
 ---
+## xfcmd 
+xfcmds is the package and automation layer of the FSCSS IDE.
+
+The registry [xfcmds/cmd.json](/xfcmds/) in this repo, which maps packages and commands to scripts.
+
+
+---
+
 
 ### Why FSCSS?
 
