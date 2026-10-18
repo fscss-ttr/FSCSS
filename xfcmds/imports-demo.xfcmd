@@ -8,7 +8,7 @@ create file demo-imports/colors.fscss with:
   $ink: #111;
 end
 create file demo-imports/buttons.fscss with:
-  @import((*) from ./colors.fscss)
+  @import((*) from './colors.fscss')
 
   .btn {
     bg: $brand!;
@@ -19,8 +19,8 @@ create file demo-imports/buttons.fscss with:
   }
 end
 create file demo-imports/main.fscss with:
-  @import((*) from ./colors.fscss)
-  @import((*) from ./buttons.fscss)
+  @import((*) from './colors.fscss')
+  @import((*) from './buttons.fscss')
 
   .page {
     padding: 24px;
