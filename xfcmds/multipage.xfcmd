@@ -17,7 +17,7 @@ create file site/styles/_base.fscss with:
   }
 end
 create file site/styles/site.fscss with:
-  @import((*) from ./_base.fscss)
+  @import((*) from './_base.fscss')
 
   nav {
     display: flex;
@@ -37,7 +37,7 @@ create file site/index.html with:
   <head>
     <meta charset="utf-8">
     <title>Home</title>
-    <link rel="stylesheet" href="styles/site.fscss">
+    <link type="fscss" href="styles/site.fscss">
   </head>
   <body>
     <nav><a href="index.html">Home</a><a href="about.html">About</a></nav>
@@ -51,7 +51,7 @@ create file site/about.html with:
   <head>
     <meta charset="utf-8">
     <title>About</title>
-    <link rel="stylesheet" href="styles/site.fscss">
+    <link type="fscss" href="styles/site.fscss">
   </head>
   <body>
     <nav><a href="index.html">Home</a><a href="about.html">About</a></nav>
