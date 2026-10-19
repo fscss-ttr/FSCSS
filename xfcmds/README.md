@@ -111,8 +111,8 @@ One sentence per line, run top to bottom. Lines starting with `#` or `//` are co
 | `warn "text"` / `error "text"` | Print at warning or error level. |
 | `toast "text" ok` | Show a toast. Last word is optional: `ok`, `warn`, `err`. |
 | `add import <name>` | Insert `@import((*) from name)` at the top of the active FSCSS file. |
-| `create file <path> with:` | Create a file from the lines that follow. The block ends at a line that says `end`. |
-| `create file <path> with "text"` | Create a file from one quoted string. Use `\n` for new lines. |
+| `create file "<path>" with:` | Create a file from the lines that follow. The block ends at a line that says `end`. |
+| `create file "<path>" with "text"` | Create a file from one quoted string. Use `\n` for new lines. |
 | `open file <path>` | Open a file in the editor. |
 | `set entry <path>` | Make a file the entry file. |
 | `compile` / `compile all` / `preview` | Compile the active file (or entry), every root file, or compile and show the preview. |
@@ -161,7 +161,7 @@ A package enable script, as a starting point:
 ```
 say "Setting up {name}@{version} by {author}"
 add snippets for helpers
-create file demos/{name}-demo.fscss with:
+create file "demos/{name}-demo.fscss" with:
   /* {name} demo */
   @import((*) from {import})
 end
