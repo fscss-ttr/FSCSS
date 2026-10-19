@@ -3,7 +3,7 @@
 # Creates a small project in starter/ with a theme, a page and a script,
 # then compiles it and opens the preview.
 say "Creating the starter project in starter/"
-create file starter/styles/theme.fscss with:
+create file "starter/styles/theme.fscss" with:
   $primary: #0BCEAE;
   $radius: 8px;
 
@@ -27,7 +27,7 @@ set entry {file}
 create file starter/app.js with:
   console.log("starter ready");
 end
-create file starter/index.html with:
+create file "starter/index.html" with:
   <!DOCTYPE html>
   <html lang="en">
   <head>
