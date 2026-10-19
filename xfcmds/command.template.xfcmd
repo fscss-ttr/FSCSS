@@ -6,7 +6,7 @@
 #
 # In commands, package variables are empty. Only {file} (last created file) is filled in.
 say "My command is running"
-create file my-folder/example.fscss with:
+create file "my-folder/example.fscss" with:
   .example {
     color: red;
   }
