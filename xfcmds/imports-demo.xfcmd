@@ -3,11 +3,11 @@
 # main.fscss imports colors.fscss and buttons.fscss. buttons.fscss imports colors.fscss too.
 # The shared file is included once.
 say "Creating demo-imports/"
-create file demo-imports/colors.fscss with:
+create file "demo-imports/colors.fscss" with:
   $brand: #0BCEAE;
   $ink: #111;
 end
-create file demo-imports/buttons.fscss with:
+create file "demo-imports/buttons.fscss" with:
   @import((*) from './colors.fscss')
 
   .btn {
@@ -18,7 +18,7 @@ create file demo-imports/buttons.fscss with:
     rounded: 8px;
   }
 end
-create file demo-imports/main.fscss with:
+create file "demo-imports/main.fscss" with:
   @import((*) from './colors.fscss')
   @import((*) from './buttons.fscss')
 
