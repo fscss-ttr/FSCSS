@@ -2,7 +2,7 @@
 # Run with: xfcmd multipage
 # A two page site with a shared partial. Shows imports, links and routes working together.
 say "Creating a two page site in site/"
-create file site/styles/_base.fscss with:
+create file "site/styles/_base.fscss" with:
   $ink: #1b1b1f;
   $accent: #0BCEAE;
 
@@ -16,7 +16,7 @@ create file site/styles/_base.fscss with:
     color: $accent!;
   }
 end
-create file site/styles/site.fscss with:
+create file "site/styles/site.fscss" with:
   @import((*) from './_base.fscss')
 
   nav {
@@ -31,7 +31,7 @@ create file site/styles/site.fscss with:
   }
 end
 set entry {file}
-create file site/index.html with:
+create file "site/index.html" with:
   <!DOCTYPE html>
   <html lang="en">
   <head>
