@@ -1,3 +1,16 @@
+/*
+ * Kept for backward compatibility.
+ *
+ * As of FSCSS v1.2.x+, prefer generating these sequences with count()
+ * (and derived arrays) instead of importing this module:
+ *
+ *   @arr(1to500[count(500)])
+ *   @arr(500to1[@arr.1to500!.reverse])
+ *
+ * or simply:
+ *   @arr(nums[count(500)])
+ *   @arr(nums-rev[@arr.nums!.reverse])
+ */
 @arr(1to500[
 1,2,3,4,5,6,7,8,9,10,
 11,12,13,14,15,16,17,18,19,20,
@@ -101,4 +114,4 @@
 30,29,28,27,26,25,24,23,22,21,
 20,19,18,17,16,15,14,13,12,11,
 10,9,8,7,6,5,4,3,2,1
-])  
+])
